@@ -464,7 +464,7 @@ export default function CarRentalSections() {
                     //style={{ height: "60%", marginLeft: "3.5em" }}
                     style={{ height: "60%", marginLeft: "5%", width:"60%", padding:30, marginTop:70  }}
                   >
-                    <Typography variant="h3" style={{marginLeft:'0%',marginBottom:30}}>Arrive in Style. Close in Confidence.</Typography>
+                    <Typography variant="h3" style={{marginLeft:'0%',marginBottom:30}}>cccArrive in Style. Close in Confidence.</Typography>
                     <Typography style={{marginTop:0, padding: 0,fontSize:17}}>
                           <strong><ReactMarkdown>Chauffeur-Driven Exotic Car Rentals in Cities Across Nigeria</ReactMarkdown></strong>
                     </Typography>

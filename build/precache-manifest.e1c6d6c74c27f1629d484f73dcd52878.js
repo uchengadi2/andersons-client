@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "591cf35b8122d36fae5b24d21f238dfb",
+    "revision": "e78770c40ccb16dcefcf75afb2ec3c99",
     "url": "/index.html"
   },
   {
-    "revision": "95cc64adbf4a0a932488",
+    "revision": "4473707f29007ee69952",
     "url": "/static/css/main.8a8db68b.chunk.css"
   },
   {
-    "revision": "f4ce90c4e6d3d5414f24",
-    "url": "/static/js/2.48b4f024.chunk.js"
+    "revision": "14eb521a8ccbdf1e2132",
+    "url": "/static/js/2.4fd63b66.chunk.js"
   },
   {
-    "revision": "95cc64adbf4a0a932488",
-    "url": "/static/js/main.51bd0c53.chunk.js"
+    "revision": "4473707f29007ee69952",
+    "url": "/static/js/main.bf2ed978.chunk.js"
   },
   {
     "revision": "56256c405bfa76082cb3",
@@ -36,6 +36,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/Custom Software Icon.350387f5.svg"
   },
   {
+    "revision": "2b1061766aa243ff1008a44fa8cc6520",
+    "url": "/static/media/DiaHerb_Herbal_Infusion2.2b106176.jpg"
+  },
+  {
     "revision": "577ee4aa8207aada876641948aa00177",
     "url": "/static/media/Flat_bed_Trailer.577ee4aa.png"
   },
@@ -44,12 +48,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/Footer Adornment.cac700f1.svg"
   },
   {
+    "revision": "b9c1e910bcfb20a9eb335dcb57fb3434",
+    "url": "/static/media/GingerTumericHerbal.b9c1e910.jpg"
+  },
+  {
     "revision": "75aff6bd696d7d6ae73bc5de14ab1843",
     "url": "/static/media/Livestock_Trucks.75aff6bd.png"
   },
   {
     "revision": "3fa2954c189a0f3c85032e90824c8717",
     "url": "/static/media/Logging_Trucks.3fa2954c.png"
+  },
+  {
+    "revision": "a71864f83cc4cbcbbf0626a2185c2692",
+    "url": "/static/media/Pomegranate_Herbal_Infusion2.a71864f8.jpg"
   },
   {
     "revision": "a326444ca796049aa49b2ebfcd840c7f",
@@ -64,12 +76,24 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/Tow_Truck.e9486d0a.png"
   },
   {
+    "revision": "6e680f707ea73ebfca5b14e9ebce3e45",
+    "url": "/static/media/Tropicana_slim_vanilla_cappuccino_coffee_mix_front.6e680f70.png"
+  },
+  {
     "revision": "666d501ff31d7c210daaf6145445379f",
     "url": "/static/media/aboutus-cover.666d501f.jpg"
   },
   {
     "revision": "32489d9b26e9c74bc83336fcb95ecd9b",
     "url": "/static/media/accommodation2.32489d9b.webp"
+  },
+  {
+    "revision": "8a11103145e53d445fb5ccecb8cf6bba",
+    "url": "/static/media/andeglim.8a111031.jpg"
+  },
+  {
+    "revision": "5e7a6450526dbd14d6c72c335867d305",
+    "url": "/static/media/andermal2.5e7a6450.jpg"
   },
   {
     "revision": "aac9026f17dab895b30d82d80a4aacd7",
@@ -88,6 +112,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/background_video_mobile.638cb58f.mp4"
   },
   {
+    "revision": "4653999b9a832e86226981fec5cce19c",
+    "url": "/static/media/beverages.4653999b.png"
+  },
+  {
     "revision": "a716675b76be91ff6927ca5f7b29b658",
     "url": "/static/media/boat_haulage.a716675b.png"
   },
@@ -98,6 +126,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "7148294d422f8e4dc3c485968fb7b3db",
     "url": "/static/media/business1.7148294d.webp"
+  },
+  {
+    "revision": "0916eae86765a7560fda474a31829b6d",
+    "url": "/static/media/cappuccino_beverage2.0916eae8.png"
   },
   {
     "revision": "2c89ad20c5a47eaeeaf4600c936ee78e",
@@ -148,6 +180,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/delivery.ed8eced3.png"
   },
   {
+    "revision": "52d31ca7c32c3da53c091f83baf7cd15",
+    "url": "/static/media/derfxone_front.52d31ca7.png"
+  },
+  {
     "revision": "52eecbc671631471c7643e8bc048f38c",
     "url": "/static/media/digital-marketing1.52eecbc6.webp"
   },
@@ -170,6 +206,14 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "9ceacef9678dd54bdf2bd143cca73b83",
     "url": "/static/media/food2.9ceacef9.png"
+  },
+  {
+    "revision": "178c227cef447224b00ad4d45c0acf0a",
+    "url": "/static/media/greentea.178c227c.jpg"
+  },
+  {
+    "revision": "d18eaeba9579068ba62617d4f161b3b7",
+    "url": "/static/media/herbs2.d18eaeba.jpg"
   },
   {
     "revision": "155cd73c0001d3013dc3a2793c938c5c",
@@ -196,6 +240,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/image7.edde5614.webp"
   },
   {
+    "revision": "f31120da3b3246a144dd5c4772f02ad2",
+    "url": "/static/media/image77.f31120da.webp"
+  },
+  {
     "revision": "cb3f09b00fafa1ceea8dfb4f4bf44770",
     "url": "/static/media/infoBackground.cb3f09b0.svg"
   },
@@ -216,12 +264,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/linkedin.9d7dbabd.svg"
   },
   {
-    "revision": "d74c85eb88229f9380167178a72c9139",
-    "url": "/static/media/logo.d74c85eb.png"
+    "revision": "fcc08626c7292ca843db7940f6bba3f6",
+    "url": "/static/media/logo.fcc08626.png"
   },
   {
     "revision": "3caac76334d794d39de612a7eaa47fdc",
     "url": "/static/media/medical1.3caac763.webp"
+  },
+  {
+    "revision": "ea031a3a5d3f4c3bd48ca7fa1065409d",
+    "url": "/static/media/medicines.ea031a3a.webp"
   },
   {
     "revision": "d7131d778b438bb8e5c089bcc08401cf",
@@ -256,6 +308,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/payment1.3e958c92.png"
   },
   {
+    "revision": "57cbbe27d1078a11d4265d6ef75307a8",
+    "url": "/static/media/peppermint2.57cbbe27.jpg"
+  },
+  {
     "revision": "1dbe077c2942700a23be1fa0cee2c546",
     "url": "/static/media/prado2.1dbe077c.jpg"
   },
@@ -284,12 +340,24 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/securiyu3.5ad15410.webp"
   },
   {
+    "revision": "1091326630b24060d8a7818baf25a8b1",
+    "url": "/static/media/stropicanasteviasweetener2.10913266.jpg"
+  },
+  {
     "revision": "927369cc651cb703410214319285e843",
     "url": "/static/media/taju.927369cc.jpg"
   },
   {
     "revision": "b153b7de3fbcda53fbd4500d1454d390",
     "url": "/static/media/training.b153b7de.webp"
+  },
+  {
+    "revision": "158be6596b04d3065988d9394681e59e",
+    "url": "/static/media/tropicalslimzerodietsticks2.158be659.jpg"
+  },
+  {
+    "revision": "0790567b9c49077a05e038c979938c4a",
+    "url": "/static/media/tropicana_slim_low_calorie_25.0790567b.png"
   },
   {
     "revision": "13b0990004faa8299dd60e83b2b12569",

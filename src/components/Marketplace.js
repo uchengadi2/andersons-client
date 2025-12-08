@@ -27,9 +27,9 @@ import animationData from "../animations/landinganimation/data";
 import revolutionBackground from "./../assets/repeatingBackground.svg";
 import infoBackground from "./../assets/infoBackground.svg";
 
-import background from "./../assets/images/site/image5.webp";
+import background from "./../assets/images/site/image77.webp";
 import UpperFooter from "./ui/UpperFooter";
-import TopCover from "./homePageCards/TopCover";
+import TopCoverNew from "./homePageCards/TopCoverNew";
 import HeroSection from "./homePageCards/HeroSection";
 import NoCodeAndAutomationAdBar from "./homePageCards/NoCodeAndAutomationAdBar";
 import ProtocolPackges from "./homePageCards/ProtocolPackges";
@@ -39,11 +39,27 @@ import TheFounders from "./homePageCards/TheFounders";
 import OurClients from "./homePageCards/OurClients";
 import api from "./../apis/local";
 import CarRentalSections from "./homePageCards/sections/CarRentalSections";
+import AndeglimSection from "./homePageCards/sections/AndeglimSection";
 import ProtocolSection from "./homePageCards/sections/ProtocolSection";
 import SecuritySection from "./homePageCards/sections/SecuritySection";
 import SecuritySolutionsSection from "./homePageCards/sections/SecuritySolutionsSection";
 import WasteManagementSection from "./homePageCards/sections/WasteManagementSection";
 import AccommodationAssessmentSection from "./homePageCards/sections/AccommodationAssessmentSection";
+import AndermalSection from "./homePageCards/sections/AndermalSection";
+import TropicanaSlimZeroSection from "./homePageCards/sections/TropicanaSlimZeroSection";
+import TropicanaSlimSteviaSection from "./homePageCards/sections/TropicanaSlimSteviaSection";
+import TropicanaSlimCappuccinoSection from "./homePageCards/sections/TropicanaSlimCappuccinoSection";
+import DerfxoneSection from "./homePageCards/sections/DerfxoneSection";
+import DiaHerbHerbalInfusionSection from "./homePageCards/sections/DiaHerbHerbalInfusionSection";
+import GreenTeaSection from "./homePageCards/sections/GreenTeaSection";
+import PeppermintHerbalInfusionSection from "./homePageCards/sections/PeppermintHerbalInfusionSection";
+import GingerLemonMoringaHerbalSection from "./homePageCards/sections/GingerLemonMoringaHerbalSection";
+import PomegranateHerbalInfusionSection from "./homePageCards/sections/PomegranateHerbalInfusionSection";
+import GingerTurmericGarlicHoneyHerbalSection from  "./homePageCards/sections/GingerTurmericGarlicHoneyHerbalSection"
+import TropicanaSlimLowCalorieSection from "./homePageCards/sections/TropicanaSlimLowCalorieSection";
+import TopCover from "./homePageCards/TopCover";
+import GroupedProducts from "./homePageCards/sections/GroupedProducts";
+import GroupedAndersonsProducts from "./homePageCards/sections/GroupedAndersonsProducts";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -3444,7 +3460,7 @@ const Marketplace = (props) => {
                     <Typography
                       variant={matchesSM ? "subtitle2" : "h2"}
                       align="left"
-                      style={{ marginTop: "8rem" }}
+                      style={{ marginTop: "10rem" }}
                       //justifyContent="center"
                       //alignItems="center"
                     >
@@ -3454,10 +3470,10 @@ const Marketplace = (props) => {
                         }}
                       >
                         {" "}
-                      From airport protocol and premium car hire to security <br />
+                      Experience the art of refined living with our premium  <br />
                       </span>{" "}
                       <span style={{ marginLeft: matchesSM ? 20 : 60 }}>
-                     and waste solutions — we handle the details so  
+                      herbal teas, exquisite wellness beverages,
                       </span>
                     
                       {/* <span style={{ marginLeft: matchesSM ? 20 : 80 }}>
@@ -3465,7 +3481,7 @@ const Marketplace = (props) => {
                       </span> */}
                       <br />
                       <span style={{ marginLeft: matchesSM ? 20 : 110 }}>
-                      you can focus on the bigger picture.
+                       and time-honored natural medicines. 
                       </span>
                       <br />
                       {/* <span style={{ marginLeft: matchesSM ? 20 : 140 }}>
@@ -3489,20 +3505,17 @@ const Marketplace = (props) => {
                         }}
                       >
                         {" "}
-                      From airport protocol and premium car hire   <br />
+                      Experience the art of refined living with our premium   <br />
                       </span>{" "}
                       <span style={{ marginLeft: matchesSM ? 20 : 60 }}>
-                      to security and waste solutions — we handle 
+                      herbal teas, exquisite wellness beverages,
                       </span>
                       <br />
                       <span style={{ marginLeft: matchesSM ? 30 : 60 }}>
-                      the details so you can focus on the 
+                      and time-honored natural medicines. 
                       </span>
                       <br />
-                      <span style={{ marginLeft: matchesSM ? 40 : 60 }}>
-                          bigger picture.
-                      </span>
-                      <br />
+                  
                       {/* <span style={{ marginLeft: matchesSM ? 50 : 110 }}>
                       government officials, and private clients. 
                       </span>
@@ -3547,15 +3560,30 @@ const Marketplace = (props) => {
         </Grid>
         
         {/**This is the various sections */}
-        <CarRentalSections />
-        <ProtocolSection />
-        <SecuritySection />
-        <SecuritySolutionsSection />
+        <TopCoverNew />
+        <Typography variant="h3" style={{marginLeft:'40%',marginBottom:30}}>Our Brands</Typography>
+        <TropicanaSlimCappuccinoSection />
         
-        <AccommodationAssessmentSection />
-        <WasteManagementSection />
+        {/* <AndermalSection />
+        <TropicanaSlimZeroSection />
+        <TropicanaSlimSteviaSection />
         
-        <TheFounders />
+        <AndeglimSection />
+        <DerfxoneSection />
+        <TropicanaSlimLowCalorieSection />
+        <GreenTeaSection />
+                
+        <PeppermintHerbalInfusionSection />
+        <GingerLemonMoringaHerbalSection />
+        <PomegranateHerbalInfusionSection />
+        <GingerTurmericGarlicHoneyHerbalSection />
+        <DiaHerbHerbalInfusionSection /> */}
+     
+        <GroupedProducts />
+        <DerfxoneSection />
+        <GroupedAndersonsProducts />
+        
+        {/* <TheFounders /> */}
         <OurClients />
 
         

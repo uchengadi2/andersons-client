@@ -48,6 +48,7 @@ import DashboardCreator from "./Dashboard/DashboardCreator";
 import ResetUserPasswordForm from "./authForms/ResetUserPasswordForm";
 import BookingCentral from "./BookingCentral";
 import ProtocolServicesHomeScreen from "./ProtocolServicesHomeScreen";
+import TropicanaSlimCappuccinoDetailPage from "./DetailPages/TropicanaSlimCappuccinoDetailPage";
 
 function App() {
   const { token, setToken } = useToken();
@@ -213,6 +214,20 @@ function App() {
                 handleFailedSnackbar={handleFailedSnackbar}
               />
             </Route>
+
+             <Route path="/brands/SlimCappuccino">
+              <TropicanaSlimCappuccinoDetailPage
+                token={token}
+                userId={userId}
+                setToken={setToken ? setToken : {}}
+                setUserId={setUserId ? setUserId : {}}
+                cartCounterHandler={cartCounterHandler}
+                handleSuccessfulCreateSnackbar={handleSuccessfulCreateSnackbar}
+                handleFailedSnackbar={handleFailedSnackbar}
+              />
+            </Route>
+
+            
 
             <Route path="/nuggets/:catSlug/:slug">
               <ProductNuggetDetails

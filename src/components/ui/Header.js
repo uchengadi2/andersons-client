@@ -87,12 +87,12 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   logo: {
-    height: "11em",
-    width: "12em",
+    height: "9em",
+    width: "15em",
     marginLeft: -16,
     //marginLeft: 0,
     marginRight: 50,
-    padding: 0,
+    padding: 20,
     [theme.breakpoints.down("md")]: {
       height: "7em",
     },

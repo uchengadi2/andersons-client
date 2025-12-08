@@ -15,9 +15,9 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Snackbar from "@material-ui/core/Snackbar";
-import backgroundInstructors from "./../../assets/images/covers/instructors2.png";
-import backgroundAssessments from "./../../assets/images/covers/assessments.png";
-import backgroundMentors from "./../../assets/images/covers/mentors.png";
+import herbs from "./../../assets/images/site/andersons/herbs2.jpg";
+import beverages from "./../../assets/images/site/andersons/beverages.png";
+import medicine from "./../../assets/images/site/andersons/medicines.webp";
 import backgroundRetail from "./../../assets/images/covers/delivery.png";
 import AssessmentsAndMocksServices from "../AssessmentsAndMocksServices";
 import HomeAndPrivateServices from "../HomeAndPrivateServices";
@@ -227,7 +227,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   backgroundDerica: {
-    backgroundImage: `url(${backgroundInstructors})`,
+    backgroundImage: `url(${herbs})`,
     backgroundPosition: "center",
     backgroundSize: "cover",
     //backgroundAttachment: "fixed",
@@ -244,7 +244,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   backgroundPaint: {
-    backgroundImage: `url(${backgroundAssessments})`,
+    backgroundImage: `url(${beverages})`,
     backgroundPosition: "center",
     backgroundSize: "cover",
     //backgroundAttachment: "fixed",
@@ -261,7 +261,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   backgroundBulk: {
-    backgroundImage: `url(${backgroundMentors})`,
+    backgroundImage: `url(${medicine})`,
     backgroundPosition: "center",
     backgroundSize: "cover",
     //backgroundAttachment: "fixed",
@@ -361,17 +361,19 @@ export default function TopCoverNew(props) {
       {matchesMDUp ? (
         <Card className={classes.root} disableRipple={true}>
           {/** place the grid here */}
-
+        <Typography variant="h3" style={{marginLeft:'40%',marginBottom:30}}>Our Offerings</Typography>
           <Grid
             container
             direction="row"
             style={{ marginTop: 20, height: "100%" }}
           >
+            
             <Grid
               container
               direction="column"
               style={{ marginLeft: 20, width: "30%", marginTop: 0 }}
             >
+              <Typography variant="h5" style={{marginLeft:100, marginBottom:20}}> Herbal Supplements</Typography>
               <Grid
                 container
                 //direction="row"
@@ -388,13 +390,9 @@ export default function TopCoverNew(props) {
                 style={{ height: "45%", marginLeft: "3.5em" }}
               >
                 <Typography>
-                  Nextchamp’s Private Home Instructors provide personalized,
-                  one-on-one learning at your convenience, delivering customized
-                  lesson plans and expert guidance in the comfort of your home.
-                  Enjoy flexible scheduling, focused tutorship, and a tailored
-                  educational experience that accelerates progress and mastery
-                  of any subject or skill. Unlock a highly effective and
-                  convenient path to success with this service.
+                  Immerse yourself in the purity of nature’s finest herbs, masterfully blended to nourish your body and restore inner balance. Our premium herbal supplements are crafted with precision, elegance, and care — combining ancient botanical wisdom with modern wellness science.
+
+Each capsule embodies sophistication and vitality, offering you more than just health — a daily ritual of luxurious well-being.
                 </Typography>
                 <br />
                 {/* <Typography style={{ marginTop: 0 }}>
@@ -405,7 +403,7 @@ export default function TopCoverNew(props) {
                   educational success.
                 </Typography> */}
               </Grid>
-              <Grid
+              {/* <Grid
                 item
                 alignItems="center"
                 style={{ height: "10%", marginLeft: "1.5em" }}
@@ -426,13 +424,14 @@ export default function TopCoverNew(props) {
                     instructorSection()
                   )}
                 </Button>
-              </Grid>
+              </Grid> */}
             </Grid>
             <Grid
               container
               direction="column"
               style={{ marginLeft: 20, width: "30%", marginTop: 0 }}
             >
+              <Typography variant="h5" style={{marginLeft:100, marginBottom:20}}> Wellness Beverages</Typography>
               <Grid
                 container
                 //direction="row"
@@ -449,13 +448,9 @@ export default function TopCoverNew(props) {
                 style={{ height: "45%", marginLeft: "3.5em" }}
               >
                 <Typography>
-                  Nextchamp’s Assessments and Mock Exams help learners measure
-                  progress, identify strengths, and target areas for
-                  improvement. By simulating real-world tests, these tools build
-                  confidence, enhance performance, and prepare learners for
-                  success. With real-time feedback, personalized insights, and
-                  goal-oriented preparation, they offer a clear path to mastery
-                  and readiness for industry and academic challenges.
+                  Savor the essence of wellness in every sip. Our exquisite collection of wellness beverages is thoughtfully crafted from nature’s finest ingredients to rejuvenate your body, refresh your mind, and elevate your everyday rituals.
+
+Each blend is a harmony of purity and elegance — a luxurious infusion of nourishment and serenity designed for those who believe wellness should taste as beautiful as it feels.
                 </Typography>
                 <br />
                 {/* <Typography style={{ marginTop: 0 }}>
@@ -465,7 +460,7 @@ export default function TopCoverNew(props) {
                   success is within reach.
                 </Typography> */}
               </Grid>
-              <Grid
+              {/* <Grid
                 item
                 alignItems="center"
                 style={{ height: "10%", marginLeft: "1.5em" }}
@@ -486,7 +481,7 @@ export default function TopCoverNew(props) {
                     assessorsSection()
                   )}
                 </Button>
-              </Grid>
+              </Grid> */}
             </Grid>
 
             <Grid
@@ -494,6 +489,7 @@ export default function TopCoverNew(props) {
               direction="column"
               style={{ marginLeft: 20, width: "30%", marginTop: 0 }}
             >
+              <Typography variant="h5" style={{marginLeft:100, marginBottom:20}}> Natural Medicines</Typography>
               <Grid
                 container
                 //direction="row"
@@ -510,12 +506,9 @@ export default function TopCoverNew(props) {
                 style={{ height: "45%", marginLeft: "3.5em" }}
               >
                 <Typography>
-                  Nextchamp’s Mentorship Service connects learners with seasoned
-                  professionals for personalized guidance, real-world insights,
-                  and strategic advice. Mentors foster one-on-one relationships
-                  to accelerate growth, build confidence, and drive
-                  goal-oriented progress. Unlock your potential with expert
-                  support and tailored learning to achieve lasting success.
+                  Restore balance and vitality through the timeless power of nature. Our premium natural medicines are meticulously formulated from potent botanical extracts and ancient healing traditions, designed to support your body’s innate harmony and resilience.
+
+Each formulation embodies purity, precision, and elegance — offering a wellness experience that unites modern science with the grace of natural healing.
                 </Typography>
                 <br />
                 {/* <Typography style={{ marginTop: 0 }}>
@@ -526,7 +519,7 @@ export default function TopCoverNew(props) {
                   turn your potential into proven expertise.
                 </Typography> */}
               </Grid>
-              <Grid
+              {/* <Grid
                 item
                 alignItems="center"
                 style={{ height: "10%", marginLeft: "1.5em" }}
@@ -547,7 +540,7 @@ export default function TopCoverNew(props) {
                     mentorsSection()
                   )}
                 </Button>
-              </Grid>
+              </Grid> */}
             </Grid>
           </Grid>
           {/* </CardActionArea> */}
@@ -581,13 +574,9 @@ export default function TopCoverNew(props) {
                 style={{ height: "60%", marginLeft: 10 }}
               >
                 <Typography style={{ fontSize: 11 }}>
-                  Nextchamp’s Private Home Instructors provide personalized,
-                  one-on-one learning at your convenience, delivering customized
-                  lesson plans and expert guidance in the comfort of your home.
-                  Enjoy flexible scheduling, focused tutorship, and a tailored
-                  educational experience that accelerates progress and mastery
-                  of any subject or skill. Unlock a highly effective and
-                  convenient path to success with this service.
+                  Immerse yourself in the purity of nature’s finest herbs, masterfully blended to nourish your body and restore inner balance. Our premium herbal supplements are crafted with precision, elegance, and care — combining ancient botanical wisdom with modern wellness science.
+
+Each capsule embodies sophistication and vitality, offering you more than just health — a daily ritual of luxurious well-being.
                 </Typography>
                 <br />
                 {/* <Typography style={{ marginTop: 0, fontSize: 11 }}>
@@ -598,7 +587,7 @@ export default function TopCoverNew(props) {
                   educational success.
                 </Typography> */}
               </Grid>
-              <Grid
+              {/* <Grid
                 item
                 alignItems="center"
                 style={{ height: "15%", marginLeft: "0.5em", marginTop: 40 }}
@@ -619,7 +608,7 @@ export default function TopCoverNew(props) {
                     instructorMobileSection()
                   )}
                 </Button>
-              </Grid>
+              </Grid> */}
             </Grid>
             <Grid
               container
@@ -642,13 +631,9 @@ export default function TopCoverNew(props) {
                 style={{ height: "60%", marginLeft: 25 }}
               >
                 <Typography style={{ fontSize: 11 }}>
-                  Nextchamp’s Assessments and Mock Exams help learners measure
-                  progress, identify strengths, and target areas for
-                  improvement. By simulating real-world tests, these tools build
-                  confidence, enhance performance, and prepare learners for
-                  success. With real-time feedback, personalized insights, and
-                  goal-oriented preparation, they offer a clear path to mastery
-                  and readiness for industry and academic challenges.
+                  Savor the essence of wellness in every sip. Our exquisite collection of wellness beverages is thoughtfully crafted from nature’s finest ingredients to rejuvenate your body, refresh your mind, and elevate your everyday rituals.
+
+Each blend is a harmony of purity and elegance — a luxurious infusion of nourishment and serenity designed for those who believe wellness should taste as beautiful as it feels.
                 </Typography>
                 <br />
                 {/* <Typography style={{ marginTop: 0, fontSize: 11 }}>
@@ -658,7 +643,7 @@ export default function TopCoverNew(props) {
                   success is within reach.
                 </Typography> */}
               </Grid>
-              <Grid
+              {/* <Grid
                 item
                 alignItems="center"
                 style={{ height: "15%", marginLeft: "0.5em", marginTop: 40 }}
@@ -679,7 +664,7 @@ export default function TopCoverNew(props) {
                     assessorsMobileSection()
                   )}
                 </Button>
-              </Grid>
+              </Grid> */}
             </Grid>
 
             <Grid
@@ -703,12 +688,9 @@ export default function TopCoverNew(props) {
                 style={{ height: "60%", marginLeft: 25 }}
               >
                 <Typography style={{ fontSize: 11 }}>
-                  Nextchamp’s Mentorship Service connects learners with seasoned
-                  professionals for personalized guidance, real-world insights,
-                  and strategic advice. Mentors foster one-on-one relationships
-                  to accelerate growth, build confidence, and drive
-                  goal-oriented progress. Unlock your potential with expert
-                  support and tailored learning to achieve lasting success.
+                  Restore balance and vitality through the timeless power of nature. Our premium natural medicines are meticulously formulated from potent botanical extracts and ancient healing traditions, designed to support your body’s innate harmony and resilience.
+
+Each formulation embodies purity, precision, and elegance — offering a wellness experience that unites modern science with the grace of natural healing.
                 </Typography>
                 <br />
                 {/* <Typography style={{ marginTop: 0, fontSize: 11 }}>
@@ -719,7 +701,7 @@ export default function TopCoverNew(props) {
                   turn your potential into proven expertise.
                 </Typography> */}
               </Grid>
-              <Grid
+              {/* <Grid
                 item
                 alignItems="center"
                 style={{ height: "15%", marginLeft: "1.5em", marginTop: 40 }}
@@ -740,7 +722,7 @@ export default function TopCoverNew(props) {
                     mentorsMobileSection()
                   )}
                 </Button>
-              </Grid>
+              </Grid> */}
             </Grid>
             {/* <Grid
               container
