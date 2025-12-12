@@ -203,7 +203,7 @@ function App() {
                 setUserId={setUserId ? setUserId : {}}
               />
             </Route>
-            <Route path="/categories/:catSlug/:slug/:serviceId">
+            <Route path="/products/:catSlug/:slug">
               <ProductDetails
                 token={token}
                 userId={userId}

@@ -20,7 +20,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import data from "./../../apis/local";
-import background from "../../assets/images/site/image7.webp";
+import background from "../../assets/images/site/image88.jpg"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -208,8 +208,7 @@ function AboutUsForm(props) {
               }}
             >
               {/* <strong> */}
-              At 3Stars Pluto, we specialize in delivering premium Airport Protocol, Security, and Chauffeur-driven Car Hire services tailored to the discerning traveler. Whether you're a VIP, airline crew, government official, or corporate executive, 
-              our mission is to ensure your journey is seamless, secure, and supremely comfortable..
+              At our core, we are dedicated to supporting your wellbeing through nature’s finest offerings. We provide high-quality, affordable herbs, beverages, and natural medicines crafted to nurture your body and mind. Our mission is to make natural wellness accessible to everyone by offering products you can trust—carefully sourced, thoughtfully prepared, and rooted in tradition. Whether you’re seeking everyday nourishment or natural remedies, we’re here to help you live healthier, naturally.
 
               {/* </strong> */}
             </Typography>
@@ -223,8 +222,8 @@ function AboutUsForm(props) {
               }}
             >
               {/* <strong> */}
-              We elevate airport travel into an experience. From your arrival until departure, expect an unwavering commitment to precision, comfort, and security. Let us handle the details—in style, with dignity, 
-              and always with your best interests at heart.
+              {/* We elevate airport travel into an experience. From your arrival until departure, expect an unwavering commitment to precision, comfort, and security. Let us handle the details—in style, with dignity, 
+              and always with your best interests at heart. */}
               {/* </strong> */}
             </Typography>
             {/* <Typography

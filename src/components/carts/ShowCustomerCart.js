@@ -310,10 +310,9 @@ function ShowCustomerCart(props) {
       items.map((cart) => {
         allData.push({
           id: cart._id,
-          course: cart.course,
+          product: cart.product,
           cartHolder: cart.cartHolder,
           dateAddedToCart: cart.dateAddedToCart,
-          preferredStartDate: cart.preferredStartDate,
           refNumber: cart.refNumber,
           quantity: cart.quantity,
         });
@@ -344,12 +343,11 @@ function ShowCustomerCart(props) {
         <Grid container direction="row">
           {cartProductList.map((cart, index) => (
             <CartProductCard
-              course={cart.course}
+              product={cart.product}
               key={`${cart.id}${index}`}
               cartHolder={cart.cartHolder}
               cartId={cart.id}
               dateAddedToCart={cart.dateAddedToCart}
-              preferredStartDate={cart.preferredStartDate}
               cartCounterHandler={props.cartCounterHandler}
               refNumber={cart.refNumber}
               quantity={cart.quantity}
@@ -380,12 +378,11 @@ function ShowCustomerCart(props) {
         >
           {cartProductList.map((cart, index) => (
             <CartProductCard
-              course={cart.course}
+              product={cart.product}
               key={`${cart.id}${index}`}
               cartHolder={cart.cartHolder}
               cartId={cart.id}
               dateAddedToCart={cart.dateAddedToCart}
-              preferredStartDate={cart.preferredStartDate}
               cartCounterHandler={props.cartCounterHandler}
               refNumber={cart.refNumber}
               quantity={cart.quantity}

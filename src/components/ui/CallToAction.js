@@ -10,7 +10,7 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
 
 //import background from "./../../assets/background.jpg";
-import background from "./../../assets/images/site/image7.webp";
+import background from "./../../assets/images/site/image88.jpg";
 import mobileBackground from "./../../assets/mobileBackground.jpg";
 import history from "./../../history";
 import BecomePartnerFormContainer from "../partner/BecomePartnerFormContainer";
@@ -104,25 +104,25 @@ export default function CallToAction(props) {
           <Grid item>
             {matchesMD ? (
               <Typography variant="h2">
-                Where Luxury Meets Logistics & Safety — Travel Reimagined <br />{" "}
-                Revolutionary Services
+               We Bring Happiness To Homes<br />{" "}
+                With Our Revolutionary Herbs & Beverages
               </Typography>
             ) : (
               <Typography variant="h2" style={{ fontSize: "1.5rem" }}>
-                Where Luxury Meets Logistics & Safety — Travel Reimagined <br />{" "}
-                Revolutionary Services
+               We Bring Happiness To Homes <br />{" "}
+                 With Our Revolutionary Herbs & Beverages
               </Typography>
             )}
             {matchesMD ? (
               <Typography variant="subtitle2" style={{ fontSize: "1.5rem" }}>
-                Making Travelling Safe & Fun
+                Making Life Exciting & Fun
               </Typography>
             ) : (
               <Typography
                 variant="subtitle2"
                 style={{ fontSize: "1rem", marginTop: 20, marginBottom: 20 }}
               >
-                Making Travelling Safe & Fun
+               Making Life Exciting & Fun
               </Typography>
             )}
 

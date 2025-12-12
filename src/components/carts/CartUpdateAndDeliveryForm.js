@@ -187,12 +187,13 @@ const renderRequestedQuantityField = ({
   meta: { touched, error, invalid },
   type,
   id,
+  helperText,
   ...custom
 }) => {
   return (
     <TextField
       //error={touched && invalid}
-      helperText="Requested Learner Slot"
+      helperText={helperText}
       variant="outlined"
       label={label}
       id={input.name}
@@ -223,7 +224,7 @@ const renderRequestedQuantityField = ({
 };
 
 function CartUpdateAndDeliveryForm(props) {
-  const { price, productId, token, userId } = props;
+  const { price, productId, token, userId, minimumQuantity } = props;
   const [quantity, setQuantity] = useState(+props.quantity);
   const [productQuantityInCart, setProductQuantityInCart] = useState();
   const [productLocation, setProductLocation] = useState();
@@ -244,7 +245,7 @@ function CartUpdateAndDeliveryForm(props) {
   const [countryList, setCountryList] = useState([]);
   const [stateList, setStateList] = useState([]);
   const [total, setTotal] = useState();
-  const [minimumQuantity, setMinimumQuantity] = useState(1);
+  //const [minimumQuantity, setMinimumQuantity] = useState(1);
 
   const dispatch = useDispatch();
 
@@ -412,12 +413,13 @@ function CartUpdateAndDeliveryForm(props) {
     meta: { touched, error, invalid },
     type,
     id,
+    helperText,
     ...custom
   }) => {
     return (
       <TextField
         //error={touched && invalid}
-        helperText="Minimum Learners Slot Required"
+        helperText={helperText}
         variant="outlined"
         label={label}
         id={input.name}
@@ -681,6 +683,7 @@ function CartUpdateAndDeliveryForm(props) {
           id="minimumQuantity"
           name="minimumQuantity"
           defaultValue={`${minimumQuantity}`}
+          helperText="Minimum Order Quantity(MOQ)"
           type="text"
           component={renderMinimumQuantityField}
           style={{ width: 300 }}
@@ -691,6 +694,7 @@ function CartUpdateAndDeliveryForm(props) {
           name="quantity"
           defaultValue={quantity}
           type="number"
+          helperText="Total Order Quantity"
           onChange={onChange}
           component={renderRequestedQuantityField}
           style={{ width: 300, marginTop: 10 }}

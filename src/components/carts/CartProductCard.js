@@ -151,8 +151,8 @@ export default function CartProductCard(props) {
   const matchesMDUp = useMediaQuery(theme.breakpoints.up("md"));
 
   useEffect(() => {
-    setPrice(props.course.price);
-    setMinQuantity(props.course.minimumQuantity);
+    setPrice(props.product.pricePerUnit);
+    setMinQuantity(props.product.minimumOrderQuantity);
   }, [props]);
 
   useEffect(() => {
@@ -164,60 +164,28 @@ export default function CartProductCard(props) {
     const fetchData = async () => {
       let allData = [];
       api.defaults.headers.common["Authorization"] = `Bearer ${props.token}`;
-      const response = await api.get(`/courses/${props.course}`);
-      const course = response.data.data.data;
+      const response = await api.get(`/products/${props.product}`);
+      const product = response.data.data.data;
 
       allData.push({
-        id: course._id,
-        title: course.title,
-        imageCover: course.imageCover,
-        shortDescription: course.shortDescription,
-        longDescription: course.longDescription,
-        features: course.features,
-        deliveryMethod: course.deliveryMethod,
-        duration: course.duration,
-        category: course.category,
-        commencementDate: course.commencementDate,
-        price: course.price,
-        currency: course.currency,
-        venue: course.venue,
-        refNumber: course.refNumber,
-        sessionDuration: course.sessionDuration,
-        sessionPeriod: course.sessionPeriod,
-        studyPeriod: course.studyPeriod,
-        lectureDuration: course.lectureDuration,
-        projectDuration: course.projectDuration,
-        instructor: course.instructor,
-        image: course.imageCover,
-        createBy: course.createBy,
-        prerequisites: course.prerequisites,
-        tools: course.tools,
-        targetAudience: course.targetAudience,
-        whatToLearn: course.whatToLearn,
-        venueLink: course.venueLink,
-        commencementWeekdaysDate: course.commencementWeekdaysDate,
-        commencementWeekendsDate: course.commencementWeekendsDate,
-        genericWeekdayStartDateText: course.genericWeekdayStartDateText,
-        genericWeekendStartDateText: course.genericWeekendStartDateText,
-        showGenericWeekdayStartDateText: course.showGenericWeekdayStartDateText,
-        showGenericWeekendStartDateText: course.showGenericWeekendStartDateText,
-        weekdaySessionPeriod: course.weekdaySessionPeriod,
-        weekendSessionPeriod: course.weekendSessionPeriod,
-        paymentOptions: course.paymentOptions,
-        track: course.track,
-        isCourseAuditable: course.isCourseAuditable,
-        weekdayAuditDays: course.weekdayAuditDays,
-        weekendAuditDays: course.weekendAuditDays,
-        hasMentorshipCredit: course.hasMentorshipCredit,
-        mentorshipCredit: course.mentorshipCredit,
-        mentorshipDuration: course.mentorshipDuration,
-        hasSeries: course.hasSeries,
-        series: course.series,
-        costPerMentorshipCredit: course.costPerMentorshipCredit,
-        isInstallmentalPaymentAllowed: course.isInstallmentalPaymentAllowed,
-        maximumInstallmentalPayment: course.maximumInstallmentalPayment,
-        allowLifeTimeAccess: course.allowLifeTimeAccess,
-        priceLabel: course.priceLabel,
+        id: product._id,
+        name: product.name,
+        shortDescription: product.shortDescription,
+        fullDescription: product.fullDescription,
+        pricePerUnit: product.pricePerUnit,
+        unit: product.unit,
+        minimumOrderQuantity: product.minimumOrderQuantity,
+        category: product.category,
+        unitLabel: product.unitLabel,
+        configuration: product.configuration,
+        slug: product.slug,
+        imageCover: product.imageCover,
+        refNumber: product.refNumber,
+        images: product.images,
+        createBy: product.createBy,
+        status:product.status,
+        sku:product.sku
+       
       });
 
       if (!allData) {
@@ -225,57 +193,22 @@ export default function CartProductCard(props) {
       }
       setCourse({
         id: allData[0].id,
-        title: allData[0].title,
-        imageCover: allData[0].imageCover,
+       name: allData[0].name,
         shortDescription: allData[0].shortDescription,
-        longDescription: allData[0].longDescription,
-        features: allData[0].features,
-        deliveryMethod: allData[0].deliveryMethod,
-        duration: allData[0].duration,
+        fullDescription: allData[0].fullDescription,
+        pricePerUnit: allData[0].pricePerUnit,
+        unit: allData[0].unit,
+        minimumOrderQuantity: allData[0].minimumOrderQuantity,
         category: allData[0].category,
-        commencementDate: allData[0].commencementDate,
-        price: allData[0].price,
-        currency: allData[0].currency,
-        venue: allData[0].venue,
+        unitLabel: allData[0].unitLabel,
+        configuration: allData[0].configuration,
+        slug: allData[0].slug,
+        imageCover: allData[0].imageCover,
         refNumber: allData[0].refNumber,
-        sessionDuration: allData[0].sessionDuration,
-        sessionPeriod: allData[0].sessionPeriod,
-        studyPeriod: allData[0].studyPeriod,
-        lectureDuration: allData[0].lectureDuration,
-        projectDuration: allData[0].projectDuration,
-        instructor: allData[0].instructor,
-        image: allData[0].image,
+        images: allData[0].images,
         createBy: allData[0].createBy,
-        prerequisites: allData[0].prerequisites,
-        tools: allData[0].tools,
-        targetAudience: allData[0].targetAudience,
-        whatToLearn: allData[0].whatToLearn,
-        venueLink: allData[0].venueLink,
-        commencementWeekdaysDate: allData[0].commencementWeekdaysDate,
-        commencementWeekendsDate: allData[0].commencementWeekendsDate,
-        genericWeekdayStartDateText: allData[0].genericWeekdayStartDateText,
-        genericWeekendStartDateText: allData[0].genericWeekendStartDateText,
-        showGenericWeekdayStartDateText:
-          allData[0].showGenericWeekdayStartDateText,
-        showGenericWeekendStartDateText:
-          allData[0].showGenericWeekendStartDateText,
-        weekdaySessionPeriod: allData[0].weekdaySessionPeriod,
-        weekendSessionPeriod: allData[0].weekendSessionPeriod,
-        paymentOptions: allData[0].paymentOptions,
-        track: allData[0].track,
-        isCourseAuditable: allData[0].isCourseAuditable,
-        weekdayAuditDays: allData[0].weekdayAuditDays,
-        weekendAuditDays: allData[0].weekendAuditDays,
-        hasMentorshipCredit: allData[0].hasMentorshipCredit,
-        mentorshipCredit: allData[0].mentorshipCredit,
-        mentorshipDuration: allData[0].mentorshipDuration,
-        hasSeries: allData[0].hasSeries,
-        series: allData[0].series,
-        costPerMentorshipCredit: allData[0].costPerMentorshipCredit,
-        isInstallmentalPaymentAllowed: allData[0].isInstallmentalPaymentAllowed,
-        maximumInstallmentalPayment: allData[0].maximumInstallmentalPayment,
-        allowLifeTimeAccess: allData[0].allowLifeTimeAccess,
-        priceLabel: allData[0].priceLabel,
+        status:allData[0].status,
+        sku:allData[0].sku
       });
     };
 
@@ -285,8 +218,8 @@ export default function CartProductCard(props) {
   }, []);
 
   let imageUrl = "";
-  if (course) {
-    imageUrl = `${baseURL}/images/courses/${course.imageCover}`;
+  if (product) {
+    imageUrl = `${baseURL}/images/products/${props.product.imageCover}`;
   }
 
   const Str = require("@supercharge/strings");
@@ -514,7 +447,7 @@ export default function CartProductCard(props) {
               <CardMedia
                 className={classes.media}
                 component="img"
-                alt={course.title}
+                alt={props.product.name}
                 image={imageUrl}
                 //title={product.name}
                 crossOrigin="anonymous"
@@ -522,28 +455,24 @@ export default function CartProductCard(props) {
             </Grid>
             <Grid item style={{ width: "46.19%", border: "1px dotted grey" }}>
               <CardContent disableRipple>
-                {course.hasSeries ? (
+                
                   <Typography variant="h4" color="textSecondary" component="p">
-                    {course.title}
+                    {props.product.name}
                     <span style={{ fontSize: 16, fontWeight: 700 }}>
-                      <em> ({course.series})</em>
+                     
                     </span>
                   </Typography>
-                ) : (
-                  <Typography variant="h4" color="textSecondary" component="p">
-                    {course.title}
-                  </Typography>
-                )}
+                
                 <Typography
                   variant="subtitle1"
                   color="textSecondary"
                   component="p"
                   style={{ marginTop: 20 }}
                 >
-                  {Str(course.shortDescription).limit(200, "...").get()}
+                  {Str(props.product.shortDescription).limit(200, "...").get()}
                 </Typography>
                 <Typography
-                  variant="h5"
+                  variant="h4"
                   color="textSecondary"
                   component="p"
                   style={{ marginTop: 30 }}
@@ -551,15 +480,15 @@ export default function CartProductCard(props) {
                   <span style={{ marginLeft: 130 }}>
                     <strong>
                       {getCurrencyCode()}
-                      {course.price
-                        ? course.price
+                      {props.product.pricePerUnit
+                        ? props.product.pricePerUnit
                             .toFixed(2)
                             .replace(/\d(?=(\d{3})+\.)/g, "$&,")
                         : ""}
                     </strong>
                   </span>
                 </Typography>
-                {course.priceLabel !== undefined && (
+                {props.product.priceLabel !== undefined && (
                   <Typography
                     variant="h5"
                     style={{
@@ -570,10 +499,10 @@ export default function CartProductCard(props) {
                       marginLeft: 10,
                     }}
                   >
-                    {course.priceLabel}
+                    {props.product.priceLabel}
                   </Typography>
                 )}
-                {course.refNumber !== undefined && (
+                {props.product.refNumber !== undefined && (
                   <Typography
                     variant="h5"
                     style={{ color: "black", fontSize: 15 }}
@@ -582,251 +511,21 @@ export default function CartProductCard(props) {
                       {" "}
                       <strong>Reference Number:</strong>
                     </span>
-                    {course.refNumber}
+                    {props.product.refNumber}
                   </Typography>
                 )}
-                {course.duration !== undefined && (
-                  <Typography
-                    variant="h5"
-                    style={{ color: "black", fontSize: 15 }}
-                  >
-                    <span style={{ marginRight: 20 }}>
-                      {" "}
-                      <strong>Duration:</strong>
-                    </span>
-                    {course.duration}
-                  </Typography>
-                )}
-                {course.commencementDate !== undefined && (
-                  <Typography
-                    variant="h5"
-                    style={{ color: "black", fontSize: 15 }}
-                  >
-                    <span style={{ marginRight: 20 }}>
-                      {" "}
-                      <strong>Start date:</strong>
-                    </span>
-                    {course.commencementDate
-                      ? new Date(course.commencementDate).toDateString()
-                      : "Coming Soon"}
-                  </Typography>
-                )}
-                {course.deliveryMethod !== undefined && (
-                  <Typography
-                    variant="h5"
-                    style={{ color: "black", fontSize: 15 }}
-                  >
-                    <span style={{ marginRight: 20 }}>
-                      {" "}
-                      <strong>Delivery Method:</strong>
-                    </span>
-                    {course.deliveryMethod}
-                  </Typography>
-                )}
-                {course.venue !== undefined && (
-                  <Typography
-                    variant="h5"
-                    style={{ color: "black", fontSize: 15 }}
-                  >
-                    <span style={{ marginRight: 20 }}>
-                      {" "}
-                      <strong>Venue:</strong>
-                    </span>
-                    {course.venue}
-                  </Typography>
-                )}
-                {course.track !== undefined && (
-                  <Typography
-                    variant="h5"
-                    style={{ color: "black", fontSize: 15 }}
-                  >
-                    <span style={{ marginRight: 20 }}>
-                      {" "}
-                      <strong>Track:</strong>
-                    </span>
-                    {course.track}
-                  </Typography>
-                )}
-                {course.commencementWeekdaysDate !== undefined && (
-                  <Typography
-                    variant="h5"
-                    style={{ color: "black", fontSize: 15 }}
-                  >
-                    <span style={{ marginRight: 20 }}>
-                      <strong>Weekday Start Date(s):</strong>
-                    </span>
-                    <span style={{ marginLeft: 3, textAlign: "center" }}>
-                      {/* {course.commencementWeekdaysDate.join("|")} */}
-                      {course.commencementWeekdaysDate}
-                    </span>
-                  </Typography>
-                )}
-                {course.commencementWeekendsDate !== undefined && (
-                  <Typography
-                    variant="h5"
-                    style={{ color: "black", fontSize: 15 }}
-                  >
-                    <span style={{ marginRight: 20 }}>
-                      <strong>Weekend Start Date(s):</strong>
-                    </span>
-                    <span style={{ marginLeft: 3, textAlign: "center" }}>
-                      {/* {course.commencementWeekendsDate.join("|")} */}
-                      {course.commencementWeekendsDate}
-                    </span>
-                  </Typography>
-                )}
-                <Typography
-                  variant="h5"
-                  style={{ color: "black", fontSize: 15 }}
-                >
-                  <span style={{ marginRight: 20 }}>
-                    <strong>Weekday Lecture Period:</strong>
-                  </span>
-                  <span style={{ marginLeft: 3, textAlign: "center" }}>
-                    {course.weekdaySessionPeriod}
-                  </span>
-                </Typography>
-                <Typography
-                  variant="h5"
-                  style={{ color: "black", fontSize: 15 }}
-                >
-                  <span style={{ marginRight: 20 }}>
-                    <strong>Weekend Lecture Period:</strong>
-                  </span>
-                  <span style={{ marginLeft: 3, textAlign: "center" }}>
-                    {course.weekendSessionPeriod}
-                  </span>
-                </Typography>
-                {course.hasMentorshipCredit && (
-                  <Typography
-                    variant="h5"
-                    style={{ color: "black", fontSize: 15 }}
-                  >
-                    <span style={{ marginRight: 20 }}>
-                      <strong>Mentorship Credit:</strong>
-                    </span>
-                    <span style={{ marginLeft: 3, textAlign: "center" }}>
-                      {course.mentorshipCredit}&nbsp; Units &nbsp; (to be used
-                      after graduation)
-                    </span>
-                  </Typography>
-                )}
-                {course.hasMentorshipCredit && (
-                  <Typography
-                    variant="h5"
-                    style={{ color: "black", fontSize: 15 }}
-                  >
-                    <span style={{ marginRight: 20 }}>
-                      <strong>Total Value of Mentorship Credit:</strong>
-                    </span>
-                    <span style={{ marginLeft: 3, textAlign: "center" }}>
-                      {getCurrencyCode()}
-                      {(
-                        course.mentorshipCredit * course.costPerMentorshipCredit
-                      )
-                        .toFixed(2)
-                        .replace(/\d(?=(\d{3})+\.)/g, "$&,")}
-                    </span>
-                  </Typography>
-                )}
-                {course.hasMentorshipCredit && (
-                  <Typography
-                    variant="h5"
-                    style={{ color: "black", fontSize: 15 }}
-                  >
-                    <span style={{ marginRight: 20 }}>
-                      <strong>Mentorship Duration:</strong>
-                    </span>
-                    <span style={{ marginLeft: 3, textAlign: "center" }}>
-                      {course.mentorshipDuration}&nbsp;&nbsp; ( from the day of
-                      graduation)
-                    </span>
-                  </Typography>
-                )}
-                {course.isInstallmentalPaymentAllowed === "yes" && (
-                  <Typography
-                    variant="h5"
-                    style={{ color: "black", fontSize: 15 }}
-                  >
-                    <span style={{ marginRight: 20 }}>
-                      <strong>Is Installmental Payment Allowed :</strong>
-                    </span>
-                    <span style={{ marginLeft: 3, textAlign: "center" }}>
-                      {course.isInstallmentalPaymentAllowed
-                        .charAt(0)
-                        .toUpperCase() +
-                        course.isInstallmentalPaymentAllowed.slice(1)}
-                    </span>
-                  </Typography>
-                )}
-                {course.isInstallmentalPaymentAllowed === "yes" && (
-                  <Typography
-                    variant="h5"
-                    style={{ color: "black", fontSize: 15 }}
-                  >
-                    <span style={{ marginRight: 20 }}>
-                      <strong>
-                        Maximum Number of Installmental Payment Allowed :
-                      </strong>
-                    </span>
-                    <span style={{ marginLeft: 3, textAlign: "center" }}>
-                      {course.maximumInstallmentalPayment}&nbsp;times
-                    </span>
-                  </Typography>
-                )}
-                {course.passGrade !== undefined && (
-                  <Typography
-                    variant="h5"
-                    style={{ color: "black", fontSize: 15 }}
-                  >
-                    <span style={{ marginRight: 20 }}>
-                      {" "}
-                      <strong>Minimum NextChamp Grade:</strong>
-                    </span>
-                    {course.passGrade}
-                  </Typography>
-                )}
-                <Typography
-                  variant="h5"
-                  style={{ color: "black", fontSize: 15 }}
-                >
-                  <span style={{ marginRight: 20 }}>
-                    {" "}
-                    <strong>
-                      Is Life Time Access To This Course Allowed?:
-                    </strong>
-                  </span>
-                  {course.allowLifeTimeAccess}
-                </Typography>
-                <br /> <br />
-                {course.isCourseAuditable && (
-                  <Typography>
-                    <span
-                      style={{
-                        fontSize: 18,
-                        marginLeft: 14,
-                        //textAlign: "center",
-                      }}
-                    >
-                      You can audit this course for FREE for up to
-                      <strong>
-                        <span>{course.weekdayAuditDays}</span>
-                      </strong>
-                      &nbsp;. You only make payment afterwards when you are sure
-                      the course is a good fit for you
-                    </span>
-                  </Typography>
-                )}
+                
+               
               </CardContent>
             </Grid>
 
             <Grid item style={{ width: "26.50%", border: "1px dotted grey" }}>
-              {course.price && (
+              {props.product.pricePerUnit && (
                 <CartUpdateAndDeliveryForm
-                  price={course.price}
-                  minimumQuantity={course.minimumQuantity}
-                  courseId={course.id}
-                  currency={course.currency}
+                  price={props.product.pricePerUnit}
+                  minimumQuantity={props.product.minimumOrderQuantity}
+                  productId={props.product.id}
+                  //currency={product.currency}
                   preferredStartDate={props.preferredStartDate}
                   cartCounterHandler={props.cartCounterHandler}
                   token={props.token}
@@ -861,7 +560,7 @@ export default function CartProductCard(props) {
               <CardMedia
                 className={classes.mediaMobile}
                 component="img"
-                alt={course.title}
+                alt={props.product.name}
                 image={imageUrl}
                 //title={product.name}
                 crossOrigin="anonymous"
@@ -869,24 +568,20 @@ export default function CartProductCard(props) {
             </Grid>
             <Grid item style={{ width: "100%", border: "1px dotted grey" }}>
               <CardContent disableRipple>
-                {course.hasSeries ? (
+              
                   <Typography variant="h4" color="textSecondary" component="p">
-                    {course.title}
+                    {props.product.name}
                     <span style={{ fontSize: 16, fontWeight: 700 }}>
-                      <em> ({course.series})</em>
+                      
                     </span>
                   </Typography>
-                ) : (
-                  <Typography variant="h4" color="textSecondary" component="p">
-                    {course.title}
-                  </Typography>
-                )}
+                
                 <Typography
                   variant="subtitle1"
                   color="textSecondary"
                   component="p"
                 >
-                  {Str(course.shortDescription).limit(200, "...").get()}
+                  {Str(props.product.shortDescription).limit(200, "...").get()}
                 </Typography>
                 <Typography
                   variant="h5"
@@ -897,15 +592,15 @@ export default function CartProductCard(props) {
                   <span style={{ marginLeft: 130 }}>
                     <strong>
                       {getCurrencyCode()}
-                      {course.price
-                        ? course.price
+                      {props.product.pricePerUnit
+                        ? props.product.pricePerUnit
                             .toFixed(2)
                             .replace(/\d(?=(\d{3})+\.)/g, "$&,")
                         : ""}
                     </strong>
                   </span>
                 </Typography>
-                {course.priceLabel !== undefined && (
+                {props.product.priceLabel !== undefined && (
                   <Typography
                     variant="h5"
                     style={{
@@ -916,10 +611,10 @@ export default function CartProductCard(props) {
                       marginLeft: 10,
                     }}
                   >
-                    {course.priceLabel}
+                   
                   </Typography>
                 )}
-                {course.refNumber !== undefined && (
+                {props.product.refNumber !== undefined && (
                   <Typography
                     variant="h5"
                     style={{ color: "black", fontSize: 15 }}
@@ -928,247 +623,20 @@ export default function CartProductCard(props) {
                       {" "}
                       <strong>Reference Number:</strong>
                     </span>
-                    {course.refNumber}
+                    {props.product.refNumber}
                   </Typography>
                 )}
-                {course.duration !== undefined && (
-                  <Typography
-                    variant="h5"
-                    style={{ color: "black", fontSize: 15 }}
-                  >
-                    <span style={{ marginRight: 20 }}>
-                      {" "}
-                      <strong>Duration:</strong>
-                    </span>
-                    {course.duration}
-                  </Typography>
-                )}
-                {course.commencementDate !== undefined && (
-                  <Typography
-                    variant="h5"
-                    style={{ color: "black", fontSize: 15 }}
-                  >
-                    <span style={{ marginRight: 20 }}>
-                      {" "}
-                      <strong>Start date:</strong>
-                    </span>
-                    {course.commencementDate
-                      ? new Date(course.commencementDate).toDateString()
-                      : "Coming Soon"}
-                  </Typography>
-                )}
-                {course.deliveryMethod !== undefined && (
-                  <Typography
-                    variant="h5"
-                    style={{ color: "black", fontSize: 15 }}
-                  >
-                    <span style={{ marginRight: 20 }}>
-                      {" "}
-                      <strong>Delivery Method:</strong>
-                    </span>
-                    {course.deliveryMethod}
-                  </Typography>
-                )}
-                {course.venue !== undefined && (
-                  <Typography
-                    variant="h5"
-                    style={{ color: "black", fontSize: 15 }}
-                  >
-                    <span style={{ marginRight: 20 }}>
-                      {" "}
-                      <strong>Venue:</strong>
-                    </span>
-                    {course.venue}
-                  </Typography>
-                )}
-                {course.track !== undefined && (
-                  <Typography
-                    variant="h5"
-                    style={{ color: "black", fontSize: 15 }}
-                  >
-                    <span style={{ marginRight: 20 }}>
-                      {" "}
-                      <strong>Track:</strong>
-                    </span>
-                    {course.track}
-                  </Typography>
-                )}
-                {course.commencementWeekdaysDate !== undefined && (
-                  <Typography
-                    variant="h5"
-                    style={{ color: "black", fontSize: 15 }}
-                  >
-                    <span style={{ marginRight: 20 }}>
-                      <strong>Weekday Start Date():</strong>
-                    </span>
-                    <span style={{ marginLeft: 3, textAlign: "center" }}>
-                      {/* {course.commencementWeekdaysDate.join("|")} */}
-                      {course.commencementWeekdaysDate}
-                    </span>
-                  </Typography>
-                )}
-                {course.commencementWeekendsDate !== undefined && (
-                  <Typography
-                    variant="h5"
-                    style={{ color: "black", fontSize: 15 }}
-                  >
-                    <span style={{ marginRight: 20 }}>
-                      <strong>Weekend Start Date(s):</strong>
-                    </span>
-                    <span style={{ marginLeft: 3, textAlign: "center" }}>
-                      {/* {course.commencementWeekendsDate.join("|")} */}
-                      {course.commencementWeekendsDate}
-                    </span>
-                  </Typography>
-                )}
-                <Typography
-                  variant="h5"
-                  style={{ color: "black", fontSize: 15 }}
-                >
-                  <span style={{ marginRight: 20 }}>
-                    <strong>Weekday Lecture Period:</strong>
-                  </span>
-                  <span style={{ marginLeft: 3, textAlign: "center" }}>
-                    {course.weekdaySessionPeriod}
-                  </span>
-                </Typography>
-                <Typography
-                  variant="h5"
-                  style={{ color: "black", fontSize: 15 }}
-                >
-                  <span style={{ marginRight: 20 }}>
-                    <strong>Weekend Lecture Period:</strong>
-                  </span>
-                  <span style={{ marginLeft: 3, textAlign: "center" }}>
-                    {course.weekendSessionPeriod}
-                  </span>
-                </Typography>
-                {course.hasMentorshipCredit && (
-                  <Typography
-                    variant="h5"
-                    style={{ color: "black", fontSize: 15 }}
-                  >
-                    <span style={{ marginRight: 20 }}>
-                      <strong>Mentorship Credit:</strong>
-                    </span>
-                    <span style={{ marginLeft: 3, textAlign: "center" }}>
-                      {course.mentorshipCredit}&nbsp; Units &nbsp;
-                    </span>
-                  </Typography>
-                )}
-                {course.hasMentorshipCredit && (
-                  <Typography
-                    variant="h5"
-                    style={{ color: "black", fontSize: 15 }}
-                  >
-                    <span style={{ marginRight: 20 }}>
-                      <strong>Mentorship Credit Value:</strong>
-                    </span>
-                    <span style={{ marginLeft: 1, textAlign: "center" }}>
-                      {getCurrencyCode()}
-                      {(
-                        course.mentorshipCredit * course.costPerMentorshipCredit
-                      )
-                        .toFixed(2)
-                        .replace(/\d(?=(\d{3})+\.)/g, "$&,")}
-                    </span>
-                  </Typography>
-                )}
-                {course.hasMentorshipCredit && (
-                  <Typography
-                    variant="h5"
-                    style={{ color: "black", fontSize: 15 }}
-                  >
-                    <span style={{ marginRight: 20 }}>
-                      <strong>Mentorship Duration:</strong>
-                    </span>
-                    <span style={{ marginLeft: 3, textAlign: "center" }}>
-                      {course.mentorshipDuration}&nbsp;&nbsp;
-                    </span>
-                  </Typography>
-                )}
-                {course.isInstallmentalPaymentAllowed === "yes" && (
-                  <Typography
-                    variant="h5"
-                    style={{ color: "black", fontSize: 15 }}
-                  >
-                    <span style={{ marginRight: 20 }}>
-                      <strong>Installmental Payment Allowed :</strong>
-                    </span>
-                    <span style={{ marginLeft: 3, textAlign: "center" }}>
-                      {course.isInstallmentalPaymentAllowed
-                        .charAt(0)
-                        .toUpperCase() +
-                        course.isInstallmentalPaymentAllowed.slice(1)}
-                    </span>
-                  </Typography>
-                )}
-                {course.isInstallmentalPaymentAllowed === "yes" && (
-                  <Typography
-                    variant="h5"
-                    style={{ color: "black", fontSize: 15 }}
-                  >
-                    <span style={{ marginRight: 20 }}>
-                      <strong>No. of Installmental Payment:</strong>
-                    </span>
-                    <span style={{ marginLeft: 3, textAlign: "center" }}>
-                      {course.maximumInstallmentalPayment}&nbsp;times
-                    </span>
-                  </Typography>
-                )}
-                {course.passGrade !== undefined && (
-                  <Typography
-                    variant="h5"
-                    style={{ color: "black", fontSize: 15 }}
-                  >
-                    <span style={{ marginRight: 20 }}>
-                      {" "}
-                      <strong>Minimum NextChamp Grade:</strong>
-                    </span>
-                    {course.passGrade}
-                  </Typography>
-                )}
-                <Typography
-                  variant="h5"
-                  style={{ color: "black", fontSize: 15 }}
-                >
-                  <span style={{ marginRight: 20 }}>
-                    {" "}
-                    <strong>
-                      Is Life Time Access To This Course Allowed?:
-                    </strong>
-                  </span>
-                  {course.allowLifeTimeAccess}
-                </Typography>
-                <br /> <br />
-                {course.isCourseAuditable && (
-                  <Typography>
-                    <span
-                      style={{
-                        fontSize: 18,
-                        marginLeft: 14,
-                        //textAlign: "center",
-                      }}
-                    >
-                      You can audit this course for FREE for up to
-                      <strong>
-                        <span>{course.weekdayAuditDays}</span>
-                      </strong>
-                      &nbsp;. You only make payment afterwards when you are sure
-                      the course is a good fit for you
-                    </span>
-                  </Typography>
-                )}
+                
               </CardContent>
             </Grid>
 
             <Grid item style={{ width: "100%", border: "1px dotted grey" }}>
-              {course.price && (
+              {props.product.pricePerUnit && (
                 <CartUpdateAndDeliveryForm
-                  price={course.price}
-                  minimumQuantity={course.minimumQuantity}
-                  courseId={course.id}
-                  currency={course.currency}
+                  price={props.product.pricePerUnit}
+                  minimumQuantity={props.product.minimumOrderQuantity}
+                  courseId={props.product.id}
+                  //currency={course.currency}
                   preferredStartDate={props.preferredStartDate}
                   cartCounterHandler={props.cartCounterHandler}
                   token={props.token}

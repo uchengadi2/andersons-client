@@ -31,6 +31,7 @@ import qualityAssurance from "./../../../assets/images/bacFoods/DiaHerb_Herbal_I
 import backgroundEvent from "./../../../assets/images/project/event1.webp";
 import backgroundTraining from "./../../../assets/images/project/training.webp";
 import backgroundDocumentation from "./../../../assets/images/project/documentation2.webp";
+import ProductDetails from "../../products/ProductDetails";
 
 
 
@@ -76,7 +77,7 @@ const useStyles = makeStyles((theme) => ({
   },
   uppercardMobile: {
     maxWidth: "100%",
-    height: 7600,
+    height: 3400,
     //height: 350,
     width: "100%",
 
@@ -184,6 +185,42 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.palette.common.white,
     },
   },
+
+  actionMobileButton: {
+    borderRadius: 10,
+    height: 40,
+    width: 135,
+    marginLeft: 7,
+    marginTop: 1,
+    marginBottom: 20,
+    borderRadius: 100,
+    color: "white",
+    fontSize: 10,
+    backgroundColor: theme.palette.common.orange,
+    "&:hover": {
+      backgroundColor: theme.palette.common.white,
+    },
+  },
+
+  actionMobileDownButton: {
+    borderRadius: 10,
+    //height: 40,
+    width: 100,
+    marginLeft: 7,
+    marginTop: 1,
+    marginBottom: 20,
+    borderRadius: 100,
+    color: "white",
+    fontSize: 8,
+    backgroundColor: theme.palette.common.orange,
+    "&:hover": {
+      backgroundColor: theme.palette.common.white,
+    },
+  },
+
+
+  
+  
   actionPlusButton: {
     borderRadius: 10,
     height: 40,
@@ -477,17 +514,24 @@ export default function GroupedProducts(props) {
     imageUrl = `${baseURL}/images/courses/${product.imageCover}`;
   }
 
+
+  const categorySlug = 'herbal-tea';
+  const slug1 = 'ginger-turmeric-garlic-and-honey-tea';
+  const slug2 = 'diaherbs-herbal-tea';
+  const slug3 = 'ginger-lemon-and-moringa-herbal-tea';
+  const slug4 = 'peppermint-herbal-tea';
+  const slug5 = 'pomegranate-herbal-tea';
+  const slug6 = 'green-tea';
+
   const Str = require("@supercharge/strings");
 
-  const vvipServices = "* **Personalized Reception**: A professional protocol officer greets guests personally at the aircraft door, arrival gate, or at a designated VIP meeting point inside the terminal.\n\n* **Fast-Track Processing**: Priority assistance through immigration, customs, and security clearances — bypassing regular passenger queues for faster processing.\n\n* **Porter Assistance**: Dedicated porters collect, handle, and deliver guests’ luggage through priority channels to their vehicle or next destination.\n\n* **Escort to Lounge or Transport**: Clients are personally escorted to VIP lounges or their awaiting ground transportation, ensuring they never navigate the airport alone.\n\n* **Language Assistance**: Multilingual protocol officers available to overcome language barriers during arrivals and departures.\n\n* **Concierge Support**: Optional on-site concierge services such as arranging hotel bookings, flight rebookings, or airport shopping assistance.\n\n";
-  const diplomaticServices = "* **Advance Coordination**: Prior arrangement with airport authorities, customs, immigration, and diplomatic security services to ensure a smooth arrival or departure.\n\n* **Secure Diplomatic Lounge Access**: Use of diplomatic lounges for privacy and comfort while formalities are handled discreetly.\n\n* **Special Clearance Processing**: Rapid immigration, customs, and visa processing through diplomatic channels without waiting in public areas.\n\n* **Embassy & Consulate Liaison**: Coordinating with consular staff or embassy officials to facilitate meetings, document clearances, or secure handovers.\n\n* **Private Airside Vehicle Transfers**: Where permitted, arranging for official vehicles to pick up or drop off guests directly at the aircraft.";
-  const corporateServices = "* **Executive Meet & Greet**: Professional, discreet protocol officers to assist at check-in, immigration, and baggage claim.\n\n* **Check-in & Boarding**: Dedicated counters or pre-arranged check-in services to minimize waiting times.\n\n* **Luggage Handling**: Luggage tags, porter services, and baggage delivery directly to waiting vehicles or hotel reception.\n\n* **Executive Lounge Coordination**: Fast escort and guaranteed entry to business lounges, where guests can work or relax before flights.\n\n* **Business Travel Concierge**: On-ground assistance with rebooking, upgrades, meeting room arrangements, or connecting ground transport.\n\n* **Customizable Packages**: Tailored services based on the specific needs of corporate clients, including group travel arrangements.";
-  const medicalServices = "* **Emergency Airport Clearances**: Rapid clearance procedures for medical evacuation flights, ambulances, and emergency arrivals.\n\n* **Ambulance Coordination**: Pre-arranged ambulance or medical staff at airside gates or aircraft doors.\n\n* **Patient Escort**: Protocol officers accompany patients through immigration and customs, ensuring safety and comfort.\n\n* **Medical Equipment Handling**: Special assistance for the transport of wheelchairs, stretchers, oxygen tanks, or life-saving devices.\n\n* **Hospital Liaison**: Coordination with receiving hospitals, arranging medical records handovers, and transportation.\n\n* **Travel Insurance Liaison**: Coordination with travel insurance providers for claims and coverage during the trip.";  
-  const airlineCrewServices = "* **Crew Meet & Greet**: Protocol officers welcome arriving or departing crew members, ensuring a smooth and timely transition.\n\n* **Accommodation & Transfers**: Booking and coordinating layover hotels, airport shuttles, and crew transportation.\n\n* **Visa & Immigration Facilitation**: Assistance with crew visa-on-arrival, temporary passes, or transit clearances.\n\n* **Lost Baggage Support**: Handling reports and coordination with airlines for missing or delayed crew baggage.\n\n* **Flight Operations Coordination**: Liaising with ground handling agents, flight dispatchers, and airport authorities to ensure timely departures.\n\n* **Crew Lounge Access**: Arranging rest areas or lounges while waiting for connecting flights or ground transportation.";
-  const privateServices = "* **FBO Terminal Coordination**: Pre-arrangement of private Fixed Base Operator (FBO) terminal services for privacy and security.\n\n* **Airside Vehicle Access**: Direct vehicle-to-aircraft transfers for arrivals and departures, bypassing the public terminal.\n\n* **Dedicated Protocol Officer**: Personal escort for every step of the arrival or departure process, from immigration to luggage collection.\n\n* **Customs & Security Clearance**: Seamless processing of documentation, luggage, and permits through VIP or private channels.\n\n* **Ground Concierge Services**: Booking luxury vehicles, private chefs, hotel suites, or personal security teams on request.\n\n* **Flight Coordination**: Assistance with flight changes, upgrades, or charter arrangements.";
-  const specialEventServices = "* **Exclusive Arrivals & Departures**: Private entry and exit points arranged with airport security for ultimate privacy.\n\n* **Temporary Protocol Stations**: Deployment of mobile protocol stations, dedicated protocol staff, and security support.\n\n* **Crowd Control & Privacy Management**: Coordinating with airport authorities and security to manage fans, media, and public attention.\n\n* **Group Logistics Management**: Coordinating large or simultaneous arrivals, including charter or private jet logistics, hotel transfers, and luggage management.\n\n* **On-site Event Coordination**: Real-time management of arrivals, transport, schedules, and briefings.\n\n* **Media Management**: Coordination with media teams for press conferences, interviews, or public appearances.";
-  const trainingServices = "* **Multilingual Protocol Staff**: Officers fluent in major international languages for guest assistance.\n\n* **Specialized Training**: Cultural sensitivity, etiquette, VIP handling, and emergency management training.\n\n* **Crisis Handling Training**: Preparing staff to handle medical emergencies, last-minute flight changes, and sensitive situations.\n\n* **On-call Staffing**: Rapid deployment of protocol officers for temporary or urgent events, group arrivals, or unplanned scenarios.\n\n* **Uniformed Professionalism**: Clean, presentable, and well-trained officers representing your brand impeccably.\n\n* **Customizable Training Modules**: Tailored training solutions based on specific client needs or industry requirements.";  
-  const documentationServices = "* **Visa-on-Arrival & E-visa Processing**: Handling paperwork, payments, and approvals for immediate or digital visas.\n\n* **Transit Visa Facilitation**: Arranging transit permits for travelers with layovers or multi-airport transfers.\n\n* **Customs Declarations**: Support with declarations for luxury goods, special equipment, or sensitive cargo.\n\n* **Immigration Forms**: Assistance with completing and submitting arrival, departure, and health forms.\n\n* **Real-time Clearance Updates**: Constant communication with travelers, families, or corporate travel managers on progress.\n\n* **Special Permits & Clearances**: Arranging special permissions for high-profile guests, media teams, or sensitive cargo.";
+  const gingerTumeric = "* **Natural Immune Booster**\n\n* **Ease Arthritis and helps build strong bones**:\n\n* **Relieves Pain, Cold, Flu and other Nasal Congestion**\n\n* **Helps in normalizing diabetes**\n\n* **Fights against bacteria infections and other diseases. Supports overall Well-Being and promotes healthy aging**\n\n* **Fights against Cancer**\n\n* **Reduces the buildup of heart diseases**\n\n* **Improves pain linked to Osteoarthritis and rheumatoid arthritis**\n\n* **Supports Joint and Muscle Health**\n\n";
+  const diaherbHerbal = "* **A potent blend of natural anti-hyperglycemic, antioxidants, beta-cell, insulin sensitizers and metabolic boosters**\n\n* **Lowers elevated blood sugar levels**:\n\n* **Reduces abnormally raised levels of Serum Insulin**\n\n* **Mitigate oxidizing, premature aging and hazardous impact in the system**\n\n* **Supports proper utilization of glucose by the cells**\n\n* **Keeps one energetic while keeping blood sugar levels within normal limits**\n\n* **Reduces or delay the chances of progressing to Type-2 Diabetes**\n\n* **Supports with your medication to normalize diabetes**\n\n";
+  const gingerLemon = "* **Boost Metabolism that aids weight management**\n\n* **Reduces the chances of build up and causes of Kidney Stone**\n\n* **Lowers blood sugar levels in the body**\n\n* **Helps in Kidney detoxifying**\n\n* **Reduces body fat accumulation, burn calories**\n\n* **Helps fight inflammation and oxidative stress**\n\n* **Helps against chronic kidney diseases**\n\n* **Known as Miracle Tea, rich in Vitamins, Minerals and Amino Acid**\n\n";
+  const peppemintHerbal = "* **Improves quality of sleep**\n\n* **Helps to regulate blood pressure**\n\n* **Has Anti-bacteria action that fight infections**\n\n* **Acts as Natural Immune Booster**\n\n* **Helps in relieving menstrual cramps**\n\n* **Aids Weight Loss**\n\n* **Relieves Headache and Pains**\n\n* **Supports Cardio metabolic Health**\n\n* **Relieves digestives symptoms such as gas, bloating, sore throat and nasal congestion**\n\n";
+  const pomegranateHerbal = "* **Reduces Cellular Damage caused by Free Radicals**\n\n* **Protect against heart diseases**\n\n* **Fights the buildup of bad cholesterol and triglycerides**\n\n* **Helps to normalize blood pressure**\n\n* **Supports in Arthritis and Gout issues**\n\n* **Supports Cardiovascular health by enabling healthy blood circulation**\n\n* **Reduces oxidative stress on the heart**\n\n* **Helps naturally guard prostrate health**\n\n* **The Flavourful herbal tea supports gut health and  digestion**\n\n";
+  const greenTeaHerbal = "* **Lowers bad cholesterol levels in the body**\n\n* **Contains Antioxidants that fights Cancer**\n\n* **Helps Cardiovascular health and blood circulation**\n\n* **Lowers or normalizes blood sugar levels in the body**\n\n* **Prevent DNA damaged caused by Free Radicals, then stops cancer from growing**\n\n* **Stops Stroke**\n\n* **Lowers or stabilizes blood pressure levels**\n\n* **Improves longevity**\n\n* **Alleviates anxiety and stress related disorders**\n\n* **Supports bone and muscle health**\n\n* **Aids in body weight**\n\n";
+  
   return (
     <>
       {matchesMDUp ? (
@@ -526,12 +570,12 @@ export default function GroupedProducts(props) {
                 >
                   {/* <Typography variant="h3" style={{marginLeft:'0%',marginBottom:30}}> Ginger, Turmeric, Garlic & Honey Tea</Typography> */}
                      <Typography style={{marginTop:0, padding: 0,fontSize:14}}>
-                          <strong><ReactMarkdown>Nature’s Powerhouse for Immunity and Vitality.</ReactMarkdown></strong>
+                          <strong><ReactMarkdown>Natural Immune Booster, Ease Arthritis & Strong Bones</ReactMarkdown></strong>
                     </Typography>
                       <Typography style={{marginTop:10, fontSize:12}}>
-                            <ReactMarkdown>Embrace the healing synergy of Ginger, Turmeric, Garlic, and Honey — a time-honored blend crafted to strengthen your immune system, restore balance, and promote lifelong wellness.</ReactMarkdown>
+                            <ReactMarkdown>{gingerTumeric}</ReactMarkdown>
                       </Typography>
-                      <Typography style={{marginTop:10, fontSize:12}}>
+                      {/* <Typography style={{marginTop:10, fontSize:12}}>
                           <ReactMarkdown>Rich in natural antioxidants and anti-inflammatory compounds, this potent fusion helps ease arthritis and joint pain, build stronger bones, and support joint and muscle health. It also aids in relieving colds, flu, and nasal congestion, while helping to normalize blood sugar levels and protect against bacterial infections.</ReactMarkdown>
                     </Typography>
                     <Typography style={{marginTop:10, fontSize:12}}>
@@ -539,7 +583,7 @@ export default function GroupedProducts(props) {
                     </Typography>
                       <Typography style={{marginTop:10, fontSize:12}}>
                           <em><ReactMarkdown>Pure. Potent. Naturally restorative.</ReactMarkdown></em>
-                    </Typography>
+                    </Typography> */}
                 </Grid>
                 <Grid
                   item
@@ -550,8 +594,8 @@ export default function GroupedProducts(props) {
                   <Button
                     variant="contained"
                     component={Link}
-                    to="/dealscentral"
-                    //onClick={() => <DealHome />}
+                    to={`/products/${categorySlug}/${slug1}`}
+                    onClick={() => <ProductDetails />}
                     className={classes.actionPlusButton}
                   >
                     View Details
@@ -583,12 +627,12 @@ export default function GroupedProducts(props) {
                 >
                    {/* <Typography variant="h3" style={{marginLeft:'0%',marginBottom:30}}> DiaHerbs Herbal Tea</Typography> */}
                                       <Typography style={{marginTop:0, padding: 0,fontSize:14}}>
-                                            <strong><ReactMarkdown>Natural Support for Balanced Blood Sugar and Lasting Vitality.</ReactMarkdown></strong>
+                                            <strong><ReactMarkdown>Immune Booster, Blood Sugar Control</ReactMarkdown></strong>
                                       </Typography>
                                       <Typography style={{marginTop:10, fontSize:12}}>
-                                            <ReactMarkdown>Discover the power of nature’s finest herbs with DiaHerbs Herbal Tea — a potent blend of natural anti-hyperglycemics, antioxidants, insulin sensitizers, and metabolic boosters carefully formulated to promote healthy blood sugar balance and overall wellness. </ReactMarkdown>
-                                      </Typography>
-                                      <Typography style={{marginTop:10, fontSize:12}}>
+                                          <ReactMarkdown>{diaherbHerbal}</ReactMarkdown>
+                                     </Typography>
+                                      {/* <Typography style={{marginTop:10, fontSize:12}}>
                                             <ReactMarkdown>This revitalizing herbal infusion helps lower elevated blood sugar levels, reduce abnormally high serum insulin, and enhance glucose utilization by body cells. Its antioxidant properties also help mitigate oxidative stress, premature aging, and the harmful effects of free radicals on your system.</ReactMarkdown>
                                       </Typography>
                                       <Typography style={{marginTop:10, fontSize:12}}>
@@ -596,7 +640,7 @@ export default function GroupedProducts(props) {
                                       </Typography>
                                       <Typography style={{marginTop:10, fontSize:12}}>
                                             <em><ReactMarkdown>Balance your energy. Empower your health — naturally.</ReactMarkdown></em>
-                                      </Typography>
+                                      </Typography> */}
                 </Grid>
                 <Grid
                   item
@@ -607,8 +651,8 @@ export default function GroupedProducts(props) {
                   <Button
                     variant="contained"
                     component={Link}
-                    to="/dealscentral"
-                    //onClick={() => <DealHome />}
+                   to={`/products/${categorySlug}/${slug2}`}
+                    onClick={() => <ProductDetails />}
                     className={classes.actionPlusButton}
                   >
                     View Details
@@ -641,12 +685,12 @@ export default function GroupedProducts(props) {
                 >
                  {/* <Typography variant="h3" style={{marginLeft:'0%',marginBottom:30}}>Ginger, Lemon & Moringa Herbal Tea</Typography> */}
                                       <Typography style={{marginTop:0, padding: 0,fontSize:14}}>
-                                           <strong><ReactMarkdown>The Miracle Tea for Detox, Energy & Balance.</ReactMarkdown></strong>
+                                           <strong><ReactMarkdown>Slimming Kidney Cleanser and Reduces Inflammation</ReactMarkdown></strong>
                                      </Typography>
                                        <Typography style={{marginTop:10, fontSize:12}}>
-                                             <ReactMarkdown>Experience the perfect harmony of Ginger, Lemon, and Moringa — a revitalizing blend crafted to refresh your body, cleanse your system, and energize your day. Naturally rich in vitamins, minerals, and amino acids, this powerful herbal infusion supports complete well-being from within.</ReactMarkdown>
+                                             <ReactMarkdown>{gingerLemon}</ReactMarkdown>
                                        </Typography>
-                                       <Typography style={{marginTop:10, fontSize:12}}>
+                                       {/* <Typography style={{marginTop:10, fontSize:12}}>
                                            <ReactMarkdown>Ginger, Lemon & Moringa Herbal Tea helps boost metabolism, burn calories, and reduce body fat accumulation, making it an excellent choice for weight management. It also promotes kidney detoxification, lowers blood sugar levels, and helps prevent the build-up of kidney stones while protecting against chronic kidney diseases.</ReactMarkdown>
                                      </Typography>
                                      <Typography style={{marginTop:10, fontSize:12}}>
@@ -654,7 +698,7 @@ export default function GroupedProducts(props) {
                                      </Typography>
                                        <Typography style={{marginTop:10, fontSize:12}}>
                                            <em><ReactMarkdown>Cleanse. Refresh. Thrive — naturally.</ReactMarkdown></em>
-                                     </Typography>
+                                     </Typography> */}
                 </Grid>
                 <Grid
                   item
@@ -665,8 +709,8 @@ export default function GroupedProducts(props) {
                   <Button
                     variant="contained"
                     component={Link}
-                    to="/dealscentral"
-                    //onClick={() => <DealHome />}
+                    to={`/products/${categorySlug}/${slug3}`}
+                    onClick={() => <ProductDetails />}
                     className={classes.actionPlusButton}
                   >
                     View Details
@@ -706,12 +750,12 @@ export default function GroupedProducts(props) {
                 >
                   {/* <Typography><ReactMarkdown>**Essential services for patients, medical evacuation (medevac) flights, or travelers requiring medical assistance.**</ReactMarkdown></Typography> */}
                  <Typography style={{marginTop:0, padding: 0,fontSize:14}}>
-                                                           <strong><ReactMarkdown>Refresh Your Senses. Restore Your Balance.</ReactMarkdown></strong>
+                                                           <strong><ReactMarkdown>Blood Pressure Control, Fights Bacteria Infections, Improves Sleep and Menstrual Cramps</ReactMarkdown></strong>
                                                      </Typography>
                                                      <Typography style={{marginTop:20, fontSize:12}}>
-                                                           <ReactMarkdown>Experience the cool, calming essence of Peppermint Herbal Tea — a rejuvenating blend that supports both mind and body. Crafted from pure peppermint leaves, this aromatic infusion delivers natural relief, relaxation, and daily wellness in every cup.</ReactMarkdown>
+                                                           <ReactMarkdown>{peppemintHerbal}</ReactMarkdown>
                                                      </Typography>
-                                                     <Typography style={{marginTop:10, fontSize:11}}>
+                                                     {/* <Typography style={{marginTop:10, fontSize:11}}>
                                                            <ReactMarkdown>Known for its wide range of health benefits, Peppermint Herbal Tea helps improve sleep quality, regulate blood pressure, and fight infections with its natural antibacterial properties. It also acts as a gentle immune booster, helps relieve menstrual cramps and headaches, and supports cardio-metabolic health.</ReactMarkdown>
                                                      </Typography>
                                                      <Typography style={{marginTop:10, fontSize:11}}>
@@ -719,7 +763,7 @@ export default function GroupedProducts(props) {
                                                      </Typography>
                                                      <Typography style={{marginTop:10, fontSize:11}}>
                                                            <em><ReactMarkdown>Breathe easy. Sip deeply. Live well.</ReactMarkdown></em>
-                                                     </Typography>
+                                                     </Typography> */}
                 </Grid>
                 <Grid
                   item
@@ -730,8 +774,8 @@ export default function GroupedProducts(props) {
                   <Button
                     variant="contained"
                     component={Link}
-                    to="/dealscentral"
-                    //onClick={() => <DealHome />}
+                   to={`/products/${categorySlug}/${slug4}`}
+                    onClick={() => <ProductDetails />}
                     className={classes.actionPlusButton}
                   >
                     View Details
@@ -763,12 +807,12 @@ export default function GroupedProducts(props) {
                 >
                  {/* <Typography variant="h3" style={{marginLeft:'0%',marginBottom:30}}> Pomegranate Herbal Tea</Typography> */}
                     <Typography style={{marginTop:0, padding: 0,fontSize:14}}>
-                          <strong><ReactMarkdown>A Cup of Wellness, Naturally Infused.</ReactMarkdown></strong>
+                          <strong><ReactMarkdown>High Cholesterol Control & Healthy Heart Support</ReactMarkdown></strong>
                     </Typography>
                     <Typography style={{marginTop:20, fontSize:11}}>
-                          <ReactMarkdown>Delight in the vibrant taste and powerful health benefits of Pomegranate Herbal Tea — a flavorful infusion crafted to support your heart, body, and overall well-being. </ReactMarkdown>
+                          <ReactMarkdown>{pomegranateHerbal}</ReactMarkdown>
                     </Typography>
-                    <Typography style={{marginTop:10, fontSize:11}}>
+                    {/* <Typography style={{marginTop:10, fontSize:11}}>
                           <ReactMarkdown>Rich in natural antioxidants, this refreshing herbal tea helps reduce cellular damage caused by free radicals, protects against heart disease, and supports healthy blood circulation. It also aids in normalizing blood pressure, reducing cholesterol and triglyceride buildup, and provides natural support for arthritis, gout, and prostate health.</ReactMarkdown>
                     </Typography>
                     <Typography style={{marginTop:10, fontSize:11}}>
@@ -776,7 +820,7 @@ export default function GroupedProducts(props) {
                     </Typography>
                     <Typography style={{marginTop:10, fontSize:11}}>
                           <em><ReactMarkdown>Pure vitality in every cup.</ReactMarkdown></em>
-                    </Typography>
+                    </Typography> */}
                 </Grid>
                 <Grid
                   item
@@ -787,8 +831,8 @@ export default function GroupedProducts(props) {
                   <Button
                     variant="contained"
                     component={Link}
-                    to="/dealscentral"
-                    //onClick={() => <DealHome />}
+                   to={`/products/${categorySlug}/${slug5}`}
+                    onClick={() => <ProductDetails />}
                     className={classes.actionPlusButton}
                   >
                     View Details
@@ -821,12 +865,12 @@ export default function GroupedProducts(props) {
                 >
                   {/* <Typography variant="h3" style={{marginLeft:'0%',marginBottom:30}}> Green Tea</Typography> */}
                      <Typography style={{marginTop:0, padding: 0,fontSize:14}}>
-                          <strong><ReactMarkdown>Refresh Your Body. Renew Your Health.</ReactMarkdown></strong>
+                          <strong><ReactMarkdown>Anti-Cancer and Stroke, General Antioxidant and Metabolic Booster</ReactMarkdown></strong>
                     </Typography>
                       <Typography style={{marginTop:10, fontSize:11}}>
-                            <ReactMarkdown>Experience the timeless goodness of Green Tea — a revitalizing infusion celebrated for its powerful antioxidants and remarkable health benefits. Crafted from the purest tea leaves, it supports your body’s natural balance, vitality, and longevity.</ReactMarkdown>
+                            <ReactMarkdown>{greenTeaHerbal}</ReactMarkdown>
                       </Typography>
-                      <Typography style={{marginTop:10, fontSize:11}}>
+                      {/* <Typography style={{marginTop:10, fontSize:11}}>
                           <ReactMarkdown>Rich in polyphenols and natural antioxidants, Green Tea helps lower bad cholesterol, support cardiovascular health, and improve blood circulation. It also aids in normalizing blood sugar and blood pressure levels, reducing stroke risk, and protecting DNA from damage caused by free radicals, helping to prevent cancer growth.</ReactMarkdown>
                     </Typography>
                     <Typography style={{marginTop:10, fontSize:11}}>
@@ -834,7 +878,7 @@ export default function GroupedProducts(props) {
                     </Typography>
                       <Typography style={{marginTop:10, fontSize:11}}>
                           <em><ReactMarkdown>Sip your way to a healthier, longer, and calmer life.</ReactMarkdown></em>
-                    </Typography>
+                    </Typography> */}
                 </Grid>
                 <Grid
                   item
@@ -845,8 +889,8 @@ export default function GroupedProducts(props) {
                   <Button
                     variant="contained"
                     component={Link}
-                    to="/dealscentral"
-                    //onClick={() => <DealHome />}
+                   to={`/products/${categorySlug}/${slug6}`}
+                    onClick={() => <ProductDetails />}
                     className={classes.actionPlusButton}
                   >
                     View Details
@@ -864,7 +908,7 @@ export default function GroupedProducts(props) {
           <Grid
             container
             direction="row"
-            style={{ marginTop: 15, height: "33%" }}
+            style={{ marginTop: 15, height: "68%" }}
           >
             <Grid
               container
@@ -885,19 +929,19 @@ export default function GroupedProducts(props) {
               <Grid
                 item
                 alignItems="center"
-                style={{ height: "65%", marginLeft: 10 }}
+                style={{ height: "35%", marginLeft: 10 }}
               >
                 {/* <Typography style={{ fontSize: 11 }}>
                 <ReactMarkdown>**Designed for high-profile travelers, executives, celebrities, and families seeking a seamless, stress-free airport experience.**</ReactMarkdown>
                 </Typography> */}
                 {/* <Typography variant="h5" style={{marginLeft:'0%',marginBottom:30}}> Ginger, Turmeric, Garlic & Honey Tea</Typography> */}
                      <Typography style={{marginTop:0, padding: 0,fontSize:12}}>
-                          <strong><ReactMarkdown>Nature’s Powerhouse for Immunity and Vitality.</ReactMarkdown></strong>
+                          <strong><ReactMarkdown>Natural Immune Booster, Ease Arthritis & Strong Bones</ReactMarkdown></strong>
                     </Typography>
                       <Typography style={{marginTop:10, fontSize:11}}>
-                            <ReactMarkdown>Embrace the healing synergy of Ginger, Turmeric, Garlic, and Honey — a time-honored blend crafted to strengthen your immune system, restore balance, and promote lifelong wellness.</ReactMarkdown>
+                            <ReactMarkdown>{gingerTumeric}</ReactMarkdown>
                       </Typography>
-                      <Typography style={{marginTop:10, fontSize:11}}>
+                      {/* <Typography style={{marginTop:10, fontSize:11}}>
                           <ReactMarkdown>Rich in natural antioxidants and anti-inflammatory compounds, this potent fusion helps ease arthritis and joint pain, build stronger bones, and support joint and muscle health. It also aids in relieving colds, flu, and nasal congestion, while helping to normalize blood sugar levels and protect against bacterial infections.</ReactMarkdown>
                     </Typography>
                     <Typography style={{marginTop:10, fontSize:11}}>
@@ -905,9 +949,9 @@ export default function GroupedProducts(props) {
                     </Typography>
                       <Typography style={{marginTop:10, fontSize:11}}>
                           <em><ReactMarkdown>Pure. Potent. Naturally restorative.</ReactMarkdown></em>
-                    </Typography>
+                    </Typography> */}
               </Grid>
-              {/* <Grid
+              <Grid
                 item
                 alignItems="center"
                 // style={{ height: "60%", marginLeft: "3.5em" }}
@@ -916,13 +960,13 @@ export default function GroupedProducts(props) {
                 <Button
                   variant="contained"
                   component={Link}
-                  to="/dealscentral"
-                  //onClick={() => <DealHome />}
-                  className={classes.actionButton}
+                  to={`/products/${categorySlug}/${slug1}`}
+                    onClick={() => <ProductDetails />}
+                  className={classes.actionMobileButton}
                 >
-                  Send Errand
+                  View Details
                 </Button>
-              </Grid> */}
+              </Grid>
             </Grid>
             <Grid
               container
@@ -945,16 +989,16 @@ export default function GroupedProducts(props) {
               <Grid
                 item
                 alignItems="center"
-                style={{ height: "55%", marginLeft: 25 }}
+                style={{ height: "35%", marginLeft: 25 }}
               >
                  {/* <Typography variant="h5" style={{marginLeft:'0%',marginBottom:30}}> DiaHerbs Herbal Tea</Typography> */}
                                       <Typography style={{marginTop:0, padding: 0,fontSize:12}}>
-                                            <strong><ReactMarkdown>Natural Support for Balanced Blood Sugar and Lasting Vitality.</ReactMarkdown></strong>
+                                            <strong><ReactMarkdown>Immune Booster, Blood Sugar Control</ReactMarkdown></strong>
                                       </Typography>
-                                      <Typography style={{marginTop:10, fontSize:11}}>
-                                            <ReactMarkdown>Discover the power of nature’s finest herbs with DiaHerbs Herbal Tea — a potent blend of natural anti-hyperglycemics, antioxidants, insulin sensitizers, and metabolic boosters carefully formulated to promote healthy blood sugar balance and overall wellness. </ReactMarkdown>
-                                      </Typography>
-                                      <Typography style={{marginTop:10, fontSize:11}}>
+                                       <Typography style={{marginTop:10, fontSize:11}}>
+                                          <ReactMarkdown>{diaherbHerbal}</ReactMarkdown>
+                                     </Typography>
+                                      {/* <Typography style={{marginTop:10, fontSize:11}}>
                                             <ReactMarkdown>This revitalizing herbal infusion helps lower elevated blood sugar levels, reduce abnormally high serum insulin, and enhance glucose utilization by body cells. Its antioxidant properties also help mitigate oxidative stress, premature aging, and the harmful effects of free radicals on your system.</ReactMarkdown>
                                       </Typography>
                                       <Typography style={{marginTop:10, fontSize:11}}>
@@ -962,9 +1006,9 @@ export default function GroupedProducts(props) {
                                       </Typography>
                                       <Typography style={{marginTop:10, fontSize:11}}>
                                             <em><ReactMarkdown>Balance your energy. Empower your health — naturally.</ReactMarkdown></em>
-                                      </Typography>
+                                      </Typography> */}
               </Grid>
-              {/* <Grid
+              <Grid
                 item
                 alignItems="center"
                 // style={{ height: "60%", marginLeft: "3.5em" }}
@@ -973,13 +1017,13 @@ export default function GroupedProducts(props) {
                 <Button
                   variant="contained"
                   component={Link}
-                  to="/dealscentral"
-                  //onClick={() => <DealHome />}
-                  className={classes.actionButton}
+                  to={`/products/${categorySlug}/${slug2}`}
+                  onClick={() => <ProductDetails />}
+                  className={classes.actionMobileButton}
                 >
-                  Send Errand
+                  View Details
                 </Button>
-              </Grid> */}
+              </Grid>
             </Grid>
 
             <Grid
@@ -1001,16 +1045,16 @@ export default function GroupedProducts(props) {
               <Grid
                 item
                 alignItems="center"
-                style={{ height: "65%", marginLeft: 25 }}
+                style={{ height: "35%", marginLeft: 25 }}
               >
                 {/* <Typography variant="h5" style={{marginLeft:'0%',marginBottom:30}}>Ginger, Lemon & Moringa Herbal Tea</Typography> */}
                                       <Typography style={{marginTop:0, padding: 0,fontSize:12}}>
-                                           <strong><ReactMarkdown>The Miracle Tea for Detox, Energy & Balance.</ReactMarkdown></strong>
+                                           <strong><ReactMarkdown>Slimming Kidney Cleanser and Reduces Inflammation</ReactMarkdown></strong>
                                      </Typography>
                                        <Typography style={{marginTop:10, fontSize:11}}>
-                                             <ReactMarkdown>Experience the perfect harmony of Ginger, Lemon, and Moringa — a revitalizing blend crafted to refresh your body, cleanse your system, and energize your day. Naturally rich in vitamins, minerals, and amino acids, this powerful herbal infusion supports complete well-being from within.</ReactMarkdown>
+                                             <ReactMarkdown>{gingerLemon}</ReactMarkdown>
                                        </Typography>
-                                       <Typography style={{marginTop:10, fontSize:11}}>
+                                       {/* <Typography style={{marginTop:10, fontSize:11}}>
                                            <ReactMarkdown>Ginger, Lemon & Moringa Herbal Tea helps boost metabolism, burn calories, and reduce body fat accumulation, making it an excellent choice for weight management. It also promotes kidney detoxification, lowers blood sugar levels, and helps prevent the build-up of kidney stones while protecting against chronic kidney diseases.</ReactMarkdown>
                                      </Typography>
                                      <Typography style={{marginTop:10, fontSize:11}}>
@@ -1018,10 +1062,10 @@ export default function GroupedProducts(props) {
                                      </Typography>
                                        <Typography style={{marginTop:10, fontSize:11}}>
                                            <em><ReactMarkdown>Cleanse. Refresh. Thrive — naturally.</ReactMarkdown></em>
-                                     </Typography>
+                                     </Typography> */}
               </Grid>
 
-              {/* <Grid
+              <Grid
                 item
                 alignItems="center"
                 // style={{ height: "60%", marginLeft: "3.5em" }}
@@ -1030,26 +1074,26 @@ export default function GroupedProducts(props) {
                 <Button
                   variant="contained"
                   component={Link}
-                  to="/dealscentral"
-                  //onClick={() => <DealHome />}
-                  className={classes.actionButton}
+                  to={`/products/${categorySlug}/${slug3}`}
+                  onClick={() => <ProductDetails />}
+                  className={classes.actionMobileButton}
                 >
-                  Request Escrow
+                  View Details
                 </Button>
-              </Grid> */}
+              </Grid>
             </Grid>
           </Grid>
           <Grid
             container
             direction="row"
-            style={{ marginTop: 5, height: "33%" }}
+            style={{ marginTop: 5, height: "32%" }}
           >
             <Grid
               container
               direction="column"
-              style={{ marginLeft: 10, width: "100%", marginTop: 0 }}
+              style={{ marginLeft: 0, width: "32%", marginTop: 0 }}
             >
-              <Typography variant="h5" style={{marginLeft:10, marginBottom:10}}>Peppermint Herbal Tea</Typography>
+              <Typography variant="h5" style={{marginLeft:0, marginBottom:2, fontSize:12}}>Peppermint Herbal Tea</Typography>
               <Grid
                 container
                 //direction="row"
@@ -1058,20 +1102,20 @@ export default function GroupedProducts(props) {
                 justifyContent={matchesSM ? "center" : "space-between"}
                 direction={matchesSM ? "column" : "row"}
                 item
-                style={{ height: "25%", marginTop: 10, marginLeft: 10 }}
+                style={{ height: "10%", marginTop: 10, marginLeft: 5 }}
               ></Grid>
               <Grid
                 item
                 alignItems="center"
-                style={{ height: "65%", marginLeft: 10 }}
+                style={{ height: "70%", marginLeft: 10 }}
               >
                 <Typography style={{marginTop:0, padding: 0,fontSize:12}}>
-                                                           <strong><ReactMarkdown>Refresh Your Senses. Restore Your Balance.</ReactMarkdown></strong>
+                                                           <strong><ReactMarkdown>Blood Pressure Control, Fights Bacteria Infections, Improves Sleep and Menstrual Cramps</ReactMarkdown></strong>
                                                      </Typography>
                                                      <Typography style={{marginTop:20, fontSize:11}}>
-                                                           <ReactMarkdown>Experience the cool, calming essence of Peppermint Herbal Tea — a rejuvenating blend that supports both mind and body. Crafted from pure peppermint leaves, this aromatic infusion delivers natural relief, relaxation, and daily wellness in every cup.</ReactMarkdown>
+                                                           <ReactMarkdown>{peppemintHerbal}</ReactMarkdown>
                                                      </Typography>
-                                                     <Typography style={{marginTop:10, fontSize:10}}>
+                                                     {/* <Typography style={{marginTop:10, fontSize:10}}>
                                                            <ReactMarkdown>Known for its wide range of health benefits, Peppermint Herbal Tea helps improve sleep quality, regulate blood pressure, and fight infections with its natural antibacterial properties. It also acts as a gentle immune booster, helps relieve menstrual cramps and headaches, and supports cardio-metabolic health.</ReactMarkdown>
                                                      </Typography>
                                                      <Typography style={{marginTop:10, fontSize:10}}>
@@ -1079,31 +1123,33 @@ export default function GroupedProducts(props) {
                                                      </Typography>
                                                      <Typography style={{marginTop:10, fontSize:10}}>
                                                            <em><ReactMarkdown>Breathe easy. Sip deeply. Live well.</ReactMarkdown></em>
-                                                     </Typography>
+                                                     </Typography> */}
               </Grid>
-              {/* <Grid
+              <Grid
                 item
                 alignItems="center"
                 // style={{ height: "60%", marginLeft: "3.5em" }}
-                style={{ height: "10%", marginLeft: "0.3em", marginTop: 10 }}
+                style={{ height: "5%", marginLeft: "0.3em", marginTop: 10 }}
               >
                 <Button
                   variant="contained"
                   component={Link}
-                  to="/dealscentral"
-                  //onClick={() => <DealHome />}
-                  className={classes.actionButton}
+                   to={`/products/${categorySlug}/${slug4}`}
+                    onClick={() => <ProductDetails />}
+                  className={classes.actionMobileDownButton}
+                   style={{marginLeft:3}}
                 >
-                  List Products
+                 View Details
                 </Button>
-              </Grid> */}
+              </Grid>
             </Grid>
             <Grid
               container
               direction="column"
-              style={{ marginLeft: 0, width: "100%", marginTop: 0 }}
+              style={{ marginLeft: 7, width: "32%", marginTop: 0 }}
             >
-              <Typography variant="h5" style={{marginLeft:10, marginBottom:25}}>Airline Crew & Layover Services</Typography> <br />
+              <Typography variant="h5" style={{marginLeft:35, marginBottom:2,fontSize:12}}>Pomegranate Herbal Tea</Typography> <br />
+              
               <Grid
                 container
                 //direction="row"
@@ -1112,20 +1158,30 @@ export default function GroupedProducts(props) {
                 justifyContent={matchesSM ? "center" : "space-between"}
                 direction={matchesSM ? "column" : "row"}
                 item
-                style={{ height: "25%", marginTop: 0, marginLeft: 20 }}
+                style={{ height: "10%", marginTop: 0, marginLeft: 20 }}
               ></Grid>
               <Grid
                 item
                 alignItems="center"
-                style={{ height: "63%", marginLeft: 25 }}
+                style={{ height: "65%", marginLeft: 25 }}
               >
-                <Typography><ReactMarkdown>**Dedicated services to support airline crew members, including pilots, cabin crew, and ground staff on duty.**</ReactMarkdown></Typography>
-                  <Typography>   
-                  <br /><strong>Services Include:</strong><br />               
-                  <ReactMarkdown>{airlineCrewServices}</ReactMarkdown>
-                  </Typography>
+                <Typography style={{marginTop:0, padding: 0,fontSize:12}}>
+                          <strong><ReactMarkdown>High Cholesterol Control & Healthy Heart Support</ReactMarkdown></strong>
+                    </Typography>
+                    <Typography style={{marginTop:20, fontSize:11}}>
+                          <ReactMarkdown>{pomegranateHerbal}</ReactMarkdown>
+                    </Typography>
+                    {/* <Typography style={{marginTop:10, fontSize:10}}>
+                          <ReactMarkdown>Rich in natural antioxidants, this refreshing herbal tea helps reduce cellular damage caused by free radicals, protects against heart disease, and supports healthy blood circulation. It also aids in normalizing blood pressure, reducing cholesterol and triglyceride buildup, and provides natural support for arthritis, gout, and prostate health.</ReactMarkdown>
+                    </Typography>
+                    <Typography style={{marginTop:10, fontSize:10}}>
+                          <ReactMarkdown>Every sip promotes gut health and smooth digestion, making it both a soothing and revitalizing daily ritual.</ReactMarkdown>
+                    </Typography>
+                    <Typography style={{marginTop:10, fontSize:10}}>
+                          <em><ReactMarkdown>Pure vitality in every cup.</ReactMarkdown></em>
+                    </Typography> */}
               </Grid>
-              {/* <Grid
+              <Grid
                 item
                 alignItems="center"
                 // style={{ height: "60%", marginLeft: "3.5em" }}
@@ -1134,21 +1190,22 @@ export default function GroupedProducts(props) {
                 <Button
                   variant="contained"
                   component={Link}
-                  to="/dealscentral"
-                  //onClick={() => <DealHome />}
-                  className={classes.actionButton}
+                  to={`/products/${categorySlug}/${slug5}`}
+                    onClick={() => <ProductDetails />}
+                  className={classes.actionMobileDownButton}
+                   style={{marginLeft:20}}
                 >
-                  Boost Visibility
+                 View Details
                 </Button>
-              </Grid> */}
+              </Grid>
             </Grid>
 
             <Grid
               container
               direction="column"
-              style={{ marginLeft: 0, width: "100%", marginTop: 0 }}
+              style={{ marginLeft: 7, width: "32%", marginTop: 0 }}
             >
-               <Typography variant="h5" style={{marginLeft:10, marginBottom:20}}>Private Jet / Charter Flight Protocol Services</Typography>
+               <Typography variant="h5" style={{marginLeft:45, marginBottom:30, fontSize:12}}>Green Tea</Typography>
               <Grid
                 container
                 //direction="row"
@@ -1157,21 +1214,31 @@ export default function GroupedProducts(props) {
                 justifyContent={matchesSM ? "center" : "space-between"}
                 direction={matchesSM ? "column" : "row"}
                 item
-                style={{ height: "25%", marginTop: 0, marginLeft: "1.2em" }}
+                style={{ height: "10%", marginTop: 0, marginLeft: "1.2em" }}
               ></Grid>
               <Grid
                 item
                 alignItems="center"
-                style={{ height: "63%", marginLeft: 25 }}
+                style={{ height: "65%", marginLeft: 25 }}
               >
-                 <Typography><ReactMarkdown>**Luxury protocol services tailored for private aircraft passengers and VIP charters.**</ReactMarkdown></Typography>
-                  <Typography>   
-                  <br /><strong>Services Include:</strong><br />               
-                  <ReactMarkdown>{privateServices}</ReactMarkdown>
-                  </Typography>
+                  <Typography style={{marginTop:0, padding: 0,fontSize:12}}>
+                          <strong><ReactMarkdown>Anti-Cancer and Stroke, General Antioxidant and Metabolic Booster</ReactMarkdown></strong>
+                    </Typography>
+                      <Typography style={{marginTop:10, fontSize:10}}>
+                            <ReactMarkdown>{greenTeaHerbal}</ReactMarkdown>
+                      </Typography>
+                      {/* <Typography style={{marginTop:10, fontSize:10}}>
+                          <ReactMarkdown>Rich in polyphenols and natural antioxidants, Green Tea helps lower bad cholesterol, support cardiovascular health, and improve blood circulation. It also aids in normalizing blood sugar and blood pressure levels, reducing stroke risk, and protecting DNA from damage caused by free radicals, helping to prevent cancer growth.</ReactMarkdown>
+                    </Typography>
+                    <Typography style={{marginTop:10, fontSize:10}}>
+                          <ReactMarkdown>Beyond its physical benefits, Green Tea helps alleviate stress and anxiety, supports bone and muscle health, and aids in healthy weight management — all while promoting long-term wellness and vitality.</ReactMarkdown>
+                    </Typography>
+                      <Typography style={{marginTop:10, fontSize:10}}>
+                          <em><ReactMarkdown>Sip your way to a healthier, longer, and calmer life.</ReactMarkdown></em>
+                    </Typography> */}
               </Grid>
 
-              {/* <Grid
+              <Grid
                 item
                 alignItems="center"
                 // style={{ height: "60%", marginLeft: "3.5em" }}
@@ -1180,156 +1247,17 @@ export default function GroupedProducts(props) {
                 <Button
                   variant="contained"
                   component={Link}
-                  to="/dealscentral"
-                  //onClick={() => <DealHome />}
-                  className={classes.actionButton}
+                  to={`/products/${categorySlug}/${slug6}`}
+                  onClick={() => <ProductDetails />}
+                  className={classes.actionMobileDownButton}
+                  style={{marginLeft:20}}
                 >
-                  Market Metrics
+                 View Details
                 </Button>
-              </Grid> */}
+              </Grid>
             </Grid>
           </Grid>
-          {/**This is the last lap */}
-          <Grid
-            container
-            direction="row"
-            style={{ marginTop: 5, height: "33%" }}
-          >
-            <Grid
-              container
-              direction="column"
-              style={{ marginLeft: 10, width: "100%", marginTop: 0 }}
-            >
-              <Typography variant="h5" style={{marginLeft:10, marginBottom:20}}>Special Event Protocol Management Service</Typography>
-              <Grid
-                container
-                //direction="row"
-                alignItems="center"
-                className={classes.backgroundEvent}
-                justifyContent={matchesSM ? "center" : "space-between"}
-                direction={matchesSM ? "column" : "row"}
-                item
-                style={{ height: "25%", marginTop: 10, marginLeft: 10 }}
-              ></Grid>
-              <Grid
-                item
-                alignItems="center"
-                style={{ height: "60%", marginLeft: 10 }}
-              >
-                 <Typography><ReactMarkdown>**Specialized services for celebrities, sports teams, film crews, or diplomatic delegations during high-profile events.**</ReactMarkdown></Typography>
-                  <Typography>   
-                  <br /><strong>Services Include:</strong><br />               
-                  <ReactMarkdown>{specialEventServices}</ReactMarkdown>
-                  </Typography>
-              </Grid>
-              {/* <Grid
-                item
-                alignItems="center"
-                // style={{ height: "60%", marginLeft: "3.5em" }}
-                style={{ height: "10%", marginLeft: "0.3em", marginTop: 10 }}
-              >
-                <Button
-                  variant="contained"
-                  component={Link}
-                  to="/dealscentral"
-                  //onClick={() => <DealHome />}
-                  className={classes.actionButton}
-                >
-                  List Products
-                </Button>
-              </Grid> */}
-            </Grid>
-            <Grid
-              container
-              direction="column"
-              style={{ marginLeft: 0, width: "100%", marginTop: 10 }}
-            >
-               <Typography variant="h5" style={{marginLeft:10, marginBottom:20}}>Protocol Officer Staffing & Training Service</Typography>
-              <Grid
-                container
-                //direction="row"
-                alignItems="center"
-                className={classes.backgroundTraining}
-                justifyContent={matchesSM ? "center" : "space-between"}
-                direction={matchesSM ? "column" : "row"}
-                item
-                style={{ height: "25%", marginTop: 0, marginLeft: 20 }}
-              ></Grid>
-              <Grid
-                item
-                alignItems="center"
-                style={{ height: "63%", marginLeft: 25 }}
-              >
-                <Typography><ReactMarkdown>**Recruitment, training, and provision of professional protocol officers for airports, airlines, or special projects.**</ReactMarkdown></Typography>
-                  <Typography>   
-                  <br /><strong>Services Include:</strong><br />               
-                  <ReactMarkdown>{trainingServices}</ReactMarkdown>
-                  </Typography>
-              </Grid>
-              {/* <Grid
-                item
-                alignItems="center"
-                // style={{ height: "60%", marginLeft: "3.5em" }}
-                style={{ height: "10%", marginLeft: "0.7em", marginTop: 10 }}
-              >
-                <Button
-                  variant="contained"
-                  component={Link}
-                  to="/dealscentral"
-                  //onClick={() => <DealHome />}
-                  className={classes.actionButton}
-                >
-                  Boost Visibility
-                </Button>
-              </Grid> */}
-            </Grid>
-
-            <Grid
-              container
-              direction="column"
-              style={{ marginLeft: 0, width: "100%", marginTop: 0 }}
-            >
-                <Typography variant="h5" style={{marginLeft:10, marginBottom:20}}>Documentation & Clearance Assistance Service</Typography>
-              <Grid
-                container
-                //direction="row"
-                alignItems="center"
-                className={classes.backgroundDocumentation}
-                justifyContent={matchesSM ? "center" : "space-between"}
-                direction={matchesSM ? "column" : "row"}
-                item
-                style={{ height: "25%", marginTop: 0, marginLeft: "1.2em" }}
-              ></Grid>
-              <Grid
-                item
-                alignItems="center"
-                style={{ height: "63%", marginLeft: 25 }}
-              >
-                <Typography><ReactMarkdown>**Expert support with all essential travel documentation, immigration, and customs formalities.**</ReactMarkdown></Typography>
-                  <Typography>   
-                  <br /><strong>Services Include:</strong><br />               
-                  <ReactMarkdown>{documentationServices}</ReactMarkdown>
-                  </Typography>
-              </Grid>
-
-              {/* <Grid
-                item
-                alignItems="center"
-                // style={{ height: "60%", marginLeft: "3.5em" }}
-                style={{ height: "10%", marginLeft: "0.7em", marginTop: 10 }}
-              >
-                <Button
-                  variant="contained"
-                  component={Link}
-                  to="/dealscentral"
-                  //onClick={() => <DealHome />}
-                  className={classes.actionButton}
-                >
-                  Market Metrics
-                </Button>
-              </Grid> */}
-            </Grid>
-          </Grid>
+          
         </Box>
       )}
       <Dialog

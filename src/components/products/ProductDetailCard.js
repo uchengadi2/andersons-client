@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import ReactMarkdown from "react-markdown";
-
+import Card from "@material-ui/core/Card";
 import { Link } from "react-router-dom";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
-import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
@@ -30,13 +29,13 @@ import ProductsForCategory from "./../products/ProductsForCategory";
 import ProductDetails from "./../products/ProductDetails";
 import SendProductToCartForm from "./SendProductToCartForm";
 import SendCourseToCheckoutForm from "./SendCourseToCheckoutForm";
+//import SendProductToCartForm from "./SendProductToCartForm";
 import api from "./../../apis/local";
 
 import { baseURL } from "./../../apis/util";
 
 import theme from "./../ui/Theme";
 import { RoomSharp } from "@material-ui/icons";
-import SendCreatorToCheckoutForm from "./SendCreatorToCheckoutForm";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,8 +43,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "100%",
     //height: 440,
     //height: 500,
-    width:'100%',
-    
+
     //marginLeft: "0.1%",
     borderRadius: 0,
     marginTop: "6em",
@@ -80,8 +78,7 @@ const useStyles = makeStyles((theme) => ({
   },
   media: {
     height: 400,
-    //width: 400,
-    width:"100%"
+    width: 300,
   },
 
   learnButton: {
@@ -117,9 +114,10 @@ const useStyles = makeStyles((theme) => ({
     transform: "rotate(180deg)",
   },
   secondRow: {
-    marginLeft: "0",
-    //width: 500,
-    width:"45%",
+    marginLeft: "0.7",
+    //width: 550,
+    width:'45%',
+    minWidth:'45%',
     border: "1px dotted",
     padding: 20,
   },
@@ -143,11 +141,10 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "10rem",
   },
   thirdRow: {
-    marginLeft: "0.0%",
-   // width: 350,
-   width:"30%",
+    marginLeft: "0.9%",
+    width: '30%',
     border: "1px dotted",
-    padding: 0,
+    padding: 20,
   },
   thirdRowMobile: {
     marginLeft: 10,
@@ -254,12 +251,11 @@ export default function ProductDetailCard(props) {
   const [openLoginForm, setOpenLoginForm] = useState(false);
   const [openSignUpForm, setOpenSignUpForm] = useState(false);
   const [openForgotPasswordForm, setOpenForgotPasswordForm] = useState(false);
-  const [currencyName, setCurrencyName] = useState();
+  const [currencyName, setCurrencyName] = useState('naira');
   const [countryName, setCountryName] = useState();
   const [stateName, setStateName] = useState();
   const [price, setPrice] = useState();
   const [minQuantity, setMinQuantity] = useState();
-  const [samplesList, setSamplesList] = useState([]);
 
   // const { token, setToken } = useToken();
   // const { userId, setUserId } = useUserId();
@@ -276,7 +272,7 @@ export default function ProductDetailCard(props) {
   const matchesMDUp = useMediaQuery(theme.breakpoints.up("md"));
 
   //const imageUrl = `${baseURL}/images/categories/${props.image}`;
-  const imageUrl = `${baseURL}/images/vehicles/${props.sample.image}`;
+  const imageUrl = `${baseURL}/images/products/${props.product.imageCover}`;
 
   const Str = require("@supercharge/strings");
 
@@ -287,13 +283,9 @@ export default function ProductDetailCard(props) {
 
  
 
-  // useEffect(() => {
-  //   setPrice(props.creator.price);
-  //   setCurrencyName(props.creator.currency ? props.creator.currency[0].name : "")
-  // }, [props.creator]);
-
-
-  
+  useEffect(() => {
+    setPrice(props.product.pricePerUnit);
+  }, [props.product]);
 
   useEffect(() => {
     // 👇️ scroll to top on page load
@@ -309,53 +301,20 @@ export default function ProductDetailCard(props) {
   //   const fetchData = async () => {
   //     let allData = [];
   //     api.defaults.headers.common["Authorization"] = `Bearer ${props.token}`;
-  //     const response = await api.get(`/currencies`);
+  //     const response = await api.get(`/currencies/${props.course.currency}`);
   //     const item = response.data.data.data;
   //     //workingData.map((vendor) => {
   //     allData.push({ name: item.name });
   //     //});
 
-      
+  //     console.log("currency name is :", allData[0].name);
   //     setCurrencyName(allData[0].name);
   //   };
 
   //   //call the function
 
   //   fetchData().catch(console.error);
-  // }, []);
-
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     let allData = [];
-  //     api.defaults.headers.common["Authorization"] = `Bearer ${props.token}`;
-  //     const response = await api.get(`/samples`, {
-  //       params:{
-  //         creator:props.creatorId,
-  //         status:"visible",
-  //         isAllowedOnThePlatform:true
-  //       }});
-  //     const workingData = response.data.data.data;
-  //     workingData.map((sample) => {
-  //     allData.push({ refNumber: sample.refNumber, 
-  //       youtubeId:sample.youtubeId, 
-  //       status:sample.status,
-  //       sampleType:sample.sampleType,
-  //       creator:sample.creator,
-  //       isAllowedOnThePlatform:sample.isAllowedOnThePlatform
-  //      });
-  //     });
-
-      
-  //     setSamplesList(allData);
-  //   };
-
-  //   //call the function
-
-  //   fetchData().catch(console.error);
-  // }, [props.creatorId]);
-
-  
+  // }, [props.course.currency]);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -422,7 +381,6 @@ export default function ProductDetailCard(props) {
     });
   };
 
- 
   const handleFailedSignUpDialogOpenStatusWithSnackbar = (message) => {
     // history.push("/categories/new");
     setAlert({
@@ -434,7 +392,11 @@ export default function ProductDetailCard(props) {
     setOpenSignUpForm(true);
   };
 
-
+  const handleMakeOpenLoginFormDialogStatus = () => {
+    // history.push("/categories/new");
+    setOpenSignUpForm(false);
+    setOpenLoginForm(true);
+  };
   const handleMakeOpenForgotPasswordFormDialogStatus = () => {
     // history.push("/categories/new");
     setOpenForgotPasswordForm(true);
@@ -450,11 +412,7 @@ export default function ProductDetailCard(props) {
     setOpenSignUpForm(true);
     setOpenLoginForm(false);
   };
-  const handleMakeOpenLoginFormDialogStatus = () => {
-    // history.push("/categories/new");
-    setOpenSignUpForm(false);
-    setOpenLoginForm(true);
-  };
+
   const handleMakeCloseSignUpDialogStatus = () => {
     // history.push("/categories/new");
     setOpenSignUpForm(false);
@@ -573,130 +531,106 @@ export default function ProductDetailCard(props) {
     }
   };
 
-  
-
   return (
     <>
       {matchesMDUp ? (
         <Grid container direction="column" className={classes.root}>
           <Grid item container direction="row">
-            <Grid item style={{width:'25%'}}>
+            <Grid item>
               <Card>
                 <CardMedia
                   className={classes.media}
                   component="img"
-                  alt={props.sample.refNumber}
+                  alt={props.product.name}
                   image={imageUrl}
                   //   title={props.name}
                   crossOrigin="anonymous"
                 />
               </Card>
-               {/* <Typography>Note: The Actual Vehicle That Will be Provided May or May Not Be Of The Same Model or Color As The One Displayed Here</Typography> */}
             </Grid>
             <Grid item className={classes.secondRow}>
               <Box>
-              <Typography variant="h4" color="textSecondary" component="p">
-                    
+                {props.product.hasSeries ? (
+                  <Typography variant="h4" color="textSecondary" component="p">
+                    {props.product.name}
                     <span style={{ fontSize: 16, fontWeight: 700 }}>
-                      <em> {props.sample.refNumber}</em>
+                      <em> ({props.product.series})</em>
                     </span>
                   </Typography>
-                  
-                <Typography
-                  variant="subtitle1"
-                  color="textSecondary"
-                  component="p"
-                >
-                  {Str(props.sample.vehicleDescription).limit(200, "...").get()}
+                ) : (
+                  <Typography variant="h4" color="textSecondary" component="p">
+                    {props.product.name}
+                  </Typography>
+                )}
+                <Typography variant="h4" style={{ marginTop: 10 }}>
+                  {getCurrencyCode()}
+                  {price
+                    ? price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,")
+                    : 0}
+                  <span style={{ fontSize: 12, marginLeft: 0 }}>per {props.product.unit}</span>
                 </Typography>
+                {props.product.priceLabel !== undefined && (
+                  <Typography
+                    variant="h5"
+                    style={{
+                      color: "black",
+                      fontSize: 15,
+                      color: "red",
+                      marginLeft: 20,
+                    }}
+                  >
+                    {props.product.priceLabel}
+                  </Typography>
+                )}
                 <Typography
                   variant="h5"
-                  color="textSecondary"
-                  component="p"
-                  style={{ marginTop: 5, marginBottom: 15 }}
+                  style={{
+                    color: "black",
+                    marginTop: 20,
+                    marginBottom: 20,
+                    justifyContent: "center",
+                  }}
                 >
-                  <strong>Make </strong>:{props.sample.vehicleMake}
-                  </Typography>       
-                  <Typography
-                    variant="h5"
-                    color="textSecondary"
-                    component="p"
-                    style={{ marginTop: 5, marginBottom: 15 }}
-                  >
-                  <strong>Model </strong>: {props.sample.vehicleModel}
-
-                  </Typography>
-                  <Typography
-                    variant="h5"
-                    color="textSecondary"
-                    component="p"
-                    style={{ marginTop: 5, marginBottom: 15 }}
-                  >
-                  <strong>Class</strong>: {props.sample.vehicleClass}
-
-                </Typography> 
-                <Typography
-                    variant="h5"
-                    color="textSecondary"
-                    component="p"
-                    style={{ marginTop: 5, marginBottom: 15 }}
-                  >
-                  <strong>Type</strong>: {props.sample.sampleType}
-
-                </Typography> 
-                <Typography
-                    variant="h5"
-                    color="textSecondary"
-                    component="p"
-                    style={{ marginTop: 5, marginBottom: 15 }}
-                  >
-                  <strong>Special Feature</strong>: {props.sample.specialFeature}
-
+                  <ReactMarkdown>{props.product.shortDescription}</ReactMarkdown>
                 </Typography>
-                <Typography
+                {props.product.refNumber !== undefined && (
+                  <Typography
                     variant="h5"
-                    color="textSecondary"
-                    component="p"
-                    style={{ marginTop: 5, marginBottom: 15 }}
+                    style={{ color: "black", fontSize: 15 }}
                   >
-                  <strong>Maximum Occupants Allowed</strong>: {props.sample.maximumOccupants}
-
-                </Typography> 
-
-                <Typography
+                    <span style={{ marginRight: 20 }}>
+                      {" "}
+                      <strong>Reference Number:</strong>
+                    </span>
+                    {props.product.refNumber}
+                  </Typography>
+                )}
+                {props.product.minimumOrderQuantity !== undefined && (
+                  <Typography
                     variant="h5"
-                    color="textSecondary"
-                    component="p"
-                    style={{ marginTop: 5, marginBottom: 15 }}
+                    style={{ color: "black", fontSize: 15 }}
                   >
-                  <strong>Vehicle Details</strong>: {props.sample.vehicleDetails}
-
-                </Typography> 
+                    <span style={{ marginRight: 20 }}>
+                      {" "}
+                      <strong>Minimum Order Quantity:</strong>
+                    </span>
+                    {props.product.minimumOrderQuantity}<span style={{ fontSize: 12, marginLeft: 0 }}> {props.product.unit}s</span>
+                  </Typography>
+                )}
                 
-                {props.sample.location && <Typography
-                    variant="h5"
-                    color="textSecondary"
-                    component="p"
-                    style={{ marginTop: 5, marginBottom: 15 }}
-                  >
-                  <strong>Location</strong>: {props.sample.location[0].name}
-
-                </Typography> }
-                 <Typography style={{marginTop:10, color:"red"}}><strong>Disclaimer: <em>The vehicle delivered may vary in model or color from the one depicted.</em></strong></Typography>
-               
+                
               </Box>
             </Grid>
             <Grid item className={classes.thirdRow}>
-              <Box sx={{
-                //width: 100,
-                //height: 430,
-               }}>
-                <SendCreatorToCheckoutForm
-                 sample={props.sample}
-                 service={props.service}
-                 sampleId={props.sampleId}
+              <Box>
+                <SendProductToCartForm
+                  price={price}
+                  currency={props.product.currency}
+                  productId={props.product.id}
+                  product={props.product}
                   token={props.token}
                   userId={props.userId}
+                  minimumQuantity={props.product.minimumOrderQuantity}
                   handleMakeOpenSignUpDialogStatus={
                     handleMakeOpenSignUpDialogStatus
                   }
@@ -721,57 +655,52 @@ export default function ProductDetailCard(props) {
               </Box>
             </Grid>
           </Grid>
-          {props.sample.images.length >=1 && <Typography style={{marginLeft:'40%',marginTop:20, fontSize:20, fontWeight:700}}>Various Views Of The Car</Typography>}
-          <Grid
-            item
-            container
-            direction="row"
-            style={{ width: "100%", marginTop:50 }}
-            justifyContent="center"
-          >
-          
-           <Grid item style={{width:'22.5%'}}><Typography></Typography></Grid>
-           <Grid item container direction="row" style={{width:'40%'}}> 
-          
-           {props.sample.images.map((sample, index) => (
-            
-                  <Grid item style={{width:'100%', marginTop:30}}>
-                    
-                         <Card>
-                             <CardMedia
-                                    className={classes.media}
-                                    component="img"
-                                    alt={props.sample.refNumber}
-                                    image={`${baseURL}/images/vehicles/${sample}`}
-                                    //   title={props.name}
-                                    crossOrigin="anonymous"
-                                    // onMouseOver={(event) => {
-                                    //   event.currentTarget.style.height = "680";
-                                    //   event.currentTarget.style.boxShadow = "0px 0px 20px 20px #B7B7B7";
-                                    // }}
-                                    // onMouseOut={event => {
-                                    //   event.currentTarget.style.height = "400px";
-                                    //   event.currentTarget.style.boxShadow = "0px 0px 1px 1px #B7B7B7";
-                                    //  //event.currentTarget.style.height = "420px";
-                                    // }}
-                                    />
-                  
-                              
-                              </Card>
-                              
-                              </Grid>
-
-                              ))}
-            
-           
-            
-           
-            </Grid>
-           <Grid item style={{width:'22.5%', marginLeft:'5%'}}><Typography></Typography></Grid>
-
-           
+          {/*  */}
+          <Grid item className={classes.thirdColumn}>
+            <Box>
+              <Typography>
+                <strong>Product Description:</strong>
+              </Typography>
+              <Typography
+                variant="h5"
+                style={{
+                  color: "black",
+                  marginTop: 20,
+                  marginBottom: 20,
+                  justifyContent: "center",
+                }}
+              >
+                <ReactMarkdown>{props.product.fullDescription}</ReactMarkdown>
+              </Typography>
+            </Box>
           </Grid>
-          
+         
+          {/* {props.product.previewVideoId &&
+            props.product.previewVideoId !== "null" && (
+              <Typography
+                variant="h5"
+                style={{ color: "black", fontSize: 15, marginLeft: 30 }}
+              >
+                <strong>`"{props.product.name}" Course Preview`</strong>
+              </Typography>
+            )} */}
+         
+              <Grid item className={classes.seventhColumn}>
+                <Card>
+                  <Typography variant="h5" style={{marginLeft:100}}>Customer Testimonials</Typography>
+                  <CardMedia
+                    className={classes.videoMedia}
+                    component="iframe"
+                    alt={props.product.name}
+                    height="140"
+                    src={`https://www.youtube.com/embed/${props.product.previewVideoId}`}
+                    //allow="autoPlay"
+                    allowfullscreen="allowfullscreen"
+                    controls
+                  />
+                </Card>
+              </Grid>
+            
         </Grid>
       ) : (
         <Grid container direction="column" className={classes.rootMobile}>
@@ -781,7 +710,7 @@ export default function ProductDetailCard(props) {
                 <CardMedia
                   className={classes.mediaMobile}
                   component="img"
-                  alt={props.sample.refNumber}
+                  alt={props.product.name}
                   image={imageUrl}
                   //   title={props.name}
                   crossOrigin="anonymous"
@@ -790,175 +719,141 @@ export default function ProductDetailCard(props) {
             </Grid>
             <Grid item className={classes.secondRowMobile}>
               <Box>
-              <Typography variant="h4" color="textSecondary" component="p">
-                    
+               
+                  <Typography variant="h4" color="textSecondary" component="p">
+                    {props.product.name}
                     <span style={{ fontSize: 16, fontWeight: 700 }}>
-                      <em> {props.sample.refNumber}</em>
+                     
                     </span>
                   </Typography>
-                  
-                
-              
-                  <Typography
-                    variant="subtitle1"
-                    color="textSecondary"
-                   component="p"
-                >
-                  {Str(props.sample.vehicleDescription).limit(200, "...").get()}
+               
+                <Typography variant="h5">
+                  {getCurrencyCode()}
+                  {price
+                    ? price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,")
+                    : 0}
+                  <span style={{ fontSize: 12, marginLeft: 0 }}></span>
                 </Typography>
                 
                 <Typography
                   variant="h5"
-                  color="textSecondary"
-                  component="p"
-                  style={{ marginTop: 5, marginBottom: 15 }}
+                  style={{
+                    color: "black",
+                    marginTop: 20,
+                    marginBottom: 20,
+                    justifyContent: "center",
+                  }}
                 >
-                <strong>Make</strong>: {props.sample.vehicleMake}
-                  </Typography>       
-                  <Typography
-                    variant="h5"
-                    color="textSecondary"
-                    component="p"
-                    style={{ marginTop: 5, marginBottom: 15 }}
-                  >
-                  <strong>Model</strong>: {props.sample.vehicleModel}
-
-                  </Typography>
-                  <Typography
-                    variant="h5"
-                    color="textSecondary"
-                    component="p"
-                    style={{ marginTop: 5, marginBottom: 15 }}
-                  >
-                  <strong>Class</strong>: {props.sample.vehicleClass}
-
-                </Typography> 
-                <Typography
-                    variant="h5"
-                    color="textSecondary"
-                    component="p"
-                    style={{ marginTop: 5, marginBottom: 15 }}
-                  >
-                  <strong>Type</strong>: {props.sample.sampleType}
-
-                </Typography> 
-                <Typography
-                    variant="h5"
-                    color="textSecondary"
-                    component="p"
-                    style={{ marginTop: 5, marginBottom: 15 }}
-                  >
-                  <strong>Special Feature</strong>: {props.sample.specialFeature}
-
+                  {props.product.shortDescription}
                 </Typography>
-                <Typography
+                {props.product.refNumber !== "undefined" && (
+                  <Typography
                     variant="h5"
-                    color="textSecondary"
-                    component="p"
-                    style={{ marginTop: 5, marginBottom: 15 }}
+                    style={{ color: "black", fontSize: 15 }}
                   >
-                  <strong>Occupants Allowed</strong>: {props.sample.maximumOccupants}
-
-                </Typography> 
-
-                <Typography
+                    <span style={{ marginRight: 10 }}>
+                      {" "}
+                      <strong>Reference Number:</strong>
+                    </span>
+                    {props.product.refNumber}
+                  </Typography>
+                )}
+                 {props.product.minimumOrderQuantity !== "undefined" && (
+                  <Typography
                     variant="h5"
-                    color="textSecondary"
-                    component="p"
-                    style={{ marginTop: 5, marginBottom: 15 }}
+                    style={{ color: "black", fontSize: 15 }}
                   >
-                  <strong>Vehicle Details</strong>: {props.sample.vehicleDetails}
-
-                </Typography> 
+                    <span style={{ marginRight: 10 }}>
+                      {" "}
+                      <strong>Minimum Order Quantity:</strong>
+                    </span>
+                    {props.product.minimumOrderQuantity}
+                  </Typography>
+                )}
                 
-                {props.sample.location && <Typography
-                    variant="h5"
-                    color="textSecondary"
-                    component="p"
-                    style={{ marginTop: 5, marginBottom: 15 }}
-                  >
-                  <strong>Location</strong>: {props.sample.location[0].name}
-
-                </Typography> }
-                <Typography style={{marginTop:10, color:"red"}}><strong>Disclaimer: <em>The vehicle delivered may vary in model or color from the one depicted.</em></strong></Typography>
               </Box>
             </Grid>
             <Grid item className={classes.thirdRowMobile}>
               <Box>
-                <SendCreatorToCheckoutForm
-                  sample={props.sample}
-                  service={props.service}
-                  sampleId={props.sampleId}
-                   token={props.token}
-                   userId={props.userId}
-                   handleMakeOpenSignUpDialogStatus={
-                     handleMakeOpenSignUpDialogStatus
-                   }
-                   handleMakeCloseSignUpDialogStatus={
-                     handleMakeCloseSignUpDialogStatus
-                   }
-                   handleMakeOpenLoginFormDialogStatus={
-                     handleMakeOpenLoginFormDialogStatus
-                   }
-                   handleMakeCloseForgotPasswordFormDialogStatus={
-                     handleMakeCloseForgotPasswordFormDialogStatus
-                   }
-                   handleSuccessfulCreateSnackbar={
-                     props.handleSuccessfulCreateSnackbar
-                   }
-                   handleFailedSnackbar={props.handleFailedSnackbar}
-                   handleFailedSignUpDialogOpenStatusWithSnackbar={
-                     handleFailedSignUpDialogOpenStatusWithSnackbar
-                   }
-                   cartCounterHandler={props.cartCounterHandler}
+                <SendProductToCartForm
+                  price={price}
+                  currency={props.product.currency}
+                  productId={props.product.id}
+                  product={props.product}
+                  token={props.token}
+                  userId={props.userId}
+                  minimumQuantity={props.product.minimumOrderQuantity}
+                  handleMakeOpenSignUpDialogStatus={
+                    handleMakeOpenSignUpDialogStatus
+                  }
+                  handleMakeCloseSignUpDialogStatus={
+                    handleMakeCloseSignUpDialogStatus
+                  }
+                  handleMakeOpenLoginFormDialogStatus={
+                    handleMakeOpenLoginFormDialogStatus
+                  }
+                  handleMakeCloseForgotPasswordFormDialogStatus={
+                    handleMakeCloseForgotPasswordFormDialogStatus
+                  }
+                  handleSuccessfulCreateSnackbar={
+                    props.handleSuccessfulCreateSnackbar
+                  }
+                  handleFailedSnackbar={props.handleFailedSnackbar}
+                  handleFailedSignUpDialogOpenStatusWithSnackbar={
+                    handleFailedSignUpDialogOpenStatusWithSnackbar
+                  }
+                  cartCounterHandler={props.cartCounterHandler}
                 />
               </Box>
             </Grid>
           </Grid>
-          {/* {props.sample.images.length >=1 &&<Typography style={{marginLeft:'25%',marginTop:20, fontSize:20, fontWeight:700}}>Various Views Of The Car</Typography>} */}
           
-          {props.images && <Grid
-            item
-            container
-            direction="row"
-            style={{ width: "100%" }}
-            justifyContent="center"
-          >
-            <Typography style={{marginLeft:'20%',marginTop:20, fontSize:20, fontWeight:700}}>Various Views Of The Car</Typography>
-            <Grid item style={{width:'7%'}}><Typography></Typography></Grid>
-           <Grid item container direction="row" style={{width:'74%'}}> 
+          <Grid item className={classes.thirdColumnMobile}>
+            <Box>
+              <Typography>
+                <strong>Product Description:</strong>
+              </Typography>
+              <Typography
+                variant="h5"
+                style={{
+                  color: "black",
+                  marginTop: 20,
+                  marginBottom: 20,
+                  justifyContent: "center",
+                }}
+              >
+                <ReactMarkdown>{props.product.fullDescription}</ReactMarkdown>
+              </Typography>
+            </Box>
+          </Grid>
           
-           {props.images.map((sample, index) => (
-                  <Grid item style={{width:'100%', marginTop:30}}>
-                         <Card>
-                         <CardMedia
-                                    className={classes.mediaMobile}
-                                    component="img"
-                                    alt={props.sample.refNumber}
-                                    image={`${baseURL}/images/vehicles/${sample}`}
-                                    //   title={props.name}
-                                    crossOrigin="anonymous"
-                                   
-                                    />
-                  
-                              
-                              </Card>
-                              
-                              </Grid>
-
-                              ))}
+          {/* {props.product.previewVideoId &&
+            props.product.previewVideoId !== "null" && (
+              <Typography
+                variant="h5"
+                style={{ color: "black", fontSize: 15, marginLeft: 30 }}
+              >
+                <strong>`"{props.product.name}" Course Preview`</strong>
+              </Typography>
+            )} */}
+      
+              <Grid item className={classes.seventhColumn}>
+                <Card>
+                  <CardMedia
+                    className={classes.videoMedia}
+                    component="iframe"
+                    alt={props.product.name}
+                    height="140"
+                    src={`https://www.youtube.com/embed/${props.product.previewVideoId}`}
+                    //allow="autoPlay"
+                    allowfullscreen="allowfullscreen"
+                    controls
+                  />
+                </Card>
+              </Grid>
             
-           
-            
-           
-            </Grid>
-           <Grid item style={{width:'7%', marginLeft:'2%'}}><Typography></Typography></Grid>
 
-           
-          
-          </Grid>}       
-
-         
+          {/* </Grid> */}
         </Grid>
       )}
       {renderLoginForm()}

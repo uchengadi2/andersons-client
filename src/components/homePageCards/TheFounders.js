@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import clsx from "clsx";
 import CardActionArea from "@material-ui/core/CardActionArea";
+import ReactMarkdown from "react-markdown";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -73,7 +74,7 @@ const useStyles = makeStyles((theme) => ({
   },
   uppercardMobile: {
     maxWidth: "100%",
-    height: 500,
+    height: 1000,
     //height: 350,
     width: "100%",
 
@@ -470,6 +471,7 @@ export default function TheFounders(props) {
   }
 
   const Str = require("@supercharge/strings");
+  const mustapha="* **Doctor philosophy (PhD. Pharm and Pharm Tech)**\n\n* **Master of Philosophy (M. Phil. Pharm Tech)**\n\n* **Master of Science (M.Sc Pharmaceutics)**\n\n* **Bachelor of Pharmacy Honours (B.Pharm. Hons)**\n\n"
 
   return (
     <>
@@ -477,7 +479,7 @@ export default function TheFounders(props) {
         <>
           <Box className={classes.uppercard} disableRipple={true}>
             {/** place the grid here */}
-            <Typography variant="h3" style={{marginLeft:'40%',marginBottom:60, marginTop:20}}>The Founders</Typography>
+            <Typography variant="h3" style={{marginLeft:'35%',marginBottom:60, marginTop:20}}>The Management Team</Typography>
             <Grid
               container
               direction="row"
@@ -489,7 +491,7 @@ export default function TheFounders(props) {
                 style={{ marginLeft: 20, width: "30%", marginTop: 0 }}
               >
                 
-                <Grid
+                {/* <Grid
                   container
                   //direction="row"
                   alignItems="center"
@@ -499,7 +501,7 @@ export default function TheFounders(props) {
                   item
                   //style={{ height: "35%", marginTop: 0, marginLeft: 50 }}
                   style={{ height: "40%", marginTop: 0, marginLeft: 50 }}
-                ></Grid>
+                ></Grid> */}
                 
                 <Grid
                   item
@@ -507,11 +509,14 @@ export default function TheFounders(props) {
                   //style={{ height: "60%", marginLeft: "3.5em" }}
                   style={{ height: "20%", marginLeft: "3.5em" }}
                 >
-                <Typography variant="h5" style={{marginLeft:"10%", marginBottom:20}}> Mr Ojeniyi Collins Tajudeen</Typography>
+                <Typography variant="h5" style={{marginLeft:"10%", marginBottom:20}}> Chief (Dr.) Bright Edom</Typography>
                   <Typography style={{marginLeft:"20%"}}>
-                  <strong>Co-Founder/CEO</strong><br /><br />
+                  <strong>CEO</strong><br /><br />
                  
                   </Typography>
+                   <Typography style={{marginTop:20, fontSize:11}}>
+                      <ReactMarkdown>He obtained both Bachelor & Masters degrees B.Sc(Hons) in Business Administration & Marketing from University of Lagos. He is the Managing Director (MD) of Brightway Group of Companies and also the Chief Executive Officer (CEO) Andersons Pharmaceuticals Limited. He has several other chains of Businesses in Importation, Oil and Gas, Construction, Logistics and Property Development etc. He is a member of the Institute of Directors (IoD) of Nigeria. He belongs to several trade groups such as the Nigerian British Chamber of Commerce, American and Europe Chamber of Commerce. He has a vast Business experience and exploits that spans close to 40 decades. He is also involved in a lot of philanthropic activities through his foundation called Bright Edom Foundation. He is happily married with children.</ReactMarkdown>
+                   </Typography>
                 </Grid>
                 {/* <Grid
                   item
@@ -536,7 +541,7 @@ export default function TheFounders(props) {
                 style={{ marginLeft: 20, width: "30%", marginTop: 0 }}
               >
 
-                <Grid
+                {/* <Grid
                   container
                   //direction="row"
                   alignItems="center"
@@ -546,18 +551,29 @@ export default function TheFounders(props) {
                   item
                   // style={{ height: "35%", marginTop: 0, marginLeft: 50 }}
                   style={{ height: "40%", marginTop: 0, marginLeft: 50 }}
-                ></Grid>
+                ></Grid> */}
                 <Grid
                   item
                   alignItems="center"
                   // style={{ height: "60%", marginLeft: "3.5em" }}
                   style={{ height: "20%", marginLeft: "3.5em" }}
                 >
-                <Typography variant="h5" style={{marginLeft:'25%', marginBottom:20}}>Mr Ngadi Uche</Typography>
+                <Typography variant="h5" style={{marginLeft:'15%', marginBottom:20}}>Dr Mustapha Musibau Aderibigbe</Typography>
                   <Typography style={{marginLeft:'20%'}}>
-                  <strong>Co-Founder/Chief Technical Officer</strong><br /><br />
+                  <strong>Executive Director</strong><br /><br />
                  
                   </Typography>
+                  <Typography style={{marginTop:20, fontSize:11}}>
+                      <ReactMarkdown>Dr Mustapha Musibau Aderibigbe, (Executive Director) Aged 60yrs was born in Oyo State, Nigeria. He started his early education at Ibadan before he proceeded to Lagos to continue his studies at the Yaba National College where he obtained his West African Examination Certificate; he went to University of Lagos and University of Benin where he obtained  the following academic qualifications and certificates. Listed below are some of his qualifications</ReactMarkdown>
+                   </Typography>
+                   <Typography style={{marginTop:10, fontSize:11}}>
+                      <ReactMarkdown>{mustapha}</ReactMarkdown>
+                   </Typography>
+                   <Typography style={{marginTop:20, fontSize:11}}>
+                      <em><ReactMarkdown>He is married with children and live a life of an accomplished career man.</ReactMarkdown></em>
+                   </Typography>
+
+                   
                 </Grid>
                 {/* <Grid
                   item
@@ -583,7 +599,7 @@ export default function TheFounders(props) {
                 style={{ marginLeft: 20, width: "30%", marginTop: 0 }}
               >
               
-                <Grid
+                {/* <Grid
                   container
                   //direction="row"
                   alignItems="center"
@@ -593,19 +609,20 @@ export default function TheFounders(props) {
                   item
                   //style={{ height: "35%", marginTop: 0, marginLeft: 50 }}
                   style={{ height: "40%", marginTop: 0, marginLeft: 50 }}
-                ></Grid>
+                ></Grid> */}
                 <Grid
                   item
                   alignItems="center"
                   //style={{ height: "60%", marginLeft: "3.5em" }}
                   style={{ height: "20%", marginLeft: "3.5em" }}
                 >
-                   <Typography variant="h5" style={{marginLeft:'20%', marginBottom:20}}>Mr Briggs Pakaye</Typography>
+                   <Typography variant="h5" style={{marginLeft:'18%', marginBottom:20}}>Mrs Chinyere Edom</Typography>
                   <Typography style={{marginLeft:'20%'}}>
-                  <strong>Co-Founder/Director</strong><br /><br />
-
-                  
+                  <strong>Executive Director</strong><br /><br />                  
                   </Typography>
+                   <Typography style={{marginTop:20, fontSize:11}}>
+                      <ReactMarkdown>Mrs Chinyere Edom, (Executive Director). She obtained Bachelor of Science in Business Administration from University of Lagos and has attended several management and leadership courses both home and abroad. She is currently the Director of Neschi Global Bureau De Change and Sky Angels Travel and Tours Limited. She is happily married with Children.</ReactMarkdown>
+                   </Typography>
                 </Grid>
                 {/* <Grid
                   item
@@ -634,7 +651,7 @@ export default function TheFounders(props) {
       ) : (
         <Box className={classes.uppercardMobile} disableRipple={true}>
             {/** place the grid here */}
-            <Typography variant="h3" style={{marginLeft:'10%',marginBottom:60, marginTop:20}}>The Founders</Typography>
+            <Typography variant="h3" style={{marginLeft:'20%',marginBottom:60, marginTop:20, fontSize:20}}>The Management Team</Typography>
             <Grid
               container
               direction="row"
@@ -646,7 +663,7 @@ export default function TheFounders(props) {
                 style={{ marginLeft: 2, width: "32%", marginTop: 0 }}
               >
                 
-                <Grid
+                {/* <Grid
                   container
                   //direction="row"
                   alignItems="center"
@@ -656,7 +673,7 @@ export default function TheFounders(props) {
                   item
                   //style={{ height: "35%", marginTop: 0, marginLeft: 50 }}
                   style={{ height: "30%", marginTop: 0, marginLeft: 10 }}
-                ></Grid>
+                ></Grid> */}
                 
                 <Grid
                   item
@@ -664,11 +681,14 @@ export default function TheFounders(props) {
                   //style={{ height: "60%", marginLeft: "3.5em" }}
                   style={{ height: "20%", marginLeft: "1em" }}
                 >
-                <Typography variant="h5" style={{marginLeft:"10%", marginBottom:20}}> Mr Ojeniyi Collins Tajudeen</Typography>
+                <Typography variant="h5" style={{marginLeft:"10%", marginBottom:20}}> Chief (Dr.) Bright Edom</Typography>
                   <Typography style={{marginLeft:"20%"}}>
-                  <strong>Co-Founder/CEO</strong><br /><br />
+                  <strong>CEO</strong><br /><br />
                  
                   </Typography>
+                  <Typography style={{marginTop:20, fontSize:10}}>
+                      <ReactMarkdown>He obtained both Bachelor & Masters degrees B.Sc(Hons) in Business Administration & Marketing from University of Lagos. He is the Managing Director (MD) of Brightway Group of Companies and also the Chief Executive Officer (CEO) Andersons Pharmaceuticals Limited. He has several other chains of Businesses in Importation, Oil and Gas, Construction, Logistics and Property Development etc. He is a member of the Institute of Directors (IoD) of Nigeria. He belongs to several trade groups such as the Nigerian British Chamber of Commerce, American and Europe Chamber of Commerce. He has a vast Business experience and exploits that spans close to 40 decades. He is also involved in a lot of philanthropic activities through his foundation called Bright Edom Foundation. He is happily married with children.</ReactMarkdown>
+                   </Typography>
                 </Grid>
                 {/* <Grid
                   item
@@ -693,7 +713,7 @@ export default function TheFounders(props) {
                 style={{ marginLeft: 2, width: "32%", marginTop: 0 }}
               >
 
-                <Grid
+                {/* <Grid
                   container
                   //direction="row"
                   alignItems="center"
@@ -703,18 +723,27 @@ export default function TheFounders(props) {
                   item
                   // style={{ height: "35%", marginTop: 0, marginLeft: 50 }}
                   style={{ height: "30%", marginTop: 0, marginLeft: 10 }}
-                ></Grid>
+                ></Grid> */}
                 <Grid
                   item
                   alignItems="center"
                   // style={{ height: "60%", marginLeft: "3.5em" }}
                   style={{ height: "20%", marginLeft:10 }}
                 >
-                <Typography variant="h5" style={{marginLeft:'15%', marginBottom:20}}>Mr Ngadi Uche</Typography>
+                <Typography variant="h5" style={{marginLeft:'15%', marginBottom:20}}>Dr Mustapha Musibau Aderibigbe</Typography>
                   <Typography style={{marginLeft:'10%'}}>
-                  <strong>Co-Founder/Chief Technical Officer</strong><br /><br />
+                  <strong>Executive Director</strong><br /><br />
                  
                   </Typography>
+                   <Typography style={{marginTop:15, fontSize:10}}>
+                      <ReactMarkdown>Dr Mustapha Musibau Aderibigbe, (Executive Director) Aged 60yrs was born in Oyo State, Nigeria. He started his early education at Ibadan before he proceeded to Lagos to continue his studies at the Yaba National College where he obtained his West African Examination Certificate; he went to University of Lagos and University of Benin where he obtained  the following academic qualifications and certificates. Listed below are some of his qualifications</ReactMarkdown>
+                   </Typography>
+                   <Typography style={{marginTop:10, fontSize:10}}>
+                      <ReactMarkdown>{mustapha}</ReactMarkdown>
+                   </Typography>
+                   <Typography style={{marginTop:20, fontSize:10}}>
+                      <em><ReactMarkdown>He is married with children and live a life of an accomplished career man.</ReactMarkdown></em>
+                   </Typography>
                 </Grid>
                 {/* <Grid
                   item
@@ -740,7 +769,7 @@ export default function TheFounders(props) {
                 style={{ marginLeft: 2, width: "32%", marginTop: 0 }}
               >
               
-                <Grid
+                {/* <Grid
                   container
                   //direction="row"
                   alignItems="center"
@@ -750,19 +779,22 @@ export default function TheFounders(props) {
                   item
                   //style={{ height: "35%", marginTop: 0, marginLeft: 50 }}
                   style={{ height: "30%", marginTop: 0, marginLeft: 10 }}
-                ></Grid>
+                ></Grid> */}
                 <Grid
                   item
                   alignItems="center"
                   //style={{ height: "60%", marginLeft: "3.5em" }}
                   style={{ height: "20%", marginLeft: "10px" }}
                 >
-                   <Typography variant="h5" style={{marginLeft:'10%', marginBottom:20}}>Mr Briggs Pakaye</Typography>
+                   <Typography variant="h5" style={{marginLeft:'10%', marginBottom:20}}>Mrs Chinyere Edom</Typography>
                   <Typography style={{marginLeft:'10%'}}>
-                  <strong>Co-Founder/Director</strong><br /><br />
+                  <strong>Executive Director</strong><br /><br />
 
                   
                   </Typography>
+                   <Typography style={{marginTop:15, fontSize:10}}>
+                      <ReactMarkdown>Mrs Chinyere Edom, (Executive Director). She obtained Bachelor of Science in Business Administration from University of Lagos and has attended several management and leadership courses both home and abroad. She is currently the Director of Neschi Global Bureau De Change and Sky Angels Travel and Tours Limited. She is happily married with Children.</ReactMarkdown>
+                   </Typography>
                 </Grid>
                 {/* <Grid
                   item

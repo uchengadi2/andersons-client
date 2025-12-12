@@ -25,6 +25,7 @@ import ProductForm from "./ProductForm";
 import ProductDeleteForm from "./ProductDeleteForm";
 import ProductEditForm from "./ProductEditForm";
 import ProductDuplicateForm from "./ProductDuplicateForm";
+import AddProductForm from "./AddProductForm";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -81,94 +82,22 @@ function Products(props) {
     const fetchData = async () => {
       let allData = [];
       api.defaults.headers.common["Authorization"] = `Bearer ${props.token}`;
-      const response = await api.get(`/courses`);
+      const response = await api.get(`/products`);
       const workingData = response.data.data.data;
       workingData.map((product) => {
         allData.push({
           id: product._id,
-          title: product.title,
+          name: product.name,
           category: product.category,
-          channel: product.channel,
-          programme: product.programme,
-          // configuration: product.configuration,
+          configuration: product.configuration,
           shortDescription: product.shortDescription,
-          longDescription: product.longDescription,
+          fullDescription: product.fullDescription,
           refNumber: product.refNumber,
           imageCover: product.imageCover,
-          images: product.images,
-          price: product.price,
-          currency: product.currency,
-          keyword1: product.keyword1,
-          keyword2: product.keyword2,
-          keyword3: product.keyword3,
-
-          deliveryMethod: product.deliveryMethod,
-          duration: product.duration,
-          priceLabel: product.priceLabel,
-          isCourseAuditable: product.isCourseAuditable,
-          weekdayAuditDays: product.weekdayAuditDays,
-          weekendAuditDays: product.weekendAuditDays,
-          slug: product.slug,
-          venue: product.venue,
-          isVatable: product.isVatable,
-          weekdaySessionPeriod: product.weekdaySessionPeriod,
-          weekendSessionPeriod: product.weekendSessionPeriod,
-          track: product.track,
-          type: product.type,
-          lectureDuration: product.lectureDuration,
-          projectDuration: product.projectDuration,
-          features: product.features,
-
-          prerequisites: product.prerequisites,
-          tools: product.tools,
-          targetAudience: product.targetAudience,
-          whatToLearn: product.whatToLearn,
-          venueLink: product.venueLink,
-          capstoneProject: product.capstoneProject,
-          contents: product.contents,
-          successTips: product.successTips,
+          pricePerUnit: product.pricePerUnit,          
           status: product.status,
-          class: product.class,
-          commencementWeekdaysDate: product.commencementWeekdaysDate,
-          commencementWeekendsDate: product.commencementWeekendsDate,
-          showGenericWeekdayStartDateText:
-            product.showGenericWeekdayStartDateText,
-          showGenericWeekendStartDateText:
-            product.showGenericWeekendStartDateText,
-          genericWeekdayStartDateText: product.genericWeekdayStartDateText,
-          genericWeekendStartDateText: product.genericWeekendStartDateText,
-
-          majorSkills: product.majorSkills,
-          minorSkills: product.minorSkills,
-
-          passGrade: product.passGrade,
-          paymentOptions: product.paymentOptions,
-
-          isInstallmentalPaymentAllowed: product.isInstallmentalPaymentAllowed,
-          maximumInstallmentalPayment: product.maximumInstallmentalPayment,
-
-          videoId: product.videoId,
-          previewVideoId: product.previewVideoId,
-          videoType: product.videoType,
-          allowLifeTimeAccess: product.allowLifeTimeAccess,
-
-          hasSeries: product.hasSeries,
-          series: product.series,
-
-          hasMentorshipCredit: product.hasMentorshipCredit,
-          mentorshipCredit: product.mentorshipCredit,
-          mentorshipDuration: product.mentorshipDuration,
-          costPerMentorshipCredit: product.costPerMentorshipCredit,
-
-          channelId: product.channel[0] ? product.channel[0].id : " ",
-          programmeId: product.programme[0] ? product.programme[0].id : " ",
-          categoryId: product.category[0] ? product.category[0].id : " ",
-          acceptablePaymentOptions: product.acceptablePaymentOptions,
-
-          allowInstructors: product.allowInstructors,
-          allowHomeInstructors: product.allowHomeInstructors,
-          allowAssessments: product.allowAssessments,
-          allowMentorship: product.allowMentorship,
+          minimumOrderQuantity:product.minimumOrderQuantity
+          
         });
       });
       setProductsList(allData);
@@ -312,8 +241,8 @@ function Products(props) {
         width: 80,
       },
       {
-        field: "title",
-        headerName: "Course Title",
+        field: "name",
+        headerName: "Name",
         width: 250,
 
         //editable: true,
@@ -325,206 +254,54 @@ function Products(props) {
 
         //editable: true,
       },
-      // {
-      //   field: "category",
-      //   headerName: "Category",
-      //   width: 180,
+     {
+        field: "category",
+        headerName: "Category",
+        width: 180,
+     },
 
-      //   //editable: true,
-      // },
-      // {
-      //   field: "channel",
-      //   headerName: "Channel",
-      //   width: 180,
-
-      //   //editable: true,
-      // },
-      // {
-      //   field: "programme",
-      //   headerName: "Programme",
-      //   width: 180,
-
-      //   //editable: true,
-      // },
+      
+     
       {
-        field: "status",
-        headerName: "Course Status",
+        field: "pricePerUnit",
+        headerName: "Price Per Unit",
         width: 180,
 
         //editable: true,
       },
       {
-        field: "price",
-        headerName: "Price",
+        field: "minimumOrderQuantity",
+        headerName: "Minimum Order Quantity",
         width: 180,
 
         //editable: true,
       },
-      {
-        field: "type",
-        headerName: "Type",
-        width: 180,
-
-        //editable: true,
-      },
-      {
-        field: "duration",
-        headerName: "Duration",
-        width: 180,
-
-        //editable: true,
-      },
-      {
-        field: "track",
-        headerName: "Track",
-        width: 180,
-
-        //editable: true,
-      },
-      {
-        field: "deliveryMethod",
-        headerName: "Delivery Method",
-        width: 180,
-
-        //editable: true,
-      },
-
-      {
-        field: "allowInstructors",
-        headerName: "Teaching is allowed",
-        width: 180,
-
-        //editable: true,
-      },
-      {
-        field: "allowHomeInstructors",
-        headerName: "Home Teaching is allowed",
-        width: 180,
-
-        //editable: true,
-      },
-      {
-        field: "allowAssessments",
-        headerName: "Assessment & Mock is allowed",
-        width: 180,
-
-        //editable: true,
-      },
-      {
-        field: "allowMentorship",
-        headerName: "Mentorship is allowed",
-        width: 180,
-
-        //editable: true,
-      },
+     
     ];
 
     productsList.map((product, index) => {
-      console.log("course:", product);
+      
       let row = {
         numbering: ++counter,
         id: product.id,
-        title: product.title
-          ? product.title.replace(
+        name: product.name
+          ? product.name.replace(
               /(^\w|\s\w)(\S*)/g,
               (_, m1, m2) => m1.toUpperCase() + m2.toLowerCase()
             )
           : "",
-        // category: product.category[0].name
-        //   ? product.category[0].name.replace(
-        //       /(^\w|\s\w)(\S*)/g,
-        //       (_, m1, m2) => m1.toUpperCase() + m2.toLowerCase()
-        //     )
-        //   : "",
-        // channel: product.channel[0].name
-        //   ? product.channel.replace(
-        //       /(^\w|\s\w)(\S*)/g,
-        //       (_, m1, m2) => m1.toUpperCase() + m2.toLowerCase()
-        //     )
-        //   : "",
-        // programme: product.programme[0].name
-        //   ? product.programme.replace(
-        //       /(^\w|\s\w)(\S*)/g,
-        //       (_, m1, m2) => m1.toUpperCase() + m2.toLowerCase()
-        //     )
-        //   : "",
+        
 
         shortDescription: product.shortDescription,
-        longDescription: product.longDescription,
+        fullDescription: product.fullDescription,
         refNumber: product.refNumber,
         imageCover: product.imageCover,
-        images: product.images,
-        price: product.price,
-        currency: product.currency,
-        // minimumQuantity: product.minimumQuantity,
-        keyword1: product.keyword1,
-        keyword2: product.keyword2,
-        keyword3: product.keyword3,
-        deliveryMethod: product.deliveryMethod,
-        duration: product.duration,
-        priceLabel: product.priceLabel,
-        isFeaturedProduct: product.isFeaturedProduct,
-        displayOnStore: product.displayOnStore,
-        isCourseAuditable: product.isCourseAuditable,
-        weekdayAuditDays: product.weekdayAuditDays,
-        weekendAuditDays: product.weekendAuditDays,
+        pricePerUnit: product.pricePerUnit,
         slug: product.slug,
-        venue: product.venue,
-        isVatable: product.isVatable,
-        weekdaySessionPeriod: product.weekdaySessionPeriod,
-        sku: product.sku,
-        weekendSessionPeriod: product.weekendSessionPeriod,
-        track: product.track,
-        //unit: product.unit,
-        type: product.type,
-        lectureDuration: product.lectureDuration,
-        projectDuration: product.projectDuration,
-        instructor: product.instructor,
-        features: product.features,
-        prerequisites: product.prerequisites,
-        tools: product.tools,
-        targetAudience: product.targetAudience,
-        whatToLearn: product.whatToLearn,
-        venueLink: product.venueLink,
-        capstoneProject: product.capstoneProject,
-        contents: product.contents,
-        passGrade: product.passGrade,
-        successTips: product.successTips,
+        sku: product.sku,       
         status: product.status,
-        class: product.class,
-        commencementWeekdaysDate: product.commencementWeekdaysDate,
-        commencementWeekendsDate: product.commencementWeekendsDate,
-        showGenericWeekdayStartDateText:
-          product.showGenericWeekdayStartDateText,
-        showGenericWeekendStartDateText:
-          product.showGenericWeekendStartDateText,
-        genericWeekdayStartDateText: product.genericWeekdayStartDateText,
-        genericWeekendStartDateText: product.genericWeekendStartDateText,
-        paymentOptions: product.paymentOptions,
-        hasMentorshipCredit: product.hasMentorshipCredit,
-        mentorshipCredit: product.mentorshipCredit,
-        mentorshipDuration: product.mentorshipDuration,
-        costPerMentorshipCredit: product.costPerMentorshipCredit,
-        series: product.series,
-        hasSeries: product.hasSeries,
-        isInstallmentalPaymentAllowed: product.isInstallmentalPaymentAllowed,
-        maximumInstallmentalPayment: product.maximumInstallmentalPayment,
-        majorSkills: product.majorSkills,
-        minorSkills: product.minorSkills,
-        videoId: product.videoId,
-        videoType: product.videoType,
-        previewVideoId: product.previewVideoId,
-        channelId: product.channel[0] ? product.channel[0].id : " ",
-        programmeId: product.programme[0] ? product.programme[0].id : " ",
-        categoryId: product.category[0] ? product.category[0].id : " ",
-        //currency: product.currency ? product.currency[0].id : " ",
-        currency: product.currency,
-        allowLifeTimeAccess: product.allowLifeTimeAccess,
-        acceptablePaymentOptions: product.acceptablePaymentOptions,
-        allowInstructors: product.allowInstructors,
-        allowHomeInstructors: product.allowHomeInstructors,
-        allowAssessments: product.allowAssessments,
-        allowMentorship: product.allowMentorship,
+        minimumOrderQuantity:product.minimumOrderQuantity
+        
       };
       rows.push(row);
     });
@@ -562,7 +339,7 @@ function Products(props) {
           <Grid container spacing={2}>
             <Grid item xs={8}>
               {/* <Item>xs=8</Item> */}
-              <Typography variant="h4">Courses</Typography>
+              <Typography variant="h4">Products</Typography>
             </Grid>
             <Grid item xs={4}>
               <div>
@@ -578,7 +355,7 @@ function Products(props) {
                     onClose={() => [setOpen(false)]}
                   >
                     <DialogContent>
-                      <ProductForm
+                      <AddProductForm
                         token={token}
                         userId={userId}
                         handleDialogOpenStatus={handleDialogOpenStatus}

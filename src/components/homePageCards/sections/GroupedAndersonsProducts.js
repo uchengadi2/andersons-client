@@ -32,6 +32,8 @@ import backgroundEvent from "./../../../assets/images/project/event1.webp";
 import backgroundTraining from "./../../../assets/images/project/training.webp";
 import backgroundDocumentation from "./../../../assets/images/project/documentation2.webp";
 
+import ProductDetails from "../../products/ProductDetails";
+
 
 
 
@@ -76,7 +78,7 @@ const useStyles = makeStyles((theme) => ({
   },
   uppercardMobile: {
     maxWidth: "100%",
-    height: 7600,
+    height: 3400,
     //height: 350,
     width: "100%",
 
@@ -172,13 +174,32 @@ const useStyles = makeStyles((theme) => ({
   actionButton: {
     borderRadius: 10,
     height: 40,
-    width: 105,
+    width: 135,
     marginLeft: 7,
     marginTop: 1,
     marginBottom: 20,
     borderRadius: 100,
     color: "white",
     fontSize: 10,
+    backgroundColor: theme.palette.common.orange,
+    "&:hover": {
+      backgroundColor: theme.palette.common.white,
+    },
+  },
+
+
+  
+
+  actionDownButton: {
+    borderRadius: 10,
+    height: 40,
+    width: 100,
+    marginLeft: 7,
+    marginTop: 1,
+    marginBottom: 20,
+    borderRadius: 100,
+    color: "white",
+    fontSize: 8,
     backgroundColor: theme.palette.common.orange,
     "&:hover": {
       backgroundColor: theme.palette.common.white,
@@ -479,6 +500,15 @@ export default function GroupedAndersonsProducts(props) {
 
   const Str = require("@supercharge/strings");
 
+  const categorySlug1 = 'wellness-beverages';
+  const categorySlug2 = 'natural-medicines';
+  const slug1  = 'tropicana-slim-vanilla-cappuccino-coffee';
+  const slug2 = 'tropicana-slim-low-calorie-sweetener';
+  const slug3 = 'tropicana-slim-zero-calorie-sweetener';
+  const slug4 = 'andeglim';
+  const slug5 = 'andermal-tablets';
+  const slug6 = 'tropicana-slim-stevia-sweetener';
+
   const vvipServices = "* **Personalized Reception**: A professional protocol officer greets guests personally at the aircraft door, arrival gate, or at a designated VIP meeting point inside the terminal.\n\n* **Fast-Track Processing**: Priority assistance through immigration, customs, and security clearances — bypassing regular passenger queues for faster processing.\n\n* **Porter Assistance**: Dedicated porters collect, handle, and deliver guests’ luggage through priority channels to their vehicle or next destination.\n\n* **Escort to Lounge or Transport**: Clients are personally escorted to VIP lounges or their awaiting ground transportation, ensuring they never navigate the airport alone.\n\n* **Language Assistance**: Multilingual protocol officers available to overcome language barriers during arrivals and departures.\n\n* **Concierge Support**: Optional on-site concierge services such as arranging hotel bookings, flight rebookings, or airport shopping assistance.\n\n";
   const diplomaticServices = "* **Advance Coordination**: Prior arrangement with airport authorities, customs, immigration, and diplomatic security services to ensure a smooth arrival or departure.\n\n* **Secure Diplomatic Lounge Access**: Use of diplomatic lounges for privacy and comfort while formalities are handled discreetly.\n\n* **Special Clearance Processing**: Rapid immigration, customs, and visa processing through diplomatic channels without waiting in public areas.\n\n* **Embassy & Consulate Liaison**: Coordinating with consular staff or embassy officials to facilitate meetings, document clearances, or secure handovers.\n\n* **Private Airside Vehicle Transfers**: Where permitted, arranging for official vehicles to pick up or drop off guests directly at the aircraft.";
   const corporateServices = "* **Executive Meet & Greet**: Professional, discreet protocol officers to assist at check-in, immigration, and baggage claim.\n\n* **Check-in & Boarding**: Dedicated counters or pre-arranged check-in services to minimize waiting times.\n\n* **Luggage Handling**: Luggage tags, porter services, and baggage delivery directly to waiting vehicles or hotel reception.\n\n* **Executive Lounge Coordination**: Fast escort and guaranteed entry to business lounges, where guests can work or relax before flights.\n\n* **Business Travel Concierge**: On-ground assistance with rebooking, upgrades, meeting room arrangements, or connecting ground transport.\n\n* **Customizable Packages**: Tailored services based on the specific needs of corporate clients, including group travel arrangements.";
@@ -548,8 +578,8 @@ export default function GroupedAndersonsProducts(props) {
                   <Button
                     variant="contained"
                     component={Link}
-                    to="/dealscentral"
-                    //onClick={() => <DealHome />}
+                   to={`/products/${categorySlug1}/${slug1}`}
+                    onClick={() => <ProductDetails />}
                     className={classes.actionPlusButton}
                   >
                     View Details
@@ -602,8 +632,8 @@ export default function GroupedAndersonsProducts(props) {
                   <Button
                     variant="contained"
                     component={Link}
-                    to="/dealscentral"
-                    //onClick={() => <DealHome />}
+                    to={`/products/${categorySlug1}/${slug2}`}
+                    onClick={() => <ProductDetails />}
                     className={classes.actionPlusButton}
                   >
                     View Details
@@ -657,8 +687,8 @@ export default function GroupedAndersonsProducts(props) {
                   <Button
                     variant="contained"
                     component={Link}
-                    to="/dealscentral"
-                    //onClick={() => <DealHome />}
+                     to={`/products/${categorySlug1}/${slug3}`}
+                    onClick={() => <ProductDetails />}
                     className={classes.actionPlusButton}
                   >
                     View Details
@@ -720,8 +750,8 @@ export default function GroupedAndersonsProducts(props) {
                   <Button
                     variant="contained"
                     component={Link}
-                    to="/dealscentral"
-                    //onClick={() => <DealHome />}
+                    to={`/products/${categorySlug2}/${slug4}`}
+                    onClick={() => <ProductDetails />}
                     className={classes.actionPlusButton}
                   >
                     View Details
@@ -776,8 +806,8 @@ export default function GroupedAndersonsProducts(props) {
                   <Button
                     variant="contained"
                     component={Link}
-                    to="/dealscentral"
-                    //onClick={() => <DealHome />}
+                    to={`/products/${categorySlug2}/${slug5}`}
+                    onClick={() => <ProductDetails />}
                     className={classes.actionPlusButton}
                   >
                     View Details
@@ -831,8 +861,8 @@ export default function GroupedAndersonsProducts(props) {
                   <Button
                     variant="contained"
                     component={Link}
-                    to="/dealscentral"
-                    //onClick={() => <DealHome />}
+                     to={`/products/${categorySlug1}/${slug6}`}
+                    onClick={() => <ProductDetails />}
                     className={classes.actionPlusButton}
                   >
                     View Details
@@ -851,14 +881,14 @@ export default function GroupedAndersonsProducts(props) {
           <Grid
             container
             direction="row"
-            style={{ marginTop: 15, height: "33%" }}
+            style={{ marginTop: 15, height: "68%" }}
           >
             <Grid
               container
               direction="column"
               style={{ marginLeft: 10, width: "100%", marginTop: 0 }}
             >
-              <Typography variant="h3" style={{marginLeft:10, marginBottom:15, fontSize:16}}> Ginger, Turmeric, Garlic & Honey Tea</Typography>
+              <Typography variant="h3" style={{marginLeft:10, marginBottom:15, fontSize:16}}> Tropicana Slim – Vanilla Cappuccino Coffee</Typography>
               <Grid
                 container
                 //direction="row"
@@ -872,29 +902,25 @@ export default function GroupedAndersonsProducts(props) {
               <Grid
                 item
                 alignItems="center"
-                style={{ height: "65%", marginLeft: 10 }}
+                style={{ height: "35%", marginLeft: 10 }}
               >
                 {/* <Typography style={{ fontSize: 11 }}>
                 <ReactMarkdown>**Designed for high-profile travelers, executives, celebrities, and families seeking a seamless, stress-free airport experience.**</ReactMarkdown>
                 </Typography> */}
-                {/* <Typography variant="h5" style={{marginLeft:'0%',marginBottom:30}}> Ginger, Turmeric, Garlic & Honey Tea</Typography> */}
-                     <Typography style={{marginTop:0, padding: 0,fontSize:12}}>
-                          <strong><ReactMarkdown>Nature’s Powerhouse for Immunity and Vitality.</ReactMarkdown></strong>
+                <Typography style={{marginTop:0, padding: 0,fontSize:12}}>
+                          <strong><ReactMarkdown>Indulge in the Art of Guilt-Free Luxury</ReactMarkdown></strong>
                     </Typography>
-                      <Typography style={{marginTop:10, fontSize:11}}>
-                            <ReactMarkdown>Embrace the healing synergy of Ginger, Turmeric, Garlic, and Honey — a time-honored blend crafted to strengthen your immune system, restore balance, and promote lifelong wellness.</ReactMarkdown>
-                      </Typography>
-                      <Typography style={{marginTop:10, fontSize:11}}>
-                          <ReactMarkdown>Rich in natural antioxidants and anti-inflammatory compounds, this potent fusion helps ease arthritis and joint pain, build stronger bones, and support joint and muscle health. It also aids in relieving colds, flu, and nasal congestion, while helping to normalize blood sugar levels and protect against bacterial infections.</ReactMarkdown>
+                    <Typography style={{marginTop:20, fontSize:10}}>
+                          <ReactMarkdown>Discover the irresistible charm of Tropicana Slim Vanilla Cappuccino Coffee — a sophisticated blend crafted for those who crave sweetness without compromise. Each sip delights your senses with velvety, creamy froth and the smooth aroma of premium vanilla. </ReactMarkdown>
                     </Typography>
-                    <Typography style={{marginTop:10, fontSize:11}}>
-                          <ReactMarkdown>With regular use, it promotes heart health, supports healthy aging, and helps your body fight oxidative stress and disease naturally.</ReactMarkdown>
+                    <Typography style={{marginTop:10, fontSize:10}}>
+                          <ReactMarkdown>Perfect for every special occasion or your everyday moment of bliss, this indulgent coffee offers a taste of pure satisfaction — rich, creamy, and beautifully balanced.</ReactMarkdown>
                     </Typography>
-                      <Typography style={{marginTop:10, fontSize:11}}>
-                          <em><ReactMarkdown>Pure. Potent. Naturally restorative.</ReactMarkdown></em>
+                    <Typography style={{marginTop:10, fontSize:10}}>
+                          <strong><em><ReactMarkdown>Savor the sweetness of wellness.</ReactMarkdown></em></strong>
                     </Typography>
               </Grid>
-              {/* <Grid
+              <Grid
                 item
                 alignItems="center"
                 // style={{ height: "60%", marginLeft: "3.5em" }}
@@ -903,20 +929,20 @@ export default function GroupedAndersonsProducts(props) {
                 <Button
                   variant="contained"
                   component={Link}
-                  to="/dealscentral"
-                  //onClick={() => <DealHome />}
+                   to={`/products/${categorySlug1}/${slug1}`}
+                    onClick={() => <ProductDetails />}
                   className={classes.actionButton}
                 >
-                  Send Errand
+                  View Details
                 </Button>
-              </Grid> */}
+              </Grid>
             </Grid>
             <Grid
               container
               direction="column"
               style={{ marginLeft: 0, width: "100%", marginTop: 0 }}
             >
-               <Typography variant="h3" style={{marginLeft:10, marginBottom:15, fontSize:16}}> DiaHerbs Herbal Tea</Typography>
+               <Typography variant="h3" style={{marginLeft:10, marginBottom:15, fontSize:16}}> Tropicana Slim – Low Calorie Sweetener</Typography>
               <Grid
                 container
                 //direction="row"
@@ -932,26 +958,22 @@ export default function GroupedAndersonsProducts(props) {
               <Grid
                 item
                 alignItems="center"
-                style={{ height: "55%", marginLeft: 25 }}
+                style={{ height: "35%", marginLeft: 25 }}
               >
-                 {/* <Typography variant="h5" style={{marginLeft:'0%',marginBottom:30}}> DiaHerbs Herbal Tea</Typography> */}
-                                      <Typography style={{marginTop:0, padding: 0,fontSize:12}}>
-                                            <strong><ReactMarkdown>Natural Support for Balanced Blood Sugar and Lasting Vitality.</ReactMarkdown></strong>
-                                      </Typography>
-                                      <Typography style={{marginTop:10, fontSize:11}}>
-                                            <ReactMarkdown>Discover the power of nature’s finest herbs with DiaHerbs Herbal Tea — a potent blend of natural anti-hyperglycemics, antioxidants, insulin sensitizers, and metabolic boosters carefully formulated to promote healthy blood sugar balance and overall wellness. </ReactMarkdown>
-                                      </Typography>
-                                      <Typography style={{marginTop:10, fontSize:11}}>
-                                            <ReactMarkdown>This revitalizing herbal infusion helps lower elevated blood sugar levels, reduce abnormally high serum insulin, and enhance glucose utilization by body cells. Its antioxidant properties also help mitigate oxidative stress, premature aging, and the harmful effects of free radicals on your system.</ReactMarkdown>
-                                      </Typography>
-                                      <Typography style={{marginTop:10, fontSize:11}}>
-                                            <ReactMarkdown>DiaHerbs Herbal Tea keeps you energized while helping maintain blood sugar within normal limits, and may help reduce or delay the progression to Type 2 diabetes. It also provides excellent support alongside your prescribed diabetes medication to promote balanced, natural wellness.</ReactMarkdown>
-                                      </Typography>
-                                      <Typography style={{marginTop:10, fontSize:11}}>
-                                            <em><ReactMarkdown>Balance your energy. Empower your health — naturally.</ReactMarkdown></em>
-                                      </Typography>
+                 <Typography style={{marginTop:0, padding: 0,fontSize:12}}>
+                                          <strong><ReactMarkdown>The Smarter Way to Sweeten Your Life</ReactMarkdown></strong>
+                                    </Typography>
+                                    <Typography style={{marginTop:20, fontSize:10}}>
+                                          <ReactMarkdown>Enjoy the sweetness you love — without the extra calories. Tropicana Slim (Low Calorie) is a healthy sugar substitute designed to sweeten all kinds of foods and beverages, giving you delicious taste with balanced nutrition. </ReactMarkdown>
+                                    </Typography>
+                                    <Typography style={{marginTop:10, fontSize:10}}>
+                                          <ReactMarkdown>Made from sorbitol derived from corn, this naturally inspired formula contains low calories, no bitter aftertaste, and does not cause a rapid rise in blood sugar — making it suitable for both children and adults.</ReactMarkdown>
+                                    </Typography>
+                                    <Typography style={{marginTop:10, fontSize:10}}>
+                                          <em><ReactMarkdown>Perfect for those who value wellness without compromise.</ReactMarkdown></em>
+                                    </Typography>
               </Grid>
-              {/* <Grid
+              <Grid
                 item
                 alignItems="center"
                 // style={{ height: "60%", marginLeft: "3.5em" }}
@@ -960,13 +982,13 @@ export default function GroupedAndersonsProducts(props) {
                 <Button
                   variant="contained"
                   component={Link}
-                  to="/dealscentral"
-                  //onClick={() => <DealHome />}
+                 to={`/products/${categorySlug1}/${slug2}`}
+                    onClick={() => <ProductDetails />}
                   className={classes.actionButton}
                 >
-                  Send Errand
+                 View Details
                 </Button>
-              </Grid> */}
+              </Grid>
             </Grid>
 
             <Grid
@@ -974,7 +996,7 @@ export default function GroupedAndersonsProducts(props) {
               direction="column"
               style={{ marginLeft: 0, width: "100%", marginTop: 0 }}
             >
-              <Typography variant="h3" style={{marginLeft:10, marginBottom:15, fontSize:16}}>Ginger, Lemon & Moringa Herbal Tea</Typography>
+              <Typography variant="h3" style={{marginLeft:10, marginBottom:15, fontSize:16}}>Tropicana Slim – Zero Calorie Sweetener</Typography>
               <Grid
                 container
                 //direction="row"
@@ -988,27 +1010,24 @@ export default function GroupedAndersonsProducts(props) {
               <Grid
                 item
                 alignItems="center"
-                style={{ height: "65%", marginLeft: 25 }}
+                style={{ height: "35%", marginLeft: 25 }}
               >
                 {/* <Typography variant="h5" style={{marginLeft:'0%',marginBottom:30}}>Ginger, Lemon & Moringa Herbal Tea</Typography> */}
-                                      <Typography style={{marginTop:0, padding: 0,fontSize:12}}>
-                                           <strong><ReactMarkdown>The Miracle Tea for Detox, Energy & Balance.</ReactMarkdown></strong>
-                                     </Typography>
-                                       <Typography style={{marginTop:10, fontSize:11}}>
-                                             <ReactMarkdown>Experience the perfect harmony of Ginger, Lemon, and Moringa — a revitalizing blend crafted to refresh your body, cleanse your system, and energize your day. Naturally rich in vitamins, minerals, and amino acids, this powerful herbal infusion supports complete well-being from within.</ReactMarkdown>
-                                       </Typography>
-                                       <Typography style={{marginTop:10, fontSize:11}}>
-                                           <ReactMarkdown>Ginger, Lemon & Moringa Herbal Tea helps boost metabolism, burn calories, and reduce body fat accumulation, making it an excellent choice for weight management. It also promotes kidney detoxification, lowers blood sugar levels, and helps prevent the build-up of kidney stones while protecting against chronic kidney diseases.</ReactMarkdown>
-                                     </Typography>
-                                     <Typography style={{marginTop:10, fontSize:11}}>
-                                           <ReactMarkdown>Packed with antioxidants, this tea helps fight inflammation and oxidative stress, supporting your body’s natural defense system and vitality.</ReactMarkdown>
-                                     </Typography>
-                                       <Typography style={{marginTop:10, fontSize:11}}>
-                                           <em><ReactMarkdown>Cleanse. Refresh. Thrive — naturally.</ReactMarkdown></em>
-                                     </Typography>
+                 <Typography style={{marginTop:0, padding: 0,fontSize:12}}>
+                                          <strong><ReactMarkdown>Pure Sweetness. Zero Compromise.</ReactMarkdown></strong>
+                                    </Typography>
+                                    <Typography style={{marginTop:20, fontSize:10}}>
+                                          <ReactMarkdown>Enjoy the taste of sweetness — without the calories. Tropicana Slim (Zero Calorie) is a healthy sugar substitute crafted to sweeten all your favorite foods and beverages while supporting a balanced lifestyle.</ReactMarkdown>
+                                    </Typography>
+                                    <Typography style={{marginTop:10, fontSize:10}}>
+                                          <ReactMarkdown>Formulated from sorbitol derived from corn, it contains zero calories, has no bitter aftertaste, and does not cause a rapid rise in blood sugar — making it ideal for children, adults, and especially diabetic individuals seeking a healthier alternative.</ReactMarkdown>
+                                    </Typography>
+                                    <Typography style={{marginTop:10, fontSize:10}}>
+                                          <em><ReactMarkdown>Deliciously sweet. Perfectly healthy.</ReactMarkdown></em>
+                                    </Typography>
               </Grid>
 
-              {/* <Grid
+              <Grid
                 item
                 alignItems="center"
                 // style={{ height: "60%", marginLeft: "3.5em" }}
@@ -1017,26 +1036,26 @@ export default function GroupedAndersonsProducts(props) {
                 <Button
                   variant="contained"
                   component={Link}
-                  to="/dealscentral"
-                  //onClick={() => <DealHome />}
+                   to={`/products/${categorySlug1}/${slug3}`}
+                    onClick={() => <ProductDetails />}
                   className={classes.actionButton}
                 >
-                  Request Escrow
+                  View Details
                 </Button>
-              </Grid> */}
+              </Grid>
             </Grid>
           </Grid>
           <Grid
             container
             direction="row"
-            style={{ marginTop: 5, height: "33%" }}
+            style={{ marginTop: 5, height: "32%" }}
           >
             <Grid
               container
               direction="column"
-              style={{ marginLeft: 10, width: "100%", marginTop: 0 }}
+              style={{ marginLeft: 0, width: "30%", marginTop: 0 }}
             >
-              <Typography variant="h5" style={{marginLeft:10, marginBottom:10}}>Peppermint Herbal Tea</Typography>
+              <Typography variant="h5" style={{marginLeft:10, marginBottom:10,fontSize:12}}>Andeglim</Typography>
               <Grid
                 container
                 //direction="row"
@@ -1045,30 +1064,27 @@ export default function GroupedAndersonsProducts(props) {
                 justifyContent={matchesSM ? "center" : "space-between"}
                 direction={matchesSM ? "column" : "row"}
                 item
-                style={{ height: "25%", marginTop: 10, marginLeft: 10 }}
+                style={{ height: "10%", marginTop: 10, marginLeft: 10 }}
               ></Grid>
               <Grid
                 item
                 alignItems="center"
-                style={{ height: "65%", marginLeft: 10 }}
+                style={{ height: "55%", marginLeft: 10 }}
               >
-                <Typography style={{marginTop:0, padding: 0,fontSize:12}}>
-                                                           <strong><ReactMarkdown>Refresh Your Senses. Restore Your Balance.</ReactMarkdown></strong>
-                                                     </Typography>
-                                                     <Typography style={{marginTop:20, fontSize:11}}>
-                                                           <ReactMarkdown>Experience the cool, calming essence of Peppermint Herbal Tea — a rejuvenating blend that supports both mind and body. Crafted from pure peppermint leaves, this aromatic infusion delivers natural relief, relaxation, and daily wellness in every cup.</ReactMarkdown>
-                                                     </Typography>
-                                                     <Typography style={{marginTop:10, fontSize:10}}>
-                                                           <ReactMarkdown>Known for its wide range of health benefits, Peppermint Herbal Tea helps improve sleep quality, regulate blood pressure, and fight infections with its natural antibacterial properties. It also acts as a gentle immune booster, helps relieve menstrual cramps and headaches, and supports cardio-metabolic health.</ReactMarkdown>
-                                                     </Typography>
-                                                     <Typography style={{marginTop:10, fontSize:10}}>
-                                                           <ReactMarkdown>Perfect after meals, it aids digestion by easing gas, bloating, sore throat, and nasal congestion, while also supporting healthy weight management.</ReactMarkdown>
-                                                     </Typography>
-                                                     <Typography style={{marginTop:10, fontSize:10}}>
-                                                           <em><ReactMarkdown>Breathe easy. Sip deeply. Live well.</ReactMarkdown></em>
-                                                     </Typography>
+              <Typography style={{marginTop:0, padding: 0,fontSize:12}}>
+                          <strong><ReactMarkdown>Dual Action for Better Blood Sugar Control</ReactMarkdown></strong>
+                    </Typography>
+                    <Typography style={{marginTop:20, fontSize:10}}>
+                          <ReactMarkdown>Andeglim is a powerful combination therapy designed to help manage blood glucose levels in individuals with Type 2 diabetes. It is recommended when diet, exercise, and treatment with either Metformin or a Sulfonylurea alone are not sufficient to maintain optimal blood sugar control. </ReactMarkdown>
+                    </Typography>
+                    <Typography style={{marginTop:10, fontSize:10}}>
+                          <ReactMarkdown>Containing two proven active ingredients — Metformin Hydrochloride and Glibenclamide — Andeglim offers effective, balanced glucose regulation by targeting insulin resistance and promoting improved insulin secretion.</ReactMarkdown>
+                    </Typography>
+                    <Typography style={{marginTop:10, fontSize:10}}>
+                          <em><ReactMarkdown>Andeglim — advanced care for confident diabetes management.</ReactMarkdown></em>
+                    </Typography>
               </Grid>
-              {/* <Grid
+              <Grid
                 item
                 alignItems="center"
                 // style={{ height: "60%", marginLeft: "3.5em" }}
@@ -1077,88 +1093,50 @@ export default function GroupedAndersonsProducts(props) {
                 <Button
                   variant="contained"
                   component={Link}
-                  to="/dealscentral"
-                  //onClick={() => <DealHome />}
-                  className={classes.actionButton}
+                   to={`/products/${categorySlug2}/${slug4}`}
+                    onClick={() => <ProductDetails />}
+                  className={classes.actionDownButton}
                 >
-                  List Products
+                 View Details
                 </Button>
-              </Grid> */}
-            </Grid>
-            <Grid
-              container
-              direction="column"
-              style={{ marginLeft: 0, width: "100%", marginTop: 0 }}
-            >
-              <Typography variant="h5" style={{marginLeft:10, marginBottom:25}}>Airline Crew & Layover Services</Typography> <br />
-              <Grid
-                container
-                //direction="row"
-                alignItems="center"
-                className={classes.backgroundGrowth}
-                justifyContent={matchesSM ? "center" : "space-between"}
-                direction={matchesSM ? "column" : "row"}
-                item
-                style={{ height: "25%", marginTop: 0, marginLeft: 20 }}
-              ></Grid>
-              <Grid
-                item
-                alignItems="center"
-                style={{ height: "63%", marginLeft: 25 }}
-              >
-                <Typography><ReactMarkdown>**Dedicated services to support airline crew members, including pilots, cabin crew, and ground staff on duty.**</ReactMarkdown></Typography>
-                  <Typography>   
-                  <br /><strong>Services Include:</strong><br />               
-                  <ReactMarkdown>{airlineCrewServices}</ReactMarkdown>
-                  </Typography>
               </Grid>
-              {/* <Grid
-                item
-                alignItems="center"
-                // style={{ height: "60%", marginLeft: "3.5em" }}
-                style={{ height: "10%", marginLeft: "0.7em", marginTop: 10 }}
-              >
-                <Button
-                  variant="contained"
-                  component={Link}
-                  to="/dealscentral"
-                  //onClick={() => <DealHome />}
-                  className={classes.actionButton}
-                >
-                  Boost Visibility
-                </Button>
-              </Grid> */}
             </Grid>
-
             <Grid
               container
               direction="column"
-              style={{ marginLeft: 0, width: "100%", marginTop: 0 }}
+              style={{ marginLeft: 15, width: "30%", marginTop: 0 }}
             >
-               <Typography variant="h5" style={{marginLeft:10, marginBottom:20}}>Private Jet / Charter Flight Protocol Services</Typography>
+              <Typography variant="h5" style={{marginLeft:10, marginBottom:20,fontSize:12}}>Andermal Tablets</Typography> <br />
               <Grid
                 container
                 //direction="row"
                 alignItems="center"
+               
                 className={classes.backgroundMetrics}
                 justifyContent={matchesSM ? "center" : "space-between"}
                 direction={matchesSM ? "column" : "row"}
                 item
-                style={{ height: "25%", marginTop: 0, marginLeft: "1.2em" }}
+                style={{ height: "10%", marginTop: 0, marginLeft: 20 }}
               ></Grid>
               <Grid
                 item
                 alignItems="center"
-                style={{ height: "63%", marginLeft: 25 }}
+                style={{ height: "50%", marginLeft: 25 }}
               >
-                 <Typography><ReactMarkdown>**Luxury protocol services tailored for private aircraft passengers and VIP charters.**</ReactMarkdown></Typography>
-                  <Typography>   
-                  <br /><strong>Services Include:</strong><br />               
-                  <ReactMarkdown>{privateServices}</ReactMarkdown>
-                  </Typography>
+                <Typography style={{marginTop:0, padding: 0,fontSize:12}}>
+                          <strong><ReactMarkdown>Effective Relief. Trusted Protection.</ReactMarkdown></strong>
+                    </Typography>
+                      <Typography style={{marginTop:10, fontSize:10}}>
+                            <ReactMarkdown>Andermal is formulated for the treatment of acute and uncomplicated malaria infections caused by Plasmodium falciparum in patients weighing 35 kg and above.</ReactMarkdown>
+                      </Typography>
+                      <Typography style={{marginTop:10, fontSize:10}}>
+                          <ReactMarkdown>Developed with precision and backed by clinical expertise, Andermal offers reliable, fast-acting relief to help restore your health and well-being.</ReactMarkdown>
+                    </Typography>
+                      <Typography style={{marginTop:10, fontSize:10}}>
+                    </Typography>
+                          <strong><em><ReactMarkdown>Your health deserves proven protection.</ReactMarkdown></em></strong>
               </Grid>
-
-              {/* <Grid
+              <Grid
                 item
                 alignItems="center"
                 // style={{ height: "60%", marginLeft: "3.5em" }}
@@ -1167,156 +1145,69 @@ export default function GroupedAndersonsProducts(props) {
                 <Button
                   variant="contained"
                   component={Link}
-                  to="/dealscentral"
-                  //onClick={() => <DealHome />}
-                  className={classes.actionButton}
+                  to={`/products/${categorySlug2}/${slug5}`}
+                    onClick={() => <ProductDetails />}
+                  className={classes.actionDownButton}
                 >
-                  Market Metrics
+                  View Details
                 </Button>
-              </Grid> */}
+              </Grid>
+            </Grid>
+
+            <Grid
+              container
+              direction="column"
+              style={{ marginLeft: 15, width: "30%", marginTop: 0 }}
+            >
+               <Typography variant="h5" style={{marginLeft:10, marginBottom:20,fontSize:12}}>Tropicana Slim – Stevia Sweetener</Typography>
+              <Grid
+                container
+                //direction="row"
+                alignItems="center"
+                 className={classes.backgroundGrowth}
+                justifyContent={matchesSM ? "center" : "space-between"}
+                direction={matchesSM ? "column" : "row"}
+                item
+                style={{ height: "10%", marginTop: 0, marginLeft: "1.2em" }}
+              ></Grid>
+              <Grid
+                item
+                alignItems="center"
+                style={{ height: "50%", marginLeft: 25 }}
+              >
+                 <Typography style={{marginTop:0, padding: 0,fontSize:12}}>
+                          <strong><ReactMarkdown>Naturally Sweet. Perfectly Healthy.</ReactMarkdown></strong>
+                    </Typography>
+                      <Typography style={{marginTop:10, fontSize:10}}>
+                            <ReactMarkdown>Experience pure sweetness from nature with Tropicana Slim (Stevia Sweetener) — a plant-based sugar substitute made from Stevia leaves. Safe, healthy, and naturally derived, it’s the ideal choice for those seeking a wholesome way to enjoy sweetness without guilt.</ReactMarkdown>
+                      </Typography>
+                      <Typography style={{marginTop:10, fontSize:10}}>
+                          <ReactMarkdown>Formulated to reduce calorie intake, lower blood sugar levels, and support healthy cholesterol, Stevia Sweetener is great for diabetic individuals and anyone pursuing a balanced lifestyle. Plus, it helps lower the risk of cavities and tooth decay, making it a smart choice for the whole family.</ReactMarkdown>
+                    </Typography>
+                      <Typography style={{marginTop:10, fontSize:10}}>
+                          <em><ReactMarkdown>The sweetness of nature, redefined.</ReactMarkdown></em>
+                    </Typography>
+              </Grid>
+
+              <Grid
+                item
+                alignItems="center"
+                // style={{ height: "60%", marginLeft: "3.5em" }}
+                style={{ height: "10%", marginLeft: "0.7em", marginTop: 10 }}
+              >
+                <Button
+                  variant="contained"
+                  component={Link}
+                  to={`/products/${categorySlug1}/${slug6}`}
+                    onClick={() => <ProductDetails />}
+                  className={classes.actionDownButton}
+                >
+                 View Details
+                </Button>
+              </Grid>
             </Grid>
           </Grid>
-          {/**This is the last lap */}
-          <Grid
-            container
-            direction="row"
-            style={{ marginTop: 5, height: "33%" }}
-          >
-            <Grid
-              container
-              direction="column"
-              style={{ marginLeft: 10, width: "100%", marginTop: 0 }}
-            >
-              <Typography variant="h5" style={{marginLeft:10, marginBottom:20}}>Special Event Protocol Management Service</Typography>
-              <Grid
-                container
-                //direction="row"
-                alignItems="center"
-                className={classes.backgroundEvent}
-                justifyContent={matchesSM ? "center" : "space-between"}
-                direction={matchesSM ? "column" : "row"}
-                item
-                style={{ height: "25%", marginTop: 10, marginLeft: 10 }}
-              ></Grid>
-              <Grid
-                item
-                alignItems="center"
-                style={{ height: "60%", marginLeft: 10 }}
-              >
-                 <Typography><ReactMarkdown>**Specialized services for celebrities, sports teams, film crews, or diplomatic delegations during high-profile events.**</ReactMarkdown></Typography>
-                  <Typography>   
-                  <br /><strong>Services Include:</strong><br />               
-                  <ReactMarkdown>{specialEventServices}</ReactMarkdown>
-                  </Typography>
-              </Grid>
-              {/* <Grid
-                item
-                alignItems="center"
-                // style={{ height: "60%", marginLeft: "3.5em" }}
-                style={{ height: "10%", marginLeft: "0.3em", marginTop: 10 }}
-              >
-                <Button
-                  variant="contained"
-                  component={Link}
-                  to="/dealscentral"
-                  //onClick={() => <DealHome />}
-                  className={classes.actionButton}
-                >
-                  List Products
-                </Button>
-              </Grid> */}
-            </Grid>
-            <Grid
-              container
-              direction="column"
-              style={{ marginLeft: 0, width: "100%", marginTop: 10 }}
-            >
-               <Typography variant="h5" style={{marginLeft:10, marginBottom:20}}>Protocol Officer Staffing & Training Service</Typography>
-              <Grid
-                container
-                //direction="row"
-                alignItems="center"
-                className={classes.backgroundTraining}
-                justifyContent={matchesSM ? "center" : "space-between"}
-                direction={matchesSM ? "column" : "row"}
-                item
-                style={{ height: "25%", marginTop: 0, marginLeft: 20 }}
-              ></Grid>
-              <Grid
-                item
-                alignItems="center"
-                style={{ height: "63%", marginLeft: 25 }}
-              >
-                <Typography><ReactMarkdown>**Recruitment, training, and provision of professional protocol officers for airports, airlines, or special projects.**</ReactMarkdown></Typography>
-                  <Typography>   
-                  <br /><strong>Services Include:</strong><br />               
-                  <ReactMarkdown>{trainingServices}</ReactMarkdown>
-                  </Typography>
-              </Grid>
-              {/* <Grid
-                item
-                alignItems="center"
-                // style={{ height: "60%", marginLeft: "3.5em" }}
-                style={{ height: "10%", marginLeft: "0.7em", marginTop: 10 }}
-              >
-                <Button
-                  variant="contained"
-                  component={Link}
-                  to="/dealscentral"
-                  //onClick={() => <DealHome />}
-                  className={classes.actionButton}
-                >
-                  Boost Visibility
-                </Button>
-              </Grid> */}
-            </Grid>
-
-            <Grid
-              container
-              direction="column"
-              style={{ marginLeft: 0, width: "100%", marginTop: 0 }}
-            >
-                <Typography variant="h5" style={{marginLeft:10, marginBottom:20}}>Documentation & Clearance Assistance Service</Typography>
-              <Grid
-                container
-                //direction="row"
-                alignItems="center"
-                className={classes.backgroundDocumentation}
-                justifyContent={matchesSM ? "center" : "space-between"}
-                direction={matchesSM ? "column" : "row"}
-                item
-                style={{ height: "25%", marginTop: 0, marginLeft: "1.2em" }}
-              ></Grid>
-              <Grid
-                item
-                alignItems="center"
-                style={{ height: "63%", marginLeft: 25 }}
-              >
-                <Typography><ReactMarkdown>**Expert support with all essential travel documentation, immigration, and customs formalities.**</ReactMarkdown></Typography>
-                  <Typography>   
-                  <br /><strong>Services Include:</strong><br />               
-                  <ReactMarkdown>{documentationServices}</ReactMarkdown>
-                  </Typography>
-              </Grid>
-
-              {/* <Grid
-                item
-                alignItems="center"
-                // style={{ height: "60%", marginLeft: "3.5em" }}
-                style={{ height: "10%", marginLeft: "0.7em", marginTop: 10 }}
-              >
-                <Button
-                  variant="contained"
-                  component={Link}
-                  to="/dealscentral"
-                  //onClick={() => <DealHome />}
-                  className={classes.actionButton}
-                >
-                  Market Metrics
-                </Button>
-              </Grid> */}
-            </Grid>
-          </Grid>
+         
         </Box>
       )}
       <Dialog

@@ -27,8 +27,10 @@ import backgroundProduct from "./../../../assets/images/covers/aboutus-cover.jpg
 import backgroundGrowth from "./../../../assets/images/covers/channels.jpg";
 import backgroundMetrics from "./../../../assets/images/covers/assessment.jpg";
 import heroImage from "./../../../assets/images/andersons/derfxone_front.png";
+import ProductDetails from "../../products/ProductDetails";
 
 import { baseURL } from "./../../../apis/util";
+
 
 import theme from "./../../ui/Theme";
 
@@ -432,6 +434,9 @@ export default function DerfxoneSection() {
 
   const Str = require("@supercharge/strings");
 
+  const categorySlug = 'natural-medicines';
+  const slug = 'derfxone';
+
   const brandProcess = "* **Step 1: Submit a Campaign**: Upload a link to your post or content. Choose the platform (Instagram, X, Facebook, LinkedIn, TikTok, YouTube).\n\n* **Step 2: Set Engagement Goals**: Define the type of engagement: likes, shares, comments, DMs, tags, etc. Optionally, set audience filters.\n\n* **Step 3: Choose Reward Budget**: Set the budget and payout-per-engagement or reach (for PPAR campaigns). Our algorithm allocates tasks to the best-fit army members.\n\n* **Step 4: Monitor & Optimize**: Use a live dashboard to track progress, view engagement breakdowns, verify authenticity, and pause/resume campaigns anytime.";
   const armyProcess = "* **Step 1: Register & Verify**: Sign up, verify your identity and social accounts. You’ll be assessed and placed into engagement tiers.\n\n* **Step 2: Browse Campaigns**: Choose from open missions based on your platforms and interests. See required actions and rewards per task.\n\n* **Step 3: Complete Tasks**: Engage with brand content exactly as instructed. The more precise and impactful your action, the higher your reward.\n\n* **Step 4: Get Paid**: Receive rewards directly into your wallet for every verified engagement or delivery.";
       return (
@@ -475,7 +480,8 @@ export default function DerfxoneSection() {
                         justifyContent="center" 
                         className={classes.button}
                         component={Link}
-                         to="/protocolcentral/"
+                        to={`/products/${categorySlug}/${slug}`}
+                        onClick={() => <ProductDetails />}
                     
                     >
                       View Details!
@@ -536,30 +542,31 @@ export default function DerfxoneSection() {
                                 //style={{ height: "60%", marginLeft: "3.5em" }}
                                 style={{ height: "90%", marginLeft: "2%", width:"70%", padding:2, marginRight:"10%"  }}
                               >
-                               <Typography variant="h5" style={{marginLeft:'0%',marginBottom:30, fontWeight:700}}>Complete Waste Management Solutions for Businesses & Individuals</Typography>
+                               <Typography variant="h5" style={{marginLeft:'0%',marginBottom:30, fontWeight:700}}>Derfxone</Typography>
                               <Typography style={{marginTop:0, padding: 0,fontSize:10}}>
-                                  <strong><ReactMarkdown>Efficient. Reliable. Sustainable.</ReactMarkdown></strong>
+                                  <strong><ReactMarkdown>Broad-Spectrum Protection. Trusted Clinical Care.</ReactMarkdown></strong>
                               </Typography>
                                 <Typography style={{marginTop:10, fontSize:10}}>
-                                <ReactMarkdown>We deliver end-to-end waste management services tailored for expatriates, business professionals, and organizations across Lagos. From collection and disposal to recycling and compliance — we handle it all, so you don’t have to.</ReactMarkdown>
+                                <ReactMarkdown>Derfxone is a powerful and reliable antibiotic formulated for the effective treatment of a wide range of bacterial infections. It is designed to deliver fast-acting relief and dependable results in serious and uncomplicated cases alike.</ReactMarkdown>
                               </Typography>
-                              <Typography style={{marginTop:30, fontSize:10}}>
+                              {/* <Typography style={{marginTop:30, fontSize:10}}>
                                 <ReactMarkdown>**Clean Environments. Smart Solutions. Zero Hassle.**</ReactMarkdown>
-                              </Typography>
+                              </Typography> */}
                                <Typography style={{marginTop:30, fontSize:10}}>
-                                <em><ReactMarkdown>Partner with us to manage your waste responsibly and professionally.</ReactMarkdown></em>
+                                <em><ReactMarkdown>Derfxone — trusted protection against infection.</ReactMarkdown></em>
                               </Typography>
                               <Button 
                                 variant="contained"
-                                disabled={true}
+                                disabled={false}
                                 color="secondary" 
                                 justifyContent="center" 
                                 className={classes.buttonMobile}
                                 component={Link}
-                                to="/protocolcentral/"
+                                to={`/products/${categorySlug}/${slug}`}
+                                onClick={() => <ProductDetails />}
                     
                           >
-                              Get a Waste Management Plan 
+                              View Details
                           </Button>
                       </Grid>
                               

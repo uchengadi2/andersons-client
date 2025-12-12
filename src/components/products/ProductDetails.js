@@ -211,7 +211,6 @@ function ProductDetails(props) {
   const [aboutUsOpen, setAboutUsOpen] = useState(false);
   const [contactUsOpen, setContactUsOpen] = useState(false);
   const [becomePartnerOpen, setBecomePartnerOpen] = useState(false);
-  const [product, setProduct] = useState({});
   const [isOnPromo, setIsOnPromo] = useState(false);
   const [promoPrice, setPromoPrice] = useState();
   const [promoMinQuantity, setPromoMinQuantity] = useState();
@@ -222,8 +221,9 @@ function ProductDetails(props) {
   const [creatorId, setCreatorId] = useState("");
   const[brandName, setBrandName] = useState("");
   const [brandCountry, setBrandCountry] = useState("");
-  const [sample, setSample] = useState({});
-  const [sampleId,setSampleId] = useState("")
+
+  const [product, setProduct] = useState({});
+  const [productId, setProductId] = useState("");
 
   const [alert, setAlert] = useState({
     open: false,
@@ -240,10 +240,8 @@ function ProductDetails(props) {
   };
 
   const slug = params.slug;
-  const service = params.serviceId;
 
- // console.log('user id:', props.userId);
- // console.log('categorySlug is:',categorySlug)
+console.log('slug is:',slug)
 
   const handleBecomeAPartnerOpenDialogBox = () => {
     setBecomePartnerOpen(false);
@@ -268,107 +266,63 @@ function ProductDetails(props) {
   };
 
 
-  //getting the brand id
-   useEffect(() => {
-           const fetchData = async () => {
-             let allData = {};
-             if(props.userId){
-              api.defaults.headers.common["Authorization"] = `Bearer ${props.token}`;
-              const response = await api.get(`/brands`,{
-               params:{
-                user:props.userId
-              }});
-              const workingData = response.data.data.data;
- 
-                         
-        
-             
-             if(workingData.length > 0){
-                   
-              setBrandId(workingData[0].id);
-              setBrandName(workingData[0].name);
-              setBrandCountry(workingData[0].country[0].id);
-            
-              
-              }
-             }
-             
-             
-           };
-       
-           //call the function
-       
-           fetchData().catch(console.error);
-         }, [props.token, props.userId]);
-
-  
+    
 
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
       let allData = [];
-      api.defaults.headers.common["Authorization"] = `Bearer ${props.token}`;
-      const response = await api.get(`/samples`, {
+      //api.defaults.headers.common["Authorization"] = `Bearer ${props.token}`;
+      const response = await api.get(`/products`, {
         params: { slug: slug },
       });
-      const sample = response.data.data.data;
+      const product = response.data.data.data;
 
-      if (sample.length >= 1) {
+      if (product.length >= 1) {
         allData.push({
-               id: sample[0]._id,
-              refNumber: sample[0].refNumber,
-              creator: sample[0].creator,
-              youtubeId: sample[0].youtubeId,
-              sampleType: sample[0].sampleType,
-              specialFeature: sample[0].specialFeature,
-              dateCreated: sample[0].dateCreated,
-              dateModified: sample[0].dateModified,
-              createdBy: sample[0].createdBy,
-              modifiedBy: sample[0].modifiedBy,
-              status: sample[0].status,
-              isAllowedOnThePlatform: sample[0].isAllowedOnThePlatform,
-              driverDetails: sample[0].driverDetails,
-              vehicleDetails: sample[0].vehicleDetails,
-              vehicleDescription: sample[0].vehicleDescription,
-              maximumOccupants: sample[0].maximumOccupants,
-              vehicleClass: sample[0].vehicleClass,
-              vehicleMake: sample[0].vehicleMake,
-              vehicleModel: sample[0].vehicleModel,
-              location: sample[0].location,
-              image: sample[0].image,
-              images: sample[0].images,
-              category: sample[0].category,
-              slug: sample[0].slug,
+          id: product[0]._id,
+            name: product[0].name,
+            images: product[0].images,
+            imageCover: product[0].imageCover,
+            refNumber: product[0].refNumber,
+            category: product[0].category,
+            shortDescription: product[0].shortDescription,
+            fullDescription: product[0].fullDescription,
+            pricePerUnit: product[0].pricePerUnit,
+            unit: product[0].unit,
+            minimumOrderQuantity: product[0].minimumOrderQuantity,
+            unitLabel: product[0].unitLabel,
+            configuration: product[0].configuration,
+            slug: product[0].slug,
+            status: product[0].status,
+            sku: product[0].sku,
+            createdBy:product[0].createdBy,
+            createdAt:product[0].createdAt,
+            
           
         });
 
-        setSample({
-              id: allData[0].id,
-              refNumber: allData[0].refNumber,
-              creator: allData[0].creator,
-              youtubeId: allData[0].youtubeId,
-              sampleType: allData[0].sampleType,
-              specialFeature: allData[0].specialFeature,
-              dateCreated: allData[0].dateCreated,
-              dateModified: allData[0].dateModified,
-              createdBy: allData[0].createdBy,
-              modifiedBy: allData[0].modifiedBy,
-              status: allData[0].status,
-              isAllowedOnThePlatform: allData[0].isAllowedOnThePlatform,
-              driverDetails: allData[0].driverDetails,
-              vehicleDetails: allData[0].vehicleDetails,
-              vehicleDescription: allData[0].vehicleDescription,
-              maximumOccupants: allData[0].maximumOccupants,
-              vehicleClass: allData[0].vehicleClass,
-              vehicleMake: allData[0].vehicleMake,
-              vehicleModel:allData[0].vehicleModel,
-              location: allData[0].location,
-              image: allData[0].image,
-              images: allData[0].images,
-              category: allData[0].category,
-              slug: allData[0].slug,
+        setProduct({
+          id: allData[0].id,
+            name: allData[0].name,
+            images: allData[0].images,
+            imageCover: allData[0].imageCover,
+            refNumber: allData[0].refNumber,
+            category: allData[0].category,
+            shortDescription: allData[0].shortDescription,
+            fullDescription: allData[0].fullDescription,
+            pricePerUnit: allData[0].pricePerUnit,
+            unit: allData[0].unit,
+            minimumOrderQuantity: allData[0].minimumOrderQuantity,
+            unitLabel: allData[0].unitLabel,
+            configuration: allData[0].configuration,
+            slug: allData[0].slug,
+            status: allData[0].status,
+            sku: allData[0].sku,
+            createdBy:allData[0].createdBy,
+            createdAt:allData[0].createdAt,
         });
-        setSampleId(allData[0].id);
+        setProductId(allData[0].id);
 
 
         setIsLoading(false);
@@ -380,40 +334,34 @@ function ProductDetails(props) {
     fetchData().catch(console.error);
   }, [slug]);
 
+  console.log('product is:',product)
+
   
   
   
 
   const Str = require("@supercharge/strings");
 
-  const sampleData = matchesMD ? (
+  const creatorData = matchesMD ? (
     <React.Fragment>
       {
         <Grid container direction="row">
           <ProductDetailCard
-            sample={sample}
-            service={service}
-            sampleId={sampleId}
-            refNumber= {sample.refNumber}
-            image= {sample.image}
-            images = {sample.images}
-            creator={sample.creator}
-            sampleType= {sample.sampleType}
-            specialFeature={sample.specialFeature}
-            dateCreated={sample.dateCreated}
-            status={sample.status}
-            isAllowedOnThePlatform={sample.isAllowedOnThePlatform}
-            driverDetails={sample.driverDetails}
-            vehicleDetails={sample.vehicleDetails}
-            vehicleDescription={sample.vehicleDescription}
-            maximumOccupants={sample.maximumOccupants}
-            vehicleClass={sample.vehicleClass}
-            vehicleMake={sample.vehicleMake}
-            vehicleModel={sample.vehicleModel}
-            location={sample.location}
-            category={sample.category}
-            slug={sample.slug}
-            key={creator.id}
+            product={product}
+            creatorId={product.id}
+            name= {product.name}
+            pricePerUnit={product.pricePerUnit}
+            images= {product.images}
+            imageCover = {product.imageCover}
+            
+            category={product.category}
+            categoryName = {product.category ? product.category[0].name : ""}
+            categoryCode = {product.category ? product.category[0].code : ""}
+           
+            slug= {product.slug}
+            status={product.status}
+            
+            key={product.id}
             token={props.token}
             userId={props.userId}
             setToken={props.setToken}
@@ -423,7 +371,7 @@ function ProductDetails(props) {
             }
             handleFailedSnackbar={props.handleFailedSnackbar}
             cartCounterHandler={props.cartCounterHandler}
-            
+    
           />
         </Grid>
       }
@@ -438,38 +386,30 @@ function ProductDetails(props) {
           alignItems="center"
         >
           <ProductDetailCard
-             sample={sample}
-             service={service}
-             sampleId={sampleId}
-             name= {sample.refNumber}
-             image= {sample.image}
-             images = {sample.images}
-             creator={sample.creator}
-             sampleType= {sample.sampleType}
-             specialFeature={sample.specialFeature}
-             dateCreated={sample.dateCreated}
-             status={sample.status}
-             isAllowedOnThePlatform={sample.isAllowedOnThePlatform}
-             driverDetails={sample.driverDetails}
-             vehicleDetails={sample.vehicleDetails}
-             vehicleDescription={sample.vehicleDescription}
-             maximumOccupants={sample.maximumOccupants}
-             vehicleClass={sample.vehicleClass}
-             vehicleMake={sample.vehicleMake}
-             vehicleModel={sample.vehicleModel}
-             location={sample.location}
-             category={sample.category}
-             slug={sample.slug}
-             key={creator.id}
-             token={props.token}
-             userId={props.userId}
-             setToken={props.setToken}
-             setUserId={props.setUserId}
-             handleSuccessfulCreateSnackbar={
-               props.handleSuccessfulCreateSnackbar
-             }
-             handleFailedSnackbar={props.handleFailedSnackbar}
-             cartCounterHandler={props.cartCounterHandler}
+           product={product}
+            productId={product.id}
+            name= {product.name}
+            pricePerUnit={product.pricePerUnit}
+            images= {product.images}
+            imageCover = {product.imageCover}
+            
+            category={product.category}
+            categoryName = {product.category ? product.category[0].name : ""}
+            categoryCode = {product.category ? product.category[0].code : ""}
+           
+            slug= {product.slug}
+            status={product.status}
+            
+            key={product.id}
+            token={props.token}
+            userId={props.userId}
+            setToken={props.setToken}
+            setUserId={props.setUserId}
+            handleSuccessfulCreateSnackbar={
+              props.handleSuccessfulCreateSnackbar
+            }
+            handleFailedSnackbar={props.handleFailedSnackbar}
+            cartCounterHandler={props.cartCounterHandler}
           />
         </Grid>
       }
@@ -487,7 +427,7 @@ function ProductDetails(props) {
           />
         )}
 
-        {!isLoading && <Grid item>{sampleData}</Grid>}
+        {!isLoading && <Grid item>{creatorData}</Grid>}
 
         {/*....INFORMATION BLOCK....*/}
       </Grid>

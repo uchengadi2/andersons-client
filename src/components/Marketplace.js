@@ -3564,27 +3564,13 @@ const Marketplace = (props) => {
         <Typography variant="h3" style={{marginLeft:'40%',marginBottom:30}}>Our Brands</Typography>
         <TropicanaSlimCappuccinoSection />
         
-        {/* <AndermalSection />
-        <TropicanaSlimZeroSection />
-        <TropicanaSlimSteviaSection />
-        
-        <AndeglimSection />
-        <DerfxoneSection />
-        <TropicanaSlimLowCalorieSection />
-        <GreenTeaSection />
-                
-        <PeppermintHerbalInfusionSection />
-        <GingerLemonMoringaHerbalSection />
-        <PomegranateHerbalInfusionSection />
-        <GingerTurmericGarlicHoneyHerbalSection />
-        <DiaHerbHerbalInfusionSection /> */}
-     
+            
         <GroupedProducts />
         <DerfxoneSection />
         <GroupedAndersonsProducts />
         
-        {/* <TheFounders /> */}
-        <OurClients />
+        <TheFounders />
+        {/* <OurClients /> */}
 
         
       {renderLoginForm()}

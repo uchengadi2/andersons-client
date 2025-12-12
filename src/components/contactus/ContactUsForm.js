@@ -86,24 +86,26 @@ function ContactUsForm(props) {
         <Grid item container direction="row" alignItems="center">
           <Typography variant="h5" style={{ marginTop: 50 }}>
             <span style={{ color: "orange" }}>Address:</span>{" "}
+             <br />
             <span style={{ marginLeft: 10 }}>
-              64 Okota Road, Isolo{" "}
-              <span style={{ marginLeft: 100 }}> Lagos </span>{" "}
-              {/* <span style={{ marginLeft: 100 }}>
-                Estate, Ilasa, Lagos, Nigeria
-              </span> */}
+              Plot 8, Block C, Apapa Oshodi Expressway,{" "}
+              {/* <span style={{ marginLeft: 100 }}> Lagos </span>{" "} */}
+              <br />
+              <span style={{ marginLeft: 10 }}>
+                Ilasamaja Industrial Estate, Ilasa, Lagos, Nigeria
+              </span>
             </span>
             <br /> <br />
           </Typography>
           <Typography variant="h5" style={{ marginTop: 10 }}>
             <span style={{ color: "orange" }}>Email:</span>{" "}
             <span style={{ marginLeft: 30 }}>
-              3starspluto@gmail.com{" "}
+              sales@andersonspharma.com{" "}
             </span>
             <br /> <br /> <span style={{ color: "orange" }}>Tel:</span>{" "}
-            <span style={{ marginLeft: 50 }}>+234 808 773 5317</span>
+            <span style={{ marginLeft: 50 }}>+234 080 9616 0777</span>
             <br /> <br />
-            <span style={{ marginLeft: 100 }}>+234 701 854 1894</span>
+            {/* <span style={{ marginLeft: 100 }}>+234 701 854 1894</span> */}
           </Typography>
         </Grid>
       </Box>

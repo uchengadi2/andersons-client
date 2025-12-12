@@ -20,7 +20,7 @@ import CallToAction from "./../ui/CallToAction";
 
 import revolutionBackground from "./../../assets/repeatingBackground.svg";
 //import infoBackground from "./../../assets/infoBackground.svg";
-import infoBackground from "./../../assets/images/site/image7.webp";
+import infoBackground from "./../../assets/images/site/image88.jpg";
 
 import background from "./../../logistic_assets/cover_image_1.png";
 
@@ -311,9 +311,7 @@ function UpperFooter(props) {
                         practice, mentoring and assessment <br />
                       </strong> */}
                       <strong>
-                        At 3Stars Pluto, we specialize in delivering premium Airport Protocol, Security, and Chauffeur-driven Car Hire services tailored to the discerning traveler. Whether you're a VIP, airline crew, government official, or corporate executive, 
-                        our mission is to ensure your journey is seamless, secure, and supremely comfortable.
-                        We elevate airport travel into an experience. From your arrival until departure, expect an unwavering commitment to precision, comfort, and security. Let us handle the details—in style, with dignity, and always with your best interests at heart.
+                        At our core, we are dedicated to supporting your wellbeing through nature’s finest offerings. We provide high-quality, affordable herbs, beverages, and natural medicines crafted to nurture your body and mind. Our mission is to make natural wellness accessible to everyone by offering products you can trust—carefully sourced, thoughtfully prepared, and rooted in tradition. Whether you’re seeking everyday nourishment or natural remedies, we’re here to help you live healthier, naturally.
 
                       </strong>
                     </Typography>
@@ -375,13 +373,15 @@ function UpperFooter(props) {
                     <Typography variant="subtitle2">Say hello!</Typography>
                   ) : (
                     <Typography variant="subtitle2" style={{ fontSize: 14 }}>
-                      <span> 64 Okota Road, Isolo, Lagos</span>
+                      <span> Plot 8, Block C, Apapa Oshodi Expressway,</span>
+                      <br />
+                       <span> Ilasamaja Industrial Estate, Ilasa, Lagos, Nigeria,</span>
+                      <br />                      
+
+                      <span>sales@andersonspharma.com</span>
                       <br />
 
-                      <span>3starspluto@gmail.com</span>
-                      <br />
-
-                      <span>+234 808 773 5317, +234 701 854 1894</span>
+                      <span>+234 080 9616 0777</span>
                     </Typography>
                   )}
                   {matchesMD ? (

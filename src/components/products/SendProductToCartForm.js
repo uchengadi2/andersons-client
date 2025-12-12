@@ -41,13 +41,15 @@ const renderRequestedQuantityField = ({
   label,
   meta: { touched, error, invalid },
   type,
+  min,
+  helperText,
   id,
   ...custom
 }) => {
   return (
     <TextField
       //error={touched && invalid}
-      helperText="How many units do you need?"
+      helperText={helperText}
       variant="outlined"
       label={label}
       id={input.name}
@@ -60,7 +62,7 @@ const renderRequestedQuantityField = ({
       onChange={input.onChange}
       InputProps={{
         inputProps: {
-          min: 1,
+          min: min,
           style: {
             height: 1,
           },
@@ -79,7 +81,7 @@ function SendProductToCartForm(props) {
     location,
     locationCountry,
   } = props;
-  const [quantity, setQuantity] = useState();
+  const [quantity, setQuantity] = useState(minimumQuantity);
   const [newQuantity, setNewQuantity] = useState();
   const [price, setPrice] = useState();
   const [productQuantityInCart, setProductQuantityInCart] = useState();
@@ -94,9 +96,9 @@ function SendProductToCartForm(props) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setQuantity(newQuantity);
+    setQuantity(newQuantity ? newQuantity: minimumQuantity);
     setPrice(props.price);
-  }, [props, newQuantity]);
+  }, [props, newQuantity,minimumQuantity]);
 
   useEffect(() => {
     if (!quantity) {
@@ -111,7 +113,7 @@ function SendProductToCartForm(props) {
       .replace(/\d(?=(\d{3})+\.)/g, "$&,");
 
     setTotal(sum);
-  }, [quantity, price]);
+  }, [quantity, price,minimumQuantity]);
 
   const classes = useStyles();
   // const [total, setTotal] = useState(
@@ -218,6 +220,7 @@ function SendProductToCartForm(props) {
     meta: { touched, error, invalid },
     type,
     id,
+    defaultValue,
     ...custom
   }) => {
     return (
@@ -233,7 +236,7 @@ function SendProductToCartForm(props) {
         type={type}
         {...custom}
         disabled
-        defaultValue={`${minimumQuantity} unit(s)`}
+        defaultValue={`${minimumQuantity} ${minimumQuantity===1 ? props.product.unit : props.product.unit + `s`}`}
         onChange={input.onChange}
         InputProps={{
           inputProps: {
@@ -251,7 +254,7 @@ function SendProductToCartForm(props) {
     return <React.Fragment> Add to Cart</React.Fragment>;
   };
 
-  console.log("the props items are:", props);
+  
 
   const onSubmit = (formValues) => {
     setLoading(true);
@@ -292,12 +295,20 @@ function SendProductToCartForm(props) {
 
       quantity: quantity,
       cartHolder: props.userId,
-      productLocation: location,
-      locationCountry: locationCountry,
       isDeleted: false,
-      price: price,
-      currency: props.currency,
+      pricePerUnit:price,
+      category:props.product.category[0].id,
+      image:props.product.imageCover,
+      slug:props.product.slug,
+      configuration:props.product.configuration,
+      productMinimumOrderQuantity:minimumQuantity,
+      unit:props.product.unit,
+      unitLabel:props.product.unitLabel,
+      status:'unmarked-for-checkout',
+      
     };
+
+    console.log('data isssssss:',data);
 
     if (sameProductAlreadyInCart === false) {
       //create a new cart and add the product
@@ -346,7 +357,6 @@ function SendProductToCartForm(props) {
       const data = {
         quantity: totalProductQuantity,
         price: price,
-        currency: props.currency,
         isDeleted: false,
       };
 
@@ -407,6 +417,7 @@ function SendProductToCartForm(props) {
           id="minimumQuantity"
           name="minimumQuantity"
           type="text"
+         // defaultValue={`${minimumQuantity} unit(s)`}
           component={renderMinimumQuantityField}
           style={{ width: 300 }}
         />
@@ -416,6 +427,8 @@ function SendProductToCartForm(props) {
           name="quantity"
           type="number"
           defaultValue={quantity}
+          min={minimumQuantity}
+          helperText={`How many ${props.product.unit}s do you need?`}
           onChange={onQuantityChange}
           component={renderRequestedQuantityField}
           style={{ width: 300, marginTop: 10 }}

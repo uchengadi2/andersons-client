@@ -373,7 +373,7 @@ export default function TopCoverNew(props) {
               direction="column"
               style={{ marginLeft: 20, width: "30%", marginTop: 0 }}
             >
-              <Typography variant="h5" style={{marginLeft:100, marginBottom:20}}> Herbal Supplements</Typography>
+              <Typography variant="h5" style={{marginLeft:100, marginBottom:20}}> Herbal Teas</Typography>
               <Grid
                 container
                 //direction="row"
@@ -390,9 +390,9 @@ export default function TopCoverNew(props) {
                 style={{ height: "45%", marginLeft: "3.5em" }}
               >
                 <Typography>
-                  Immerse yourself in the purity of nature’s finest herbs, masterfully blended to nourish your body and restore inner balance. Our premium herbal supplements are crafted with precision, elegance, and care — combining ancient botanical wisdom with modern wellness science.
+                  Immerse yourself in the purity of nature’s finest herbs, masterfully blended to nourish your body and restore inner balance. Our premium herbal teas are crafted with precision, elegance, and care — combining ancient botanical wisdom with modern wellness science.
 
-Each capsule embodies sophistication and vitality, offering you more than just health — a daily ritual of luxurious well-being.
+                  Each sachet embodies sophistication and vitality, offering you more than just health — a daily ritual of luxurious well-being.
                 </Typography>
                 <br />
                 {/* <Typography style={{ marginTop: 0 }}>
@@ -450,7 +450,7 @@ Each capsule embodies sophistication and vitality, offering you more than just h
                 <Typography>
                   Savor the essence of wellness in every sip. Our exquisite collection of wellness beverages is thoughtfully crafted from nature’s finest ingredients to rejuvenate your body, refresh your mind, and elevate your everyday rituals.
 
-Each blend is a harmony of purity and elegance — a luxurious infusion of nourishment and serenity designed for those who believe wellness should taste as beautiful as it feels.
+                  Each blend is a harmony of purity and elegance — a luxurious infusion of nourishment and serenity designed for those who believe wellness should taste as beautiful as it feels.
                 </Typography>
                 <br />
                 {/* <Typography style={{ marginTop: 0 }}>
@@ -508,7 +508,7 @@ Each blend is a harmony of purity and elegance — a luxurious infusion of nouri
                 <Typography>
                   Restore balance and vitality through the timeless power of nature. Our premium natural medicines are meticulously formulated from potent botanical extracts and ancient healing traditions, designed to support your body’s innate harmony and resilience.
 
-Each formulation embodies purity, precision, and elegance — offering a wellness experience that unites modern science with the grace of natural healing.
+                  Each formulation embodies purity, precision, and elegance — offering a wellness experience that unites modern science with the grace of natural healing.
                 </Typography>
                 <br />
                 {/* <Typography style={{ marginTop: 0 }}>
@@ -557,6 +557,7 @@ Each formulation embodies purity, precision, and elegance — offering a wellnes
               direction="column"
               style={{ marginLeft: 10, width: "30%", marginTop: 0 }}
             >
+              <Typography variant="h5" style={{marginLeft:25, marginBottom:20}}> Herbal Teas</Typography>
               <CardActionArea></CardActionArea>
               <Grid
                 container
@@ -574,9 +575,9 @@ Each formulation embodies purity, precision, and elegance — offering a wellnes
                 style={{ height: "60%", marginLeft: 10 }}
               >
                 <Typography style={{ fontSize: 11 }}>
-                  Immerse yourself in the purity of nature’s finest herbs, masterfully blended to nourish your body and restore inner balance. Our premium herbal supplements are crafted with precision, elegance, and care — combining ancient botanical wisdom with modern wellness science.
+                  Immerse yourself in the purity of nature’s finest herbs, masterfully blended to nourish your body and restore inner balance. Our premium herbal teas are crafted with precision, elegance, and care — combining ancient botanical wisdom with modern wellness science.
 
-Each capsule embodies sophistication and vitality, offering you more than just health — a daily ritual of luxurious well-being.
+                  Each sachet embodies sophistication and vitality, offering you more than just health — a daily ritual of luxurious well-being.
                 </Typography>
                 <br />
                 {/* <Typography style={{ marginTop: 0, fontSize: 11 }}>
@@ -615,6 +616,7 @@ Each capsule embodies sophistication and vitality, offering you more than just h
               direction="column"
               style={{ marginLeft: 0, width: "30%", marginTop: 0 }}
             >
+              <Typography variant="h5" style={{marginLeft:25, marginBottom:20}}> Wellness Beverages</Typography>
               <Grid
                 container
                 //direction="row"
@@ -633,7 +635,7 @@ Each capsule embodies sophistication and vitality, offering you more than just h
                 <Typography style={{ fontSize: 11 }}>
                   Savor the essence of wellness in every sip. Our exquisite collection of wellness beverages is thoughtfully crafted from nature’s finest ingredients to rejuvenate your body, refresh your mind, and elevate your everyday rituals.
 
-Each blend is a harmony of purity and elegance — a luxurious infusion of nourishment and serenity designed for those who believe wellness should taste as beautiful as it feels.
+                  Each blend is a harmony of purity and elegance — a luxurious infusion of nourishment and serenity designed for those who believe wellness should taste as beautiful as it feels.
                 </Typography>
                 <br />
                 {/* <Typography style={{ marginTop: 0, fontSize: 11 }}>
@@ -672,6 +674,7 @@ Each blend is a harmony of purity and elegance — a luxurious infusion of nouri
               direction="column"
               style={{ marginLeft: 0, width: "30%", marginTop: 0 }}
             >
+              <Typography variant="h5" style={{marginLeft:25, marginBottom:20}}> Natural Medicines</Typography>
               <Grid
                 container
                 //direction="row"
@@ -690,7 +693,7 @@ Each blend is a harmony of purity and elegance — a luxurious infusion of nouri
                 <Typography style={{ fontSize: 11 }}>
                   Restore balance and vitality through the timeless power of nature. Our premium natural medicines are meticulously formulated from potent botanical extracts and ancient healing traditions, designed to support your body’s innate harmony and resilience.
 
-Each formulation embodies purity, precision, and elegance — offering a wellness experience that unites modern science with the grace of natural healing.
+                  Each formulation embodies purity, precision, and elegance — offering a wellness experience that unites modern science with the grace of natural healing.
                 </Typography>
                 <br />
                 {/* <Typography style={{ marginTop: 0, fontSize: 11 }}>

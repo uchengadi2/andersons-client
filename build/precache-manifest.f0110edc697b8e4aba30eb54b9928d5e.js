@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e78770c40ccb16dcefcf75afb2ec3c99",
+    "revision": "ef06992a37fdc279eecaddf287bbd9c9",
     "url": "/index.html"
   },
   {
-    "revision": "4473707f29007ee69952",
+    "revision": "ce89d3e3dd986f3b780c",
     "url": "/static/css/main.8a8db68b.chunk.css"
   },
   {
-    "revision": "14eb521a8ccbdf1e2132",
-    "url": "/static/js/2.4fd63b66.chunk.js"
+    "revision": "c338d987db113a8cb103",
+    "url": "/static/js/2.b98fc0f5.chunk.js"
   },
   {
-    "revision": "4473707f29007ee69952",
-    "url": "/static/js/main.bf2ed978.chunk.js"
+    "revision": "ce89d3e3dd986f3b780c",
+    "url": "/static/js/main.b287f001.chunk.js"
   },
   {
     "revision": "56256c405bfa76082cb3",
@@ -44,8 +44,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/Flat_bed_Trailer.577ee4aa.png"
   },
   {
-    "revision": "cac700f1c9019753f3c9c602e0868b80",
-    "url": "/static/media/Footer Adornment.cac700f1.svg"
+    "revision": "1687b732e2babefdff47387d4a6cac5b",
+    "url": "/static/media/Footer Adornment.1687b732.svg"
   },
   {
     "revision": "b9c1e910bcfb20a9eb335dcb57fb3434",
@@ -242,6 +242,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "f31120da3b3246a144dd5c4772f02ad2",
     "url": "/static/media/image77.f31120da.webp"
+  },
+  {
+    "revision": "a73286ff5cd1849e320b531c3248a744",
+    "url": "/static/media/image88.a73286ff.jpg"
   },
   {
     "revision": "cb3f09b00fafa1ceea8dfb4f4bf44770",

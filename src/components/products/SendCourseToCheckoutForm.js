@@ -61,7 +61,7 @@ const renderRequestedQuantityField = ({
   return (
     <TextField
       //error={touched && invalid}
-      helperText="How many learners slot do you need?"
+      helperText="How many unitd do you need?"
       variant="outlined"
       label={label}
       id={input.name}
@@ -79,7 +79,7 @@ const renderRequestedQuantityField = ({
             height: 1,
           },
         },
-        readOnly: true,
+        //readOnly: true,
       }}
     />
   );
@@ -139,7 +139,7 @@ function SendCourseToCheckoutForm(props) {
 
   useEffect(() => {
     setQuantity(newQuantity);
-    setPrice(props.videoPrice);
+    setPrice(props.price);
   }, [props, newQuantity]);
 
   useEffect(() => {
@@ -522,11 +522,26 @@ function SendCourseToCheckoutForm(props) {
           style={{ marginTop: 10, marginBottom: 10 }}
           justifyContent="center"
         ></Grid>
+        <Grid
+            item
+            style={{ marginTop: 10, marginBottom: 10 }}
+            justifyContent="center"
+          >
+            <Field
+              label=""
+              id="quantity"
+              name="quantity"
+              type="number"
+              component={renderRequestedQuantityField}
+              style={{ width: 300, marginBottom: 20 }}
+            />
+          </Grid>
 
         <Grid container direction="row">
           <Grid item style={{ width: 50, marginTop: 45, fontSize: 45 }}>
             <span style={{ color: "grey" }}>&#8358;</span>
           </Grid>
+           
           <Grid item style={{ marginLeft: 10, width: 100 }}>
             <Field
               label=""

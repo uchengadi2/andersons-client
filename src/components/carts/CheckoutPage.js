@@ -288,35 +288,21 @@ function CheckoutPage(props) {
       items.map((cart) => {
         allData.push({
           id: cart._id,
-          dateAddedToCart: cart.dateAddedToCart,
-          creator: cart.creator,
-          brand: cart.brand,
-          vehicle: cart.vehicle,
-          numberOfGuest: cart.numberOfGuest,
-          refNumber: cart.refNumber, 
-          numberOfVehicleOccupant: cart.numberOfVehicleOccupant,
-          service: cart.service,
-          country: cart.country,
-          sourceState: cart.sourceState,
-          sourceLocation:cart.sourceLocation,
-          destinationState: cart.destinationState,
-          destinationAddress: cart.destinationAddress,
-          arrivalDate: cart.arrivalDate, 
+          product: cart.product,
           cartHolder: cart.cartHolder,
-          isDeleted: cart.isDeleted,
-          departureDate: cart.departureDate,
-          tripCoverage: cart.tripCoverage,
-          serviceApplicability: cart.serviceApplicability,
-          onsiteSecurityServiceApplicability: cart.onsiteSecurityServiceApplicability,
-          ontransitSecurityServiceApplicability: cart.ontransitSecurityServiceApplicability,
-          status: cart.status,  
-          category: cart.category,            
-          slug: cart.slug,
+          dateAddedToCart: cart.dateAddedToCart,
+          refNumber: cart.refNumber,
+          quantity: cart.quantity,
+          pricePerUnit:cart.pricePerUnit,
+          status:cart.status,
+          slug:cart.slug,
+          category:cart.category,
           image:cart.image,
-          packageCostPerPerson:cart.packageCostPerPerson,
-          numberOfVehicleRequired:cart.numberOfVehicleRequired,
-          requestedModel:cart.requestedModel,
-          comment:cart.comment
+          configuration:cart.configuration,
+          unit:cart.unit,
+          productMinimumOrderQuantity:cart.productMinimumOrderQuantity,
+          unitLabel:cart.unitLabel
+
         });
       });
 
@@ -361,6 +347,9 @@ function CheckoutPage(props) {
     fetchData().catch(console.error);
   }, [updateCheckout]);
 
+
+  console.log('CartProductList is:',cartProductList)
+
   
   
   const Str = require("@supercharge/strings");
@@ -373,32 +362,13 @@ function CheckoutPage(props) {
             <CheckoutCard
             id={cart.id}
             dateAddedToCart={cart.dateAddedToCart}
-            creator={cart.creator}
-            brand={cart.brand}
-            vehicle={cart.vehicle}
-            numberOfGuest={cart.numberOfGuest}
-            refNumber={cart.refNumber} 
-            numberOfVehicleOccupant= {cart.numberOfVehicleOccupant}
-            service={cart.service}
-            country={cart.country}
-            sourceState={cart.sourceState}
-            sourceLocation={cart.sourceLocation}
-            destinationState={cart.destinationState}
-            destinationAddress= {cart.destinationAddress}
-            arrivalDate={cart.arrivalDate} 
+            product={cart.product}
+           refNumber={cart.refNumber} 
             cartHolder={cart.cartHolder}
             isDeleted={cart.isDeleted}
-            departureDate= {cart.departureDate}
-            tripCoverage={cart.tripCoverage}
-            serviceApplicability={cart.serviceApplicability}
-            onsiteSecurityServiceApplicability={cart.onsiteSecurityServiceApplicability}
-            ontransitSecurityServiceApplicability={cart.ontransitSecurityServiceApplicability}
-            numberOfVehicleRequired={cart.numberOfVehicleRequired}
-            requestedModel={cart.requestedModel}
-            comment={cart.comment}
             status={cart.status}  
             category={cart.category}   
-            packageCostPerPerson={cart.packageCostPerPerson}         
+                 
             slug={cart.slug}
             image={cart.image}
               token={props.token}
@@ -429,34 +399,16 @@ function CheckoutPage(props) {
             <CheckoutCard
             id={cart.id}
             dateAddedToCart={cart.dateAddedToCart}
-            creator={cart.creator}
-            brand={cart.brand}
-            vehicle={cart.vehicle}
-            numberOfGuest={cart.numberOfGuest}
+            product={cart.product}
             refNumber={cart.refNumber} 
-            numberOfVehicleOccupant= {cart.numberOfVehicleOccupant}
-            service={cart.service}
-            country={cart.country}
-            sourceState={cart.sourceState}
-            sourceLocation={cart.sourceLocation}
-            destinationState={cart.destinationState}
-            destinationAddress= {cart.destinationAddress}
-            arrivalDate={cart.arrivalDate} 
             cartHolder={cart.cartHolder}
             isDeleted={cart.isDeleted}
-            departureDate= {cart.departureDate}
-            tripCoverage={cart.tripCoverage}
-            serviceApplicability={cart.serviceApplicability}
-            onsiteSecurityServiceApplicability={cart.onsiteSecurityServiceApplicability}
-            ontransitSecurityServiceApplicability={cart.ontransitSecurityServiceApplicability}
-            numberOfVehicleRequired={cart.numberOfVehicleRequired}
-            requestedModel={cart.requestedModel}
-            comment={cart.comment}
+            
             status={cart.status}  
             category={cart.category}            
             slug={cart.slug}
             image={cart.image}
-            packageCostPerPerson={cart.packageCostPerPerson}   
+            
               token={props.token}
               userId={props.userId}
               setToken={props.setToken}
@@ -477,9 +429,11 @@ function CheckoutPage(props) {
   let total = 0;
 
   cartProductList.map((cart, index) => {
-    total = total + parseFloat(cart.price) * parseFloat(cart.quantity);
+    total = total + parseFloat(cart.pricePerUnit) * parseFloat(cart.quantity);
     //setCurrency(cart.currency);
   });
+
+  console.log('totallll is:',total)
 
   return (
     <Grid container direction="row" className={classes.root}>
@@ -502,17 +456,16 @@ function CheckoutPage(props) {
         {/*....INFORMATION BLOCK....*/}
       </Grid>
       <Grid>
-        {!isLoading && isAPackage && 
+        {!isLoading  && 
           (cartProductList.length === 0 ? (
             // <Typography>There are no course in your checkout</Typography>
             " "
           ) : (
             <CheckoutDeliveryAndPayment
               cartList={cartProductList}
-              brand={brand}
-              project={project}
-              totalCost={grandTotal}
-              currency={currencyName}
+          
+              totalCost={total}
+              currency={'naira'}
               token={props.token}
               userId={props.userId}
               setToken={props.setToken}

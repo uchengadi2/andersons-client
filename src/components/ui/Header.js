@@ -729,9 +729,9 @@ const Header = (props) => {
             //onClick={() => [setOpenLoginForm(true), history.push("/")]}
             onClick={() => [setOpenSignUpForm(true)]}
           >
-            Sign Up As User
+            Sign Up As A Customer
           </Button>
-          <Button
+          {/* <Button
             variant="contained"
             // component={Link}
             // to="/logout"
@@ -741,7 +741,7 @@ const Header = (props) => {
             onClick={() => [setOpenCreatorSignUpForm(true)]}
           >
             Sign Up As Vehicle Owner
-          </Button>
+          </Button> */}
         </Fragment>
       );
     } else {
@@ -793,18 +793,19 @@ const Header = (props) => {
             Dashboard
           </Button>}
 
-          {/* <Button
+           {userRole ==='customer' && <Button
             onClick={() => <ShowCustomerCart />}
             disableRipple
             component={Link}
-            // to={`/carts/${props.userId}`}
-            to={`/carts`}
+            to={`/carts/${props.userId}`}
+            //to={`/carts`}
             className={classes.checkout}
           >
-            <img alt="company logo" src={logo} className={classes.logo} />
+            
             {`Cart` + `(${props.cartCounter})`}
-          </Button> */}
-          {userRole !=='admin' && <Button
+          </Button>}
+
+          {userRole ==='customer' && <Button
             onClick={() => <CheckoutPage />}
             disableRipple
             component={Link}
@@ -1278,7 +1279,7 @@ const Header = (props) => {
                 </ListItemText>
               </ListItem>}
               
-              {userRole !=='admin' && <ListItem
+              {userRole ==='customer' && <ListItem
                 className={classes.drawerItem}
                 onClick={() => [
                   setOpenDrawer(false),

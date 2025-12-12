@@ -31,8 +31,10 @@ import backgroundGrowth from "./../../../assets/images/covers/channels.jpg";
 import heroImage from "./../../../assets/images/andersons/Tropicana_slim_vanilla_cappuccino_coffee_mix_front.png";
 
 import { baseURL } from "./../../../apis/util";
+import ProductDetails from "../../products/ProductDetails";
 
 import theme from "./../../ui/Theme";
+import { FaLessThanEqual } from "react-icons/fa";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -431,6 +433,9 @@ export default function TropicanaSlimCappuccinoSection() {
     imageUrl = `${baseURL}/images/courses/${product.imageCover}`;
   }
 
+  const categorySlug = 'wellness-beverages';
+  const slug = 'tropicana-slim-vanilla-cappuccino-coffee';
+
   const Str = require("@supercharge/strings");
 
   const whatwedoSection = "Connect with Africa’s most impactful content creators. Our platform makes it easy for brands to discover, engage, and collaborate with influencers across the continent—securely, transparently, and at scale. Whether you're launching a local product or expanding across markets, we provide the tools, talent, and support to drive real results..\n\n\n\n";
@@ -490,7 +495,8 @@ export default function TropicanaSlimCappuccinoSection() {
                         justifyContent="center" 
                         className={classes.button}
                         component={Link}
-                        to="/brands/SlimCappuccino"
+                        to={`/products/${categorySlug}/${slug}`}
+                        onClick={() => <ProductDetails />}
                     
                     >
                         View Details!
@@ -537,31 +543,32 @@ export default function TropicanaSlimCappuccinoSection() {
                     //style={{ height: "60%", marginLeft: "3.5em" }}
                     style={{ height: "85%", marginLeft: "2%", width:"65%", padding:5, marginRight:"10%"  }}
                   >
-                   <Typography variant="h5" style={{marginLeft:'0%',marginBottom:30}}>Verified Accommodation Services for Executives & Businesses Across Nigeria</Typography>
+                   <Typography variant="h5" style={{marginLeft:'0%',marginBottom:30}}>Tropicana Slim – Vanilla Cappuccino Coffee</Typography>
                     <Typography style={{marginTop:0, padding: 0,fontSize:12}}>
-                          <strong><ReactMarkdown>Assessed. Vetted. Booked — With Confidence.</ReactMarkdown></strong>
+                          <strong><ReactMarkdown>Indulge in the Art of Guilt-Free Luxury</ReactMarkdown></strong>
                     </Typography>
                     <Typography style={{marginTop:10, fontSize:10}}>
-                          <ReactMarkdown>We provide end-to-end accommodation assessment, verification, and booking services for expatriates, business executives, and corporate teams. Whether short-term or long-term, we secure safe, reliable, and high-standard stays tailored to your needs.</ReactMarkdown>
+                          <ReactMarkdown>Discover the irresistible charm of Tropicana Slim Vanilla Cappuccino Coffee — a sophisticated blend crafted for those who crave sweetness without compromise. Each sip delights your senses with velvety, creamy froth and the smooth aroma of premium vanilla.</ReactMarkdown>
                     </Typography>
                     <Typography style={{marginTop:10, fontSize:10}}>
-                          <ReactMarkdown>**Nationwide Coverage. Trusted Properties. Zero Surprises.**</ReactMarkdown>
+                          <ReactMarkdown>Perfect for every special occasion or your everyday moment of bliss, this indulgent coffee offers a taste of pure satisfaction — rich, creamy, and beautifully balanced.</ReactMarkdown>
                     </Typography>
                     <Typography style={{marginTop:10, fontSize:10}}>
-                         <em><ReactMarkdown>Let us handle the details — so you can focus on the journey ahead.</ReactMarkdown></em> 
+                         <em><ReactMarkdown>Savor the sweetness of wellness.</ReactMarkdown></em> 
                     </Typography>
                   </Grid>
                   <Grid item  style={{width: "30%", height: "5%",marginLeft:"0%", marginBottom:0}}>
                     <Button 
                         variant="contained" 
-                        disabled={true}
+                        disabled={false}
                         color="secondary" 
                         justifyContent="center" 
                         className={classes.buttonMobile}
                         component={Link}
-                        to="/influencercentral/"                    
+                        to={`/products/${categorySlug}/${slug}`}
+                        onClick={() => <ProductDetails />}                
                     >
-                         Secure Verified Accommodation
+                          View Details!
                     </Button>
                   </Grid>
                 

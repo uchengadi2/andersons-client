@@ -263,7 +263,7 @@ function Dashboard(props) {
               </MenuItem>
               <Divider />
               <Typography style={{ marginLeft: 10, fontWeight: "Bold" }}>
-                Creators & Brands
+                Products
               </Typography>
               <MenuItem
                 className={slug === "categories" ? classes.selected : null}
@@ -279,19 +279,19 @@ function Dashboard(props) {
                 <ListItemText>Categories</ListItemText>
               </MenuItem>
               <MenuItem
-                className={slug === "creators" ? classes.selected : null}
-                selected={slug === "creators" ? true : false}
+                className={slug === "products" ? classes.selected : null}
+                selected={slug === "products" ? true : false}
                 onClick={(event) => {
                   event.preventDefault();
-                  history.push(`/dashboard/creators`);
+                  history.push(`/dashboard/products`);
                 }}
               >
                 <ListItemIcon>
                   <InterestsIcon fontSize="small" />
                 </ListItemIcon>
-                <ListItemText>Creators</ListItemText>
+                <ListItemText>Products</ListItemText>
               </MenuItem>
-              <MenuItem
+              {/* <MenuItem
                 className={slug === "creator-unapproved-samples" ? classes.selected : null}
                 selected={slug === "creator-unapproved-samples" ? true : false}
                 onClick={(event) => {
@@ -303,8 +303,8 @@ function Dashboard(props) {
                   <CategoryIcon fontSize="small" />
                 </ListItemIcon>
                 <ListItemText>Creator Unapproved Samples</ListItemText>
-              </MenuItem>
-              <MenuItem
+              </MenuItem> */}
+              {/* <MenuItem
                 className={slug === "creator-approved-samples" ? classes.selected : null}
                 selected={slug === "creator-approved-samples" ? true : false}
                 onClick={(event) => {
@@ -316,8 +316,8 @@ function Dashboard(props) {
                   <CategoryIcon fontSize="small" />
                 </ListItemIcon>
                 <ListItemText>Creator Approved Samples</ListItemText>
-              </MenuItem>
-              <MenuItem
+              </MenuItem> */}
+              {/* <MenuItem
                 className={slug === "brands" ? classes.selected : null}
                 selected={slug === "brands" ? true : false}
                 onClick={(event) => {
@@ -329,7 +329,7 @@ function Dashboard(props) {
                   <CategoryIcon fontSize="small" />
                 </ListItemIcon>
                 <ListItemText>Brands</ListItemText>
-              </MenuItem>
+              </MenuItem> */}
             
              
 
@@ -624,9 +624,9 @@ function Dashboard(props) {
             <MainDashboard />
           </Grid>
         )}
-        {slug === "creators" && (
+        {slug === "products" && (
           <Grid item xs={9.5}>
-            <Creators />
+            <Products />
           </Grid>
         )}
         {slug === "brands" && (
